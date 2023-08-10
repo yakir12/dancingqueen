@@ -1,17 +1,25 @@
-using GLMakie, HTTP.WebSockets, JSON3
+using GLMakie, HTTP.WebSockets
 
-w, h = (1280, 720)
+function modified_size(w, h)
+    w2 = 64ceil(Int, w/64) # dimension adjustments to hardware restrictions
+    h2 = 32ceil(Int, h/32)
+    return (w2, h2)
+end
+
+w, h = (3280, 2464)
 img = Observable(Matrix{UInt8}(undef, w, h))
 
 fig = Figure()
 ax = Axis(fig[1,1], aspect = DataAspect(), yreversed=true)
 image!(ax, img)
 
+w2, h2 = modified_size(w, h)
 WebSockets.open("ws://127.0.0.1:8081") do ws
     i = 0
     send(ws, "a")
     for msg in ws
-        img[] = reshape(msg, w, h)
+        Y = reshape(msg, w2, h2)
+        img[] = view(Y, 1:w, 1:h)
         send(ws, "a")
         i += 1
         if i > 300
