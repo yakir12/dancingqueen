@@ -14,7 +14,7 @@ ax = Axis(fig[1,1], aspect = DataAspect(), yreversed=true)
 image!(ax, img)
 
 w2, h2 = modified_size(w, h)
-WebSockets.open("ws://127.0.0.1:8081") do ws
+WebSockets.open("ws://192.168.80.2:8081") do ws
     i = 0
     send(ws, "a")
     for msg in ws

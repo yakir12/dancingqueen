@@ -31,7 +31,7 @@ end
 w, h = (3280, 2464)
 cam = Camera(w, h, 10)
 
-server = WebSockets.listen!("127.0.0.1", 8081) do ws
+server = WebSockets.listen!("192.168.80.2", 8081) do ws
     for _ in ws
         send(ws, read!(cam))
     end
