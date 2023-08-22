@@ -8,8 +8,8 @@ const fps = 30
 const camera = Ref{Camera}()
 
 function __init__()
-    camera[] = Camera(w, h, fps)
-    Timer(revive, 1; interval = 3)
+    # camera[] = Camera(w, h, fps)
+    # Timer(revive, 1; interval = 3)
 end
 
 struct Camera
@@ -44,6 +44,7 @@ function revive(timer)
     end
 end
 
-snap() = camera[].img
+snap() = rand(UInt8, w, h)
+# snap() = camera[].img
 
 end
