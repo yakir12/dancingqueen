@@ -1,7 +1,5 @@
 module Cameras
 
-export snap
-
 const w = 1080
 const h = 1920
 const fps = 30
