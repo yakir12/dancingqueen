@@ -7,8 +7,6 @@ using .AnalysisController
 
 
 
-using PNGFiles
-
 # TODO: fix the width w thing, it should be correct
 
 
