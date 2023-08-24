@@ -4,14 +4,14 @@ using GenieFramework
 
 include("lib/Cameras.jl")
 include("controllers/CamerasController.jl")
-include("controllers/Viewer.jl")
+include("controllers/Monitor.jl")
 
 using .Cameras
 using .CamerasController
 
 route(frame, "/frame")
 
-@page("/viewer", "pages/viewer.jl", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Viewer)
+@page("/monitor", "pages/monitor.jl", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Monitor)
 
 # TODO: fix the width w thing, it should be correct
 

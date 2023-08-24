@@ -1,0 +1,50 @@
+┌ Info: 2023-08-24 15:12:22 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-08-24 15:12:25 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-08-24 15:12:26 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/nn2yB/src/Servers.jl:366
+┌ Info: 2023-08-24 15:12:40 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-08-24 15:12:45 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-08-24 15:13:19 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-08-24 15:13:41 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-08-24 15:13:45 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-08-24 15:13:45 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/nn2yB/src/Servers.jl:366
+┌ Info: 2023-08-24 15:15:37 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-08-24 15:15:42 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-08-24 15:16:20 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-08-24 15:16:23 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-08-24 15:16:24 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/nn2yB/src/Servers.jl:366
+┌ Info: 2023-08-24 15:16:45 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-08-24 15:16:48 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-08-24 15:16:49 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/nn2yB/src/Servers.jl:366
+┌ Info: 2023-08-24 15:18:59 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-08-24 15:19:02 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-08-24 15:19:03 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/nn2yB/src/Servers.jl:366
+┌ Error: 2023-08-24 15:19:41 Error attempting to invoke handler 3 for field Reactive{Bool}(Observable(true), 1, false, false, "/home/yakir/dancingqueen/app/controllers/Monitor.jl:18") with value true
+└ @ Stipple /home/yakir/.julia/packages/Stipple/ZUojq/src/stipple/mutators.jl:36
+┌ Error: 2023-08-24 15:19:42 
+│   exception = (UndefVarError(:LogBooks), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f2670abac9f, Ptr{Nothing} @0x00007f2670a5dc14, Ptr{Nothing} @0x00007f26131bb950, Ptr{Nothing} @0x00007f26131bba2a, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2670a51f58, Ptr{Nothing} @0x00007f26131b235f, Ptr{Nothing} @0x00007f26131b2fee, Ptr{Nothing} @0x00007f26131b302a, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f26131b1fb8, Ptr{Nothing} @0x00007f26131b2060, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f26131af023, Ptr{Nothing} @0x00007f26131af19f, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2613191e18, Ptr{Nothing} @0x00007f2613192319, Ptr{Nothing} @0x00007f261319237f, Ptr{Nothing} @0x00007f26131923b6, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2613180623, Ptr{Nothing} @0x00007f261318065f, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2670a51f58, Ptr{Nothing} @0x00007f26503e7746, Ptr{Nothing} @0x00007f26503e86c0, Ptr{Nothing} @0x00007f26503ef12f, Ptr{Nothing} @0x00007f26503f4882, Ptr{Nothing} @0x00007f26503f4922, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2670a51f58, Ptr{Nothing} @0x00007f26503e389c, Ptr{Nothing} @0x00007f26503e5c51, Ptr{Nothing} @0x00007f26503e5cff, Ptr{Nothing} @0x00007f2670a42f5d, Ptr{Nothing} @0x00007f2670a645cf])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/ZUojq/src/stipple/mutators.jl:37

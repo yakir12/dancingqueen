@@ -2,22 +2,14 @@ module Cameras
 
 using Dates
 using Observables
+include("LogBooks.jl")
+using .LogBooks
 
 # const w = 1080
 # const h = 1920
 const w = 108
 const h = 192
 const fps = 30
-
-recording = Observable(false)
-
-on(recording) do record
-    if record
-        @info "recording!"
-    else
-        @warn "not recording"
-    end
-end
 
 function __init__()
     # camera[] = Camera(w, h, fps)
@@ -35,8 +27,7 @@ struct Camera
         task = Threads.@spawn while isopen(o)
             read!(o, buff)
             pose = get_pose(buff)
-            @info pose
-            sleep(0.001)
+            logit(pose)
         end
         new(o, task, img)
     end
@@ -63,6 +54,9 @@ end
 snap() = rand(UInt8, w, h)
 # snap() = camera[].img
 
-get_pose(buff) = (; t = now(), location = rand(), direction = rand())
+function get_pose(buff) 
+    sleep(0.001)
+    return (; t = now(), location = rand(), direction = rand())
+end
 
 end

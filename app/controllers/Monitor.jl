@@ -1,6 +1,6 @@
-module Viewer
-using GenieFramework
+module Monitor
 
+using GenieFramework
 using .Main.App.Cameras
 
 @genietools
@@ -24,7 +24,7 @@ end
 
     @onchange record begin
         recording_label = record ? "Recording" : "Not recording"
-        Cameras.recording[] = record
+        LogBooks.recording[] = record
     end
 end
 
