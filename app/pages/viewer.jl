@@ -1,4 +1,4 @@
-cell([
-        textfield("How many numbers?", :N),
-        p("The average of {{N}} random numbers is {{m}}"),
-    ])
+cell([ 
+      imageview(src=:imageurl, basic=true, style="max-width: 108px")
+      toggle(:recording_label, :record)
+     ])

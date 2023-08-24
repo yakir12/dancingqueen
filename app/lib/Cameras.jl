@@ -1,9 +1,23 @@
 module Cameras
 
-const w = 1080
-const h = 1920
+using Dates
+using Observables
+
+# const w = 1080
+# const h = 1920
+const w = 108
+const h = 192
 const fps = 30
-const camera = Ref{Camera}()
+
+recording = Observable(false)
+
+on(recording) do record
+    if record
+        @info "recording!"
+    else
+        @warn "not recording"
+    end
+end
 
 function __init__()
     # camera[] = Camera(w, h, fps)
@@ -20,6 +34,8 @@ struct Camera
         o = open(cmd)
         task = Threads.@spawn while isopen(o)
             read!(o, buff)
+            pose = get_pose(buff)
+            @info pose
             sleep(0.001)
         end
         new(o, task, img)
@@ -35,6 +51,8 @@ function create_buffer(w, h)
     return (buff, view(img, 1:10, 1:10))
 end
 
+const camera = Ref{Camera}()
+
 function revive(timer)
     if !isopen(camera[].o) || istaskfailed(camera[].task)
         close(camera[].o)
@@ -44,5 +62,7 @@ end
 
 snap() = rand(UInt8, w, h)
 # snap() = camera[].img
+
+get_pose(buff) = (; t = now(), location = rand(), direction = rand())
 
 end
