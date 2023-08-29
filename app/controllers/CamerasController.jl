@@ -8,7 +8,7 @@ export frame
 
 function frame()
     io = IOBuffer()
-    PNGFiles.save(io, Cameras.snap())
+    PNGFiles.save(io, Cameras.last_frame())
     respond(String(take!(io)), :png)
 end
 

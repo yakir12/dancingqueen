@@ -14,17 +14,17 @@ Timer(1; interval = 0.1) do _
 end
 
 @app begin
-    @out imageurl = baseurl
-    @in record = false
+    @in recording_on = false
     @out recording_label = "Not recording"
+    @out imageurl = baseurl
 
     @onchange refresh begin
         imageurl = string(baseurl, "#", Base.time_ns())
     end
 
-    @onchange record begin
-        recording_label = record ? "Recording" : "Not recording"
-        LogBooks.recording[] = record
+    @onchange recording_on begin
+        recording_label = recording_on ? "Recording" : "Not recording"
+        Cameras.turn(recording_on)
     end
 end
 
