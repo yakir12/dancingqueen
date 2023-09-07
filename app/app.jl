@@ -1,17 +1,25 @@
 module App
 
+# const w = 1080
+# const h = 1920
+
 using GenieFramework
 
-include("lib/Cameras.jl")
-include("controllers/CamerasController.jl")
-include("controllers/Monitor.jl")
+# include("lib/Detection.jl")
+# include("lib/LogBooks.jl")
+# include("lib/Cameras.jl")
+# include("lib/Monitor.jl")
 
-using .Cameras
+include("controllers/CamerasController.jl")
+include("controllers/MonitorController.jl")
+
+
 using .CamerasController
+using .MonitorController
 
 route(frame, "/frame")
 
-@page("/monitor", "pages/monitor.jl", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Monitor)
+@page("/monitor", "pages/monitorcontroller.jl", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.MonitorController)
 
 # TODO: fix the width w thing, it should be correct
 

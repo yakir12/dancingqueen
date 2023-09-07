@@ -1,7 +1,7 @@
-module Monitor
+module MonitorController
 
 using GenieFramework
-using .Main.App.Cameras
+using .Main.Monitor
 
 @genietools
 
@@ -24,7 +24,7 @@ end
 
     @onchange recording_on begin
         recording_label = recording_on ? "Recording" : "Not recording"
-        Cameras.turn(recording_on)
+        turn_recording!(recording_on)
     end
 end
 
