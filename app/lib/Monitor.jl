@@ -4,6 +4,8 @@ using .Main.Cameras
 using .Main.Detection
 using .Main.LogBooks
 
+import Main.Beetle
+
 export turn_recording!, read_state
 
 function revive(task)
@@ -17,7 +19,6 @@ mutable struct State
     img
     beetle::Union{Nothing, Beetle}
 end
-
 
 logbook = LogBook()
 camera = Camera()

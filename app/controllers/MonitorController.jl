@@ -9,7 +9,7 @@ const baseurl = "/frame"
 
 const refresh = Observable(true)
 
-Timer(1; interval = 0.1) do _
+Timer(1; interval = 0.2) do _
     refresh[] = !refresh[]
 end
 

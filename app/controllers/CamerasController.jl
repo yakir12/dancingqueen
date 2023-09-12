@@ -4,17 +4,14 @@ using GenieFramework
 using LinearAlgebra
 using ImageDraw, Colors, CoordinateTransformations, Rotations, StaticArrays, JpegTurbo
 import Colors.N0f8
+import Main: SV, w, h, get_θ
 
 using .Main.Monitor
+using .Main.LEDs
 
 export frame 
 
-const SV = SVector{2, Float64}
-
 topoint(p) = reverse(Tuple(round.(Int, p)))
-
-const w = Main.w
-const h = Main.h
 
 function get_arrow()
     l = h/10
@@ -32,7 +29,7 @@ function draw_arrow!(img, c::SV, θ)
     draw!(img, ImageDraw.Path(trans.(arrow.head)), RGB{N0f8}(1, 0, 0))
 end
 draw_arrow!(img, ::Nothing) = nothing
-draw_arrow!(img, b) = draw_arrow!(img, b.c, b.θ)
+draw_arrow!(img, b) = draw_arrow!(img, b.c, get_θ(b))
 
 function get_led()
     n = 40
@@ -59,7 +56,7 @@ function draw_led!(img, θ::Float64)
     # draw!(img, CartesianIndex.(reverse.(tp)), BoundaryFill(x, y; fill_value = colorant"green", boundary_value = colorant"blue"); closed = true)
 end
 draw_led!(img, ::Nothing) = nothing
-draw_led!(img, b) = draw_led!(img, b.θ)
+draw_led!(img, b) = draw_led!(img, get_θ(b))
 
 
 function frame()

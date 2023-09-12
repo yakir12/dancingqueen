@@ -2,18 +2,16 @@ module Detection
 
 using AprilTags, StaticArrays
 
-export Beetle, DetectoRect, print_row
+import Main: SV, w, h, Beetle
 
-const SV = SVector{2, Float64}
+export DetectoRect
+
 const SVI = SVector{2, Int}
-
-const w = Main.w
-const h = Main.h
 const sz = SVI(w, h)
 
-tag_pixel_width = 45#37
+tag_pixel_width = 45#135#45#37
 const min_radius = tag_pixel_width/sqrt(2)
-const widen_radius = 5
+const widen_radius = 5#15
 
 struct DetectoRect
     detector::AprilTagDetector
@@ -38,22 +36,15 @@ function (d::DetectoRect)(buff)
     end
 end
 
-struct Beetle
-    c::SV
-    θ::Float64
-end
-
 function Beetle(tag, r1, c1)
     # center
     c0 = SV(reverse(tag.H[1:2,3]))
     # direction
     d = sum(p -> SV(reverse(p)) - c0, tag.p[1:2])
-    θ = atan(d[2], d[1])
     # global center
     c = c0 + SV(r1, c1)
-    Beetle(c, θ)
+    Beetle(c, d)
 end
 
-print_row(b) = string(b.c[1], ",", b.c[2], ",", b.θ)
 
 end

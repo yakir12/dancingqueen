@@ -1,7 +1,7 @@
 module LogBooks
 
 using Dates
-using .Main.Detection
+import Main.print_row
 
 export LogBook, log!, turn!
 
