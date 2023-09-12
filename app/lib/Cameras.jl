@@ -1,6 +1,7 @@
 module Cameras
 
 using VideoIO # remove
+import Main: w, h
 
 export Camera, snap!, isopen
 
@@ -39,6 +40,7 @@ struct Camera
     function Camera()
         o = opencamera()
         buff = read(o)
+        @assert size(buff) == (w, h) "buff is not ($w, $h); it's $(size(buff))"
         new(o, buff)
     end
 end
