@@ -4,7 +4,7 @@ using GenieFramework
 using LinearAlgebra
 using ImageDraw, Colors, CoordinateTransformations, Rotations, StaticArrays, JpegTurbo
 import Colors.N0f8
-import Main: SV, w, h, get_θ
+import Main: SV, w, h
 
 using .Main.Monitor
 using .Main.LEDs
@@ -23,13 +23,13 @@ function get_arrow()
 end
 
 
-function draw_arrow!(img, c::SV, θ)
+function draw_arrow!(img, c, θ)
     trans = topoint ∘ Translation(c) ∘ LinearMap(Angle2d(θ))
     draw!(img, ImageDraw.Path(trans.(arrow_template.body)), RGB{N0f8}(1, 0, 0))
     draw!(img, ImageDraw.Path(trans.(arrow_template.head)), RGB{N0f8}(1, 0, 0))
 end
 draw_arrow!(img, ::Nothing) = nothing
-draw_arrow!(img, b) = draw_arrow!(img, b.c, get_θ(b))
+draw_arrow!(img, b) = draw_arrow!(img, b.c, b.θ)
 
 function get_led_template()
     n = 40
@@ -46,9 +46,8 @@ end
 const arrow_template = get_arrow()
 const led_template = get_led_template()
 
-function draw_led!(img, led)
+function draw_led!(img, θ)
     # ledc = center(led)
-    θ = atan(led[2], led[1])
     trans = topoint ∘ Translation(SV(w/2, h/2)) ∘ LinearMap(Angle2d(θ))
     draw!(img, ImageDraw.Path(trans.(led_template)), RGB{N0f8}(0, 1, 0))
     #

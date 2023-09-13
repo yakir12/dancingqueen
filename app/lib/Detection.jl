@@ -43,7 +43,7 @@ function Beetle(tag, r1, c1)
     d = sum(p -> SV(reverse(p)) - c0, tag.p[1:2])
     # global center
     c = c0 + SV(r1, c1)
-    Beetle(c, d)
+    Beetle(c, atan(reverse(d)...))
 end
 
 
