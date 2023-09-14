@@ -1,6 +1,3 @@
-# TODO:
-# maybe add ° to teh labels...
-
 cell([
       row([
            imageview(src=:imageurl, basic=true, style="max-width: $(Main.h)px")

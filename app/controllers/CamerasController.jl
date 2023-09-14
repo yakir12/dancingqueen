@@ -7,7 +7,6 @@ import Colors.N0f8
 import Main: SV, w, h
 
 using .Main.Monitor
-using .Main.LEDs
 
 export frame 
 
@@ -31,41 +30,17 @@ end
 draw_arrow!(img, ::Nothing) = nothing
 draw_arrow!(img, b) = draw_arrow!(img, b.c, b.θ)
 
-function get_led_template()
-    n = 40
-    radius1 = 0.95*w/2
-    p0 = SV.(reverse.(sincos.(range(-2π/n/2, 2π/n/2, 10))))
-    p1 = radius1 * p0
-    # radius2 = 0.98*w/2
-    # p2 = radius2 * reverse(p0)
-    # p = [p1; p2; p1[1:1]]
-    # seed = (radius1 + radius2)/2*SV(reverse(sincos(0)))
-    return p1
-end
-
 const arrow_template = get_arrow()
-const led_template = get_led_template()
 
 function draw_led!(img, θ)
-    # ledc = center(led)
-    trans = topoint ∘ Translation(SV(w/2, h/2)) ∘ LinearMap(Angle2d(θ))
-    draw!(img, ImageDraw.Path(trans.(led_template)), RGB{N0f8}(0, 1, 0))
-    #
-    # draw!(img, CirclePointRadius(ImageDraw.Point(reverse(topoint(led))), 5), RGB{N0f8}(0,1,0))
-    #
-    # x, y = Tuple(trans(seed))
-    # draw!(img, Polygon(tp), colorant"green")
-    # draw!(img, CirclePointRadius(x, y, 5), colorant"green")
-    # draw!(img, CartesianIndex.(tp), BoundaryFill(y, x; fill_value = colorant"green", boundary_value = colorant"blue"); closed = true)
-    # draw!(img, CartesianIndex.(reverse.(tp)), BoundaryFill(x, y; fill_value = colorant"green", boundary_value = colorant"blue"); closed = true)
+    p = 0.45w*SV(reverse(sincos(θ))) + SV(w/2, h/2)
+    draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), 15), RGB{N0f8}(0,1,0))
 end
 
-
 function frame()
-    (; img, beetle) = read_state()
+    (; img, beetle, led) = read_state()
     imgcopy = RGB{N0f8}.(Gray{N0f8}.(img))
     draw_arrow!(imgcopy, beetle)
-    led = get_led(beetle)
     draw_led!(imgcopy, led)
     respond(String(jpeg_encode(imgcopy)), :jpg)
 end

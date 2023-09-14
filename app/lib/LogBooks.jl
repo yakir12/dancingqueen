@@ -17,15 +17,15 @@ end
 
 log!(logbook, ::Nothing) = nothing
 
-function log!(logbook, beetle)
-    Threads.@spawn(logbook.recording && println(logbook.io, now(), ",", print_row(beetle)))
+function log!(logbook, beetle, led)
+    Threads.@spawn(logbook.recording && println(logbook.io, now(), ",", print_row(beetle), ",", led))
 end
 
 function turn!(logbook, is_recording)
     if is_recording
         file = joinpath("data", string(now(), ".log"))
         logbook.io = open(file, "w")
-        println(logbook.io, "t,x,y,θ")
+        println(logbook.io, "t,x,y,θ,led")
         logbook.recording = true
     else
         logbook.recording = false
