@@ -4,9 +4,10 @@ using GenieFramework
 using LinearAlgebra
 using ImageDraw, Colors, CoordinateTransformations, Rotations, StaticArrays, JpegTurbo
 import Colors.N0f8
-import Main: SV, w, h
+import Main: SV, w, h, nleds
 
 using .Main.Monitor
+using .Main.LEDs
 
 export frame 
 
@@ -32,16 +33,19 @@ draw_arrow!(img, b) = draw_arrow!(img, b.c, b.θ)
 
 const arrow_template = get_arrow()
 
-function draw_led!(img, θ)
-    p = 0.45w*SV(reverse(sincos(θ))) + SV(w/2, h/2)
-    draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), 15), RGB{N0f8}(0,1,0))
+function draw_led!(img, leds)
+    for led in leds
+        θ = 2π/nleds*led
+        p = 0.45w*SV(reverse(sincos(θ))) + SV(w/2, h/2)
+        draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), 15), RGB{N0f8}(LEDs.red[], LEDs.green[], LEDs.blue[]))
+    end
 end
 
 function frame()
-    (; img, beetle, led) = read_state()
+    (; img, beetle, leds) = read_state()
     imgcopy = RGB{N0f8}.(Gray{N0f8}.(img))
     draw_arrow!(imgcopy, beetle)
-    draw_led!(imgcopy, led)
+    draw_led!(imgcopy, leds)
     respond(String(jpeg_encode(imgcopy)), :jpg)
 end
 

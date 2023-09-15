@@ -21,20 +21,20 @@ end
 mutable struct State
     img
     beetle::Union{Nothing, Beetle}
-    led::Float64
+    leds::Vector{Int}
 end
 
 logbook = LogBook()
 camera = Camera()
 dr = DetectoRect()
 
-const state = State(snap!(camera), nothing, 0.0)
+const state = State(snap!(camera), nothing, [1])
 
 task = Threads.@spawn while isopen(camera)
     state.img = snap!(camera)
     state.beetle = dr(state.img)
-    state.led = get_led(state.beetle)
-    log!(logbook, state.beetle, state.led)
+    state.leds = get_leds(state.beetle)
+    log!(logbook, state.beetle, state.leds)
 end
 
 Timer(_ -> revive(task), 1; interval = 3)
