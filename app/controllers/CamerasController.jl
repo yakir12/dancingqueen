@@ -36,8 +36,9 @@ const arrow_template = get_arrow()
 function draw_led!(img, leds)
     for led in leds
         θ = 2π/nleds*led
-        p = 0.45w*SV(reverse(sincos(θ))) + SV(w/2, h/2)
-        draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), 15), RGB{N0f8}(LEDs.red[], LEDs.green[], LEDs.blue[]))
+        R = 0.45w
+        p = R*SV(reverse(sincos(θ))) + SV(w/2, h/2)
+        draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), round(Int, R*sin(π/nleds))), RGB{N0f8}(LEDs.red[], LEDs.green[], LEDs.blue[]))
     end
 end
 
