@@ -1,0 +1,34 @@
+┌ Info: 2023-09-22 15:20:09 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-22 15:20:11 Watching ["/home/yakir/new_projects/dancing queen/project/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-22 15:20:12 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-09-22 15:22:48 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-22 15:22:48 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-09-22 15:22:48 [Revise] Ignoring callback errors
+│   err = CompositeException(Any[TaskFailedException(Task (failed) @0x00007fee31c055f0)])
+└ @ Revise /home/yakir/.julia/packages/Revise/dbu85/src/callbacks.jl:123
+┌ Info: 2023-09-22 15:23:53 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-22 15:23:55 Watching ["/home/yakir/new_projects/dancing queen/project/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-22 15:23:55 Listening on: 127.0.0.1:8000, thread id: 10
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-09-22 15:29:50 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-22 15:30:25 Watching ["/home/yakir/new_projects/dancing queen/project/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-22 15:31:30 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-22 15:31:48 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-22 15:31:50 Watching ["/home/yakir/new_projects/dancing queen/project/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-22 15:31:51 Listening on: 127.0.0.1:8000, thread id: 10
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367

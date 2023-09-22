@@ -49,7 +49,7 @@ Stipple.js_methods(model::WebCam) = """
 # })();
 # """
 
-Stipple.js_created(model::WebCam) = "setInterval(this.updateimage, $(round(Int, 5*1000/fps)))"
+Stipple.js_created(model::WebCam) = "setInterval(this.updateimage, 33)"# $(round(Int, 5*1000/fps)))"
 
 route("/") do
     global model
