@@ -1,3 +1,7 @@
+# TODO:
+# case insensitive for the keyboard control
+#
+import Tar
 using VideoIO, AprilTags, StaticArrays, ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors
 import Colors.N0f8
 
@@ -22,17 +26,44 @@ dr = DetectoRect()
 logbook = LogBook()
 
 task = Threads.@spawn while isopen(cam)
-    read!(cam, img[])
-    beetle[] = dr(img[])
-    leds[] = get_leds(beetle[])
-    Threads.@spawn log!(logbook, beetle[], leds[])
+    read!(cam, img[]) # 1/FPS second
+    beetle[] = dr(img[]) # 137 μs to 16 ms when naive
+    leds[] = get_leds(beetle[]) # 36 ns
+    Threads.@spawn log!(logbook, beetle[], leds[]) # sync time 24 ns
 end
+
+# ### benchmarks
+# function one_round()
+#     read!(cam, img[]) # 1/FPS second
+#     beetle[] = dr(img[]) # 137 μs to 16 ms when naive
+#     leds[] = get_leds(beetle[]) # 36 ns
+#     Threads.@spawn log!(logbook, beetle[], leds[]) # sync time 24 ns
+# end
+# @benchmark one_round() # 100 ms limited by the 10 FPS...
+# @benchmark one_round() # 100 ms when naive
+#
+#
+# for i in 1:50
+#     read!(cam, img[]) # 1/FPS second
+# end
+#
+# function one_round(img)
+#     beetle[] = dr(img[]) # 137 μs to 16 ms when naive
+#     leds[] = get_leds(beetle[]) # 36 ns
+#     Threads.@spawn log!(logbook, beetle[], leds[]) # sync time 24 ns
+# end
+# @benchmark one_round(img) # 193 μs
+# @benchmark one_round(img) # 16 ms when naive
 
 using GenieFramework
 @genietools
 
 # avoid writing to disk
 route(get_frame, "/frame")
+
+route("/data") do
+    get_data(logbook)
+end
 
 @app WebCam begin
     @out imageurl = "/frame"
@@ -57,15 +88,19 @@ route(get_frame, "/frame")
     @in sun_widt = 1
     @onchange sun_widt sun_width[] = sun_widt
 
+    @out tab_m = "gui"
+    @out gpanel = "gui"
+
+    @onchange tab_m begin
+        gpanel = tab_m
+    end
 
 end myhandlers
 
 ui() = [
-        toolbar([
-                 btn(@click("redirectToLink(frame)"), flat=true, round=true, dense=true, icon="menu"),
-                                       toolbartitle("Toolbar"),
-                                       btn(flat=true, round=true, dense=true, icon="more_vert")
-                                      ])
+        row([
+             btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar"))
+            ])
         row([
              h1("DancingQueen")
             ])
@@ -80,33 +115,49 @@ ui() = [
                        ])
                   ])
             ])
-row([
-     h6("Link factor")
-     slider(-1:0.1:1, :link_facto, markers=true, labelalways=true)
-    ])
-row([
-     h6("Sun color")
-     card(class="st-col col-12",
-          [
-           row([
-                cell(size = 1, span("Red"))
-                cell(slider(range(0, 1, 256), :red, markers=true, label=true, color="red"))
-               ])
-           row([
-                cell(size = 1, span("Green"))
-                cell(slider(range(0, 1, 256), :green, markers=true, label=true, color="green"))
-               ])
-           row([
-                cell(size = 1, span("Blue"))
-                cell(slider(range(0, 1, 256), :blue, markers=true, label=true, color="blue"))
-               ])
-          ])
-    ])
-row([
-     h6("Sun width")
-     slider(1:2:nleds, :sun_widt, markers=true, label=true)
-    ])
-]
+        tabgroup(:tab_m, [
+                          tab(name="gui", icon="sports_esports", label="GUI"),
+                          tab(name="file", icon="description", label="File")
+                         ])
+        tabpanelgroup(:gpanel, 
+                      [
+                       tabpanel("text???", name = "gui", [
+                                                          row([
+                                                               h6("Link factor")
+                                                               slider(-1:0.1:1, :link_facto, markers=true, labelalways=true)
+                                                              ])
+                                                          row([
+                                                               h6("Sun color")
+                                                               card(class="st-col col-12",
+                                                                    [
+                                                                     row([
+                                                                          cell(size = 1, span("Red"))
+                                                                          cell(slider(range(0, 1, 256), :red, markers=true, label=true, color="red"))
+                                                                         ])
+                                                                     row([
+                                                                          cell(size = 1, span("Green"))
+                                                                          cell(slider(range(0, 1, 256), :green, markers=true, label=true, color="green"))
+                                                                         ])
+                                                                     row([
+                                                                          cell(size = 1, span("Blue"))
+                                                                          cell(slider(range(0, 1, 256), :blue, markers=true, label=true, color="blue"))
+                                                                         ])
+                                                                    ])
+                                                              ])
+                                                          row([
+                                                               h6("Sun width")
+                                                               slider(1:2:nleds, :sun_widt, markers=true, label=true)
+                                                              ])
+                                                         ]
+                               ),
+                       tabpanel("also text", name = "file", [
+                                                          row([
+                                                               h6("Link factor")
+                                                               slider(-1:0.1:1, :link_facto, markers=true, labelalways=true)
+                                                              ])
+                                                            ])
+                      ])
+       ]
 
 model = init(WebCam, debounce = 0) |> myhandlers
 
@@ -131,7 +182,7 @@ Stipple.js_methods(model::WebCam) = """
 # })();
 # """
 
-Stipple.js_created(model::WebCam) = "setInterval(this.updateimage, 33)"# $(round(Int, 5*1000/fps)))"
+Stipple.js_created(model::WebCam) = "setInterval(this.updateimage, 101)"# $(round(Int, 5*1000/fps)))"
 
 route("/") do
     global model
