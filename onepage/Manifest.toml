@@ -2,7 +2,7 @@
 
 julia_version = "1.9.3"
 manifest_format = "2.0"
-project_hash = "26596609f3a7445d24aefacb6951ffda10fa0b64"
+project_hash = "a3c6b59a3a550b728fac79660f5950df5fcbf92f"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -448,6 +448,12 @@ deps = ["Dates", "Mmap", "Parsers", "PrecompileTools", "StructTypes", "UUIDs"]
 git-tree-sha1 = "95220473901735a0f4df9d1ca5b171b568b2daa3"
 uuid = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
 version = "1.13.2"
+
+[[deps.JSONSchema]]
+deps = ["Downloads", "JSON", "JSON3", "URIs"]
+git-tree-sha1 = "5f0bd0cd69df978fa64ccdcb5c152fbc705455a1"
+uuid = "7d188eb4-7ad8-530c-ae41-71a32a6d4692"
+version = "1.3.0"
 
 [[deps.JpegTurbo]]
 deps = ["CEnum", "FileIO", "ImageCore", "JpegTurbo_jll", "TOML"]
