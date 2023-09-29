@@ -1,67 +1,105 @@
-using TOML
-using JSONSchema
+"""
+Each setup should have a label and at least 1 sun. Each sun should have a link_factor (a number that ranges from minus infinity to plus infinity; typically -1 -- 1) and at least one color intensity (an integer between 0 and 255). Each sun can have width (an odd integer between 1 and the number of LEDs in the strip, and defaults to 1), and color intensities (defaults to 0).
 
-txt = """
-[[setups]]
-
-label = "one stationary green sun"
-
-[[setups.suns]]
-link_factor=0
-green=255
-width=1
-
-[[setups]]
-
-label = "two different suns"
-
-[[setups.suns]]
-link_factor=-0.2
-blue=100
-width=3
-
-[[setups.suns]]
-link_factor=1
-red=255
-width=11
+See the [`settings.toml` file](settings.toml) for example.
 """
 
-dict = TOML.parse(txt)
-
-
-my_schema = Schema(raw"""{
-                   "required": [ "setups", "label", "suns" ],
-                   "type": "array",
-                   "items": { "$ref": "#/$defs/veggie" }
-                   "$defs": {
-                    "veggie": {
-      "type": "object",
-      "required": [ "veggieName", "veggieLike" ],
-      "properties": {
-        "veggieName": {
-          "type": "string",
-          "description": "The name of the vegetable."
-        },
-                   "properties": {
-                     "latitude": {
-                        "type": "number",
-                        "minimum": -90,
-                        "maximum": 90
-                        },
-                     "longitude": {
-                        "type": "number",
-                        "minimum": -180,
-                        "maximum": 180
+const schema = Schema("""{
+"type": "object",
+"properties": {
+    "setups": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "maxLength": 60
+                },
+                "suns": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "anyOf": [
+                                {"required": ["red", "link_factor"]},
+                                {"required": ["green", "link_factor"]},
+                                {"required": ["blue", "link_factor"]}
+                            ],
+                        "properties": {
+                            "link_factor": {
+                                "type": "number"
+                            },
+                            "width": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 100,
+                                "not": {"multipleOf": 2}
+                            },
+                            "red": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "green": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "blue": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 255
+                            }
                         }
-                    }
-                   }""")
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "required": [ "suns", "label" ]
+        },
+        "minItems": 1,
+        "maxItems": 26,
+        "uniqueItems": true
+    },
+"required": [ "setups" ]
+}
+}""")
 
+struct Sun
+    link_factor::Float64
+    width::Int
+    color::RGB{N0f8}
+    θ::Float64
+end
 
-txt = """{
-  "latitude": 4888.858093,
-  "longitude": 2.294694
-  }
-"""
-data_pass = Dict(JSON3.read(txt))
+function Sun(d::AbstractDict)
+    link_factor = d["link_factor"]
+    width = get(d, "width", 1)
+    color = RGB((get(d, c, 0)/255 for c in ("red", "green", "blue"))...)
+    Sun(link_factor, width, color, 0.0)
+end
 
-validate(my_schema, data_pass)
+Sun() = Sun(0, 1, zero(RGB{N0f8}), 0.0)
+
+struct Setup
+    label::String
+    suns::Vector{Sun}
+end
+
+function Setup(d::AbstractDict)
+    label = d["label"]
+    suns = Sun.(d["suns"])
+    Setup(label, suns)
+end
+
+Setup() = Setup("default", [Sun()])
+
+function try2settings(settings)
+    dict = TOML.parse(settings)
+    msg = validate(schema, dict)
+    return isnothing(msg) ? Setup.(dict["setups"]) : msg
+end
+
+# txt = read("settings.toml", String)
+# setups = try2settings(txt)

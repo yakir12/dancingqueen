@@ -1,8 +1,9 @@
 # TODO:
 # case insensitive for the keyboard control
 #
-import Tar
-using VideoIO, AprilTags, StaticArrays, ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors
+import Tar, TOML
+using Dates
+using VideoIO, AprilTags, StaticArrays, ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors, JSONSchema
 import Colors.N0f8
 
 if !isdir("data")
@@ -14,13 +15,15 @@ const img = Ref(read(cam))
 const w, h = size(img[])
 const nleds = 101
 
+include("settings.jl")
 include("detection.jl")
 include("leds.jl")
 include("logbooks.jl")
 include("display.jl")
 
 const beetle = Ref{Union{Nothing, Beetle}}(nothing)
-const leds = Ref(get_leds(beetle[]))
+const suns = Sun[]
+const leds = Ref(LEDs[])
 
 dr = DetectoRect()
 logbook = LogBook()
@@ -28,7 +31,7 @@ logbook = LogBook()
 task = Threads.@spawn while isopen(cam)
     read!(cam, img[]) # 1/FPS second
     beetle[] = dr(img[]) # 137 μs to 16 ms when naive
-    leds[] = get_leds(beetle[]) # 36 ns
+    leds[] = LEDs.(beetle, suns) # 36 ns
     Threads.@spawn log!(logbook, beetle[], leds[]) # sync time 24 ns
 end
 
@@ -65,7 +68,7 @@ route("/data") do
     get_data(logbook)
 end
 
-@app WebCam begin
+@app FromFile begin
     @out imageurl = "/frame"
 
     @in recording_on = false
@@ -74,27 +77,6 @@ end
         turn!(logbook, recording_on)
         recording_label = recording_on ? "Recording" : "Not recording"
     end
-
-    @in link_facto = 0.0
-    @onchange link_facto link_factor[] = link_facto
-
-    @in red = 0.0
-    @onchange red sun_color[] = RGB(red, sun_color[].g, sun_color[].b)
-    @in green = 0.0
-    @onchange green sun_color[] = RGB(sun_color[].r, green, sun_color[].b)
-    @in blue = 0.0
-    @onchange blue sun_color[] = RGB(sun_color[].r, sun_color[].g, blue)
-
-    @in sun_widt = 1
-    @onchange sun_widt sun_width[] = sun_widt
-
-    @out tab_m = "gui"
-    @out gpanel = "gui"
-
-    @onchange tab_m begin
-        gpanel = tab_m
-    end
-
 end myhandlers
 
 ui() = [
@@ -115,65 +97,23 @@ ui() = [
                        ])
                   ])
             ])
-        tabgroup(:tab_m, [
-                          tab(name="gui", icon="sports_esports", label="GUI"),
-                          tab(name="file", icon="description", label="File")
-                         ])
-        tabpanelgroup(:gpanel, 
-                      [
-                       tabpanel("text???", name = "gui", [
-                                                          row([
-                                                               h6("Link factor")
-                                                               slider(-1:0.1:1, :link_facto, markers=true, labelalways=true)
-                                                              ])
-                                                          row([
-                                                               h6("Sun color")
-                                                               card(class="st-col col-12",
-                                                                    [
-                                                                     row([
-                                                                          cell(size = 1, span("Red"))
-                                                                          cell(slider(range(0, 1, 256), :red, markers=true, label=true, color="red"))
-                                                                         ])
-                                                                     row([
-                                                                          cell(size = 1, span("Green"))
-                                                                          cell(slider(range(0, 1, 256), :green, markers=true, label=true, color="green"))
-                                                                         ])
-                                                                     row([
-                                                                          cell(size = 1, span("Blue"))
-                                                                          cell(slider(range(0, 1, 256), :blue, markers=true, label=true, color="blue"))
-                                                                         ])
-                                                                    ])
-                                                              ])
-                                                          row([
-                                                               h6("Sun width")
-                                                               slider(1:2:nleds, :sun_widt, markers=true, label=true)
-                                                              ])
-                                                         ]
-                               ),
-                       tabpanel("also text", name = "file", [
-                                                          row([
-                                                               h6("Link factor")
-                                                               slider(-1:0.1:1, :link_facto, markers=true, labelalways=true)
-                                                              ])
-                                                            ])
-                      ])
        ]
 
-model = init(WebCam, debounce = 0) |> myhandlers
+model = init(FromFile, debounce = 0) |> myhandlers
 
-Stipple.js_methods(model::WebCam) = """
+Stipple.js_methods(model::FromFile) = """
     updateimage: async function () { 
         this.imageurl = "frame#" + new Date().getTime()
     }
 """
 
-# Stipple.js_created(model::WebCam) = """
+# Stipple.js_created(model::FromFile) = """
 #     setInterval(() => {
 #     this.updateimage();
 #     }, 33);
 # """
 
-# Stipple.js_created(model::WebCam) = """
+# Stipple.js_created(model::FromFile) = """
 # (function loop() {
 #   setTimeout(() => {
 #     () => this.updateimage;
@@ -182,7 +122,7 @@ Stipple.js_methods(model::WebCam) = """
 # })();
 # """
 
-Stipple.js_created(model::WebCam) = "setInterval(this.updateimage, 101)"# $(round(Int, 5*1000/fps)))"
+Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, 101)"# $(round(Int, 5*1000/fps)))"
 
 route("/") do
     global model

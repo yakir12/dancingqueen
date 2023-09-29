@@ -1,0 +1,22 @@
+# spaces and indentations do not matter
+[[setups]]
+    label = "one stationary green sun" # this label will be on the button that evokes this setup, and therefore is limited to 60 characters
+    [[setups.suns]]
+        link_factor = 0 # the order of `link_factor`, `width`, `red`, `green`, and `blue` does not matter
+        green = 255 # `red` and `blue` are assumed to be 0 here
+        # this sun's `width` is assumed to be 1
+
+[[setups]] # you can only have 26 setups, because there are only 26 letters and therefore keys on a English keyboard
+    label = "two different suns"
+    [[setups.suns]] # you can have as many suns as you like
+        link_factor = 1.5
+        width = 11
+        green = 255
+        red = 100
+    [[setups.suns]]
+        link_factor = -0.8
+        width = 3
+        blue = 255
+        red = 41
+        green = 128
+
