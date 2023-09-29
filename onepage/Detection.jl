@@ -1,21 +1,30 @@
-const SV = SVector{2, Float64}
+module Detection 
+
+using StaticArrays, AprilTags
+import ..Beetle, ..SV, ..w, ..h
+
+export detection
+
+tag_pixel_width = 100#135#45#37
+const min_radius = tag_pixel_width/sqrt(2)
+const widen_radius = 15#15
 const SVI = SVector{2, Int}
 const sz = SVI(w, h)
-
-struct Beetle
-    c::SV
-    θ::Float64
-end
-Beetle() = Beetle(zero(SV), 0.0)
-
-tag_pixel_width = 45#135#45#37
-const min_radius = tag_pixel_width/sqrt(2)
-const widen_radius = 5#15
 
 struct DetectoRect
     detector::AprilTagDetector
     rect::MVector{4, Int}
     DetectoRect() = new(AprilTagDetector(), MVector(1, 1, sz::SVI...))
+end
+
+function Beetle(tag, r1, c1)
+    # center
+    c0 = SV(reverse(tag.H[1:2,3]))
+    # direction
+    d = sum(p -> SV(reverse(p)) - c0, tag.p[1:2])
+    # global center
+    c = c0 + SV(r1, c1)
+    Beetle(c, atan(reverse(d)...))
 end
 
 function (d::DetectoRect)(buff)
@@ -35,12 +44,7 @@ function (d::DetectoRect)(buff)
     end
 end
 
-function Beetle(tag, r1, c1)
-    # center
-    c0 = SV(reverse(tag.H[1:2,3]))
-    # direction
-    d = sum(p -> SV(reverse(p)) - c0, tag.p[1:2])
-    # global center
-    c = c0 + SV(r1, c1)
-    Beetle(c, atan(reverse(d)...))
+const detection = DetectoRect()
+
 end
+

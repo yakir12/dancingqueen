@@ -10,9 +10,25 @@ if !isdir("data")
     mkdir("data")
 end
 
+
+
+
+
+
+mutable struct State
+    img::PermutedDimsArray{RGB{N0f8}, 2, (2, 1), (2, 1), Matrix{RGB{N0f8}}}
+    beetle::Union{Nothing, Beetle}
+    tb::TrackedBeetle
+    tsuns::Vector{TrackedSun}
+    State() = new(read(cam), nothing, TrackedBeetle(0, 0), [TrackedSun(0, Sun())])
+end
+
 const cam = opencamera()
-const img = Ref(read(cam))
-const w, h = size(img[])
+const state = State()
+const w, h = size(state.img)
+
+# const img = Ref(read(cam))
+# const w, h = size(img[])
 const nleds = 101
 
 include("settings.jl")
@@ -21,9 +37,8 @@ include("leds.jl")
 include("logbooks.jl")
 include("display.jl")
 
-const beetle = Ref{Union{Nothing, Beetle}}(nothing)
-const suns = Sun[]
-const leds = Ref(LEDs[])
+# const beetle = Ref{Union{Nothing, Beetle}}(nothing)
+# const tsuns = TrackedSun[]
 
 dr = DetectoRect()
 logbook = LogBook()
@@ -31,8 +46,8 @@ logbook = LogBook()
 task = Threads.@spawn while isopen(cam)
     read!(cam, img[]) # 1/FPS second
     beetle[] = dr(img[]) # 137 μs to 16 ms when naive
-    leds[] = LEDs.(beetle, suns) # 36 ns
-    Threads.@spawn log!(logbook, beetle[], leds[]) # sync time 24 ns
+    update!(tsuns, beetle[])
+    Threads.@spawn log!(logbook, beetle[], tsuns[]) # sync time 24 ns
 end
 
 # ### benchmarks

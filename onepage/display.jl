@@ -1,20 +1,33 @@
+function get_indices(i1, i2)
+    if i1 == i2
+        [i1]
+    elseif i1 < i2
+        collect(i1:i2)
+    else
+        [i1:nleds; 1:i2]
+    end
+end
+
 topoint(p) = reverse(Tuple(round.(Int, p)))
 
 ImageDraw.draw!(img, ::Nothing) = nothing
 ImageDraw.draw!(img, b::Beetle) = draw!(img, CirclePointRadius(Point(topoint(b.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
 
-function ImageDraw.draw!(img, ledss::Vector{LEDs})
+function ImageDraw.draw!(img, ls::LEDStrip)
     R = 0.45w
-    for leds in ledss, index in leds.indices
+    for index in get_indices(ls.i1, ls.i2)
         θ = 2π/nleds*index
         p = R*SV(reverse(sincos(θ))) + SV(w/2, h/2)
-        draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), round(Int, R*sin(π/nleds))), leds.color)
+        draw!(img, CirclePointRadius(ImageDraw.Point(topoint(p)), round(Int, R*sin(π/nleds))), ls.color)
     end
 end
 
 function get_frame()
-    cimg = RGB.(deepcopy(img[]))
+    cimg = RGB.(deepcopy(img))
     draw!(cimg, beetle[])
-    draw!(cimg, leds[])
+    for ts in tsuns
+        ls = LEDStrip(ts)
+        draw!(cimg, ls)
+    end
     String(jpeg_encode(cimg))
 end

@@ -1,3 +1,9 @@
+module LogBooks
+
+using Dates
+
+export log_record, toggle_recording, get_recordings
+
 mutable struct LogBook
     io::IOStream
     recording::Bool
@@ -8,18 +14,16 @@ mutable struct LogBook
     end
 end
 
-print_row(::Nothing) = ",,"
-print_row(b) = string(b.c[1], ",", b.c[2], ",", b.θ)
+const logbook = LogBook()
 
-function log!(logbook, beetle, leds)
-    logbook.recording && println(logbook.io, now(), ",", print_row(beetle), ",", leds)
+function log_record(args...)
+    logbook.recording && println(logbook.io, now(), ",", args...)
 end
 
-function turn!(logbook, is_recording)
+function toggle_recording(is_recording)
     if is_recording
         file = joinpath("data", string(now(), ".log"))
         logbook.io = open(file, "w")
-        println(logbook.io, "t,x,y,θ,led")
         logbook.recording = true
     else
         logbook.recording = false
@@ -27,13 +31,13 @@ function turn!(logbook, is_recording)
     end
 end
 
-function get_data(logbook)
-    turn!(logbook, false)
+function get_recordings()
+    toggle_recording(false)
     io = IOBuffer()
     Tar.create("data", io)
     msg = String(take!(io))
     close(io)
-    respond(msg)
+    return msg
 end
 
 function cleanup(timer)
@@ -47,4 +51,6 @@ function cleanup(timer)
     end
 end
 
-cleaning_timer = Timer(cleanup, 0; interval = 604800) # clean up once a week
+Timer(cleanup, 0; interval = 604800) # clean up once a week
+
+end
