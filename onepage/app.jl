@@ -2,22 +2,42 @@ include("DancingQueen.jl")
 
 using .DancingQueen
 
-const img = DancingQueen.img
-const beetle = DancingQueen.beetle
-const tsuns = DancingQueen.tsuns
-
-using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors, JSONSchema
+using TOML
+using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors, JSONSchema, JSONSchema
 import Colors.N0f8
+
+include("display.jl")
+include("settings.jl")
 
 using GenieFramework
 @genietools
 
-include("leds.jl")
-include("display.jl")
-
 route(get_frame, "/frame")
 
 route(respond ∘ get_recordings, "/data")
+
+
+
+Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
+Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
+Genie.config.cors_headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,DELETE,OPTIONS"
+Genie.config.cors_allowed_origins = ["*"]
+route("/settings", method = POST) do
+    files = Genie.Requests.filespayload()
+    for file in files
+        txt = String(last(file).data)
+        setups = try2settings(txt)
+        if setups isa String
+            @warn setups
+        else
+            set_suns(setups[end].suns)
+        end
+    end
+    if length(files) == 0
+        @info "No file uploaded"
+    end
+    return "Upload finished"
+end
 
 @app FromFile begin
     @out imageurl = "/frame"
@@ -25,7 +45,7 @@ route(respond ∘ get_recordings, "/data")
     @in recording_on = false
     @out recording_label = "Not recording"
     @onchange recording_on begin
-        toggle_recording(recording_on)
+        set_recording(recording_on)
         recording_label = recording_on ? "Recording" : "Not recording"
     end
 end myhandlers
@@ -47,6 +67,9 @@ ui() = [
                         toggle(:recording_label, :recording_on)
                        ])
                   ])
+            ])
+        row([
+             uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
             ])
        ]
 

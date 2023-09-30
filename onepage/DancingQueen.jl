@@ -24,10 +24,12 @@ end
 include("Detection.jl")
 include("Track.jl")
 include("LogBooks.jl")
+include("LEDs.jl")
 
-using .Detection, .Track, .LogBooks
+using .Detection, .Track, .LogBooks, .LEDs
 
-export Sun, Beetle, TrackedSun, update_suns, toggle_recording, get_recordings, w, h, img, nleds, SV
+export Sun, LEDStrip
+export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV
 
 const cam = opencamera()
 const img = read(cam)
@@ -41,10 +43,12 @@ task = Threads.@spawn while isopen(cam)
     Threads.@spawn log_record(beetle[], tsuns...)
 end
 
-function update_suns(suns::Vector{Sun})
+function set_suns(suns::Vector{Sun})
     empty!(tsuns)
     append!(tsuns, TrackedSun.(0, suns))
 end
+
+get_state() = (; img, beetle = beetle[], tsuns)
 
 end
 

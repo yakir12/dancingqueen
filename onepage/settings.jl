@@ -5,14 +5,14 @@ See the [`settings.toml` file](settings.toml) for example.
 """
 const schema = Schema(read("schema.json", String))
 
-function Sun(d::AbstractDict)
+function DancingQueen.Sun(d::AbstractDict)
     link_factor = d["link_factor"]
     width = get(d, "width", 1)
     color = RGB((get(d, c, 0)/255 for c in ("red", "green", "blue"))...)
     Sun(link_factor, width, color)
 end
 
-Sun() = Sun(0, 1, zero(RGB{N0f8}))
+DancingQueen.Sun() = Sun(0, 1, zero(RGB{N0f8}))
 
 struct Setup
     label::String

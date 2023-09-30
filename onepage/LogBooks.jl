@@ -2,7 +2,7 @@ module LogBooks
 
 using Dates
 
-export log_record, toggle_recording, get_recordings
+export log_record, set_recording, get_recordings
 
 mutable struct LogBook
     io::IOStream
@@ -20,7 +20,7 @@ function log_record(args...)
     logbook.recording && println(logbook.io, now(), ",", args...)
 end
 
-function toggle_recording(is_recording)
+function set_recording(is_recording)
     if is_recording
         file = joinpath("data", string(now(), ".log"))
         logbook.io = open(file, "w")

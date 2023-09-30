@@ -1,3 +1,13 @@
+module LEDs
+
+using Colors
+import Colors.N0f8
+using ..Track
+
+export LEDStrip
+
+import ..nleds
+
 struct LEDStrip
     i1::Int
     i2::Int
@@ -12,3 +22,4 @@ function LEDStrip(ts::TrackedSun)
     LEDStrip(i1, i2, ts.sun.color)
 end
 
+end

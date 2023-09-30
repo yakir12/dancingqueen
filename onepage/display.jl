@@ -11,7 +11,7 @@ end
 topoint(p) = reverse(Tuple(round.(Int, p)))
 
 ImageDraw.draw!(img, ::Nothing) = nothing
-ImageDraw.draw!(img, b::Beetle) = draw!(img, CirclePointRadius(Point(topoint(b.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
+ImageDraw.draw!(img, b) = draw!(img, CirclePointRadius(Point(topoint(b.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
 
 function ImageDraw.draw!(img, ls::LEDStrip)
     R = 0.45w
@@ -23,8 +23,9 @@ function ImageDraw.draw!(img, ls::LEDStrip)
 end
 
 function get_frame()
+    img, beetle, tsuns = get_state()
     cimg = RGB.(deepcopy(img))
-    draw!(cimg, beetle[])
+    draw!(cimg, beetle)
     for ts in tsuns
         ls = LEDStrip(ts)
         draw!(cimg, ls)
