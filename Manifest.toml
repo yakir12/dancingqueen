@@ -84,9 +84,9 @@ version = "2.2.1"
 
 [[deps.Configurations]]
 deps = ["ExproniconLite", "OrderedCollections", "TOML"]
-git-tree-sha1 = "434f446dbf89d08350e83bf57c0fc86f5d3ffd4e"
+git-tree-sha1 = "4358750bb58a3caefd5f37a4a0c5bfdbbf075252"
 uuid = "5218b696-f38b-4ac9-8b61-a12ec717816d"
-version = "0.17.5"
+version = "0.17.6"
 
 [[deps.Crayons]]
 git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
@@ -194,10 +194,10 @@ uuid = "c6228e60-a24f-11e9-1776-c313472ebacc"
 version = "2.2.0"
 
 [[deps.GenieDevTools]]
-deps = ["Dates", "Genie", "RemoteREPL", "Revise", "Stipple"]
-git-tree-sha1 = "452f64e3e932285fcebcdaca0c126d90d3783213"
+deps = ["Dates", "Genie", "RemoteREPL", "Revise", "Stipple", "Tables"]
+git-tree-sha1 = "ec8b07b4fe25b52a14d0fde5ed2974cef5f0b16b"
 uuid = "4e5d9629-6565-4102-a9ff-45c707eb060e"
-version = "2.4.0"
+version = "2.5.0"
 
 [[deps.GenieFramework]]
 deps = ["GarishPrint", "Genie", "GenieAutoReload", "GenieDevTools", "GeniePackageManager", "Reexport", "Revise", "Stipple", "StipplePlotly", "StippleUI"]
@@ -286,9 +286,9 @@ version = "1.13.2"
 
 [[deps.JuliaFormatter]]
 deps = ["CSTParser", "CommonMark", "DataStructures", "Glob", "Pkg", "PrecompileTools", "Tokenize"]
-git-tree-sha1 = "2aa8cb5410821365a87f326631d7f6ce07db8882"
+git-tree-sha1 = "c0ac2f93058fd148267154c42dd7dc79869f7923"
 uuid = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
-version = "1.0.36"
+version = "1.0.37"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
@@ -530,9 +530,9 @@ version = "1.3.0"
 
 [[deps.Revise]]
 deps = ["CodeTracking", "Distributed", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "Pkg", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "7364d5f608f3492a4352ab1d40b3916955dc6aec"
+git-tree-sha1 = "609c26951d80551620241c3d7090c71a73da75ab"
 uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.5.5"
+version = "3.5.6"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -690,9 +690,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[deps.XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Zlib_jll"]
-git-tree-sha1 = "04a51d15436a572301b5abbb9d099713327e9fc4"
+git-tree-sha1 = "24b81b59bd35b3c42ab84fa589086e19be919916"
 uuid = "02c8fc9c-b97f-50b9-bbe4-9be30ff0a78a"
-version = "2.10.4+0"
+version = "2.11.5+0"
 
 [[deps.YAML]]
 deps = ["Base64", "Dates", "Printf", "StringEncodings"]
