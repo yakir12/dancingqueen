@@ -13,12 +13,11 @@ include("settings.jl")
 using GenieFramework
 @genietools
 
+isdir("data") || mkdir("data")
+
 route(get_frame, "/frame")
 
 route(respond ∘ get_recordings, "/data")
-
-const setups = Ref{OrderedDict{String, Vector{Sun}}}()
-
 
 Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
 Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
@@ -32,8 +31,8 @@ route("/settings", method = POST) do
         if _setups isa String
             @warn _setups
         else
-            setups[] = _setups
-            set_suns(first(values(setups[])))
+            set_suns(first(_setups).suns)
+            model.setups[] = _setups
         end
     end
     if length(files) == 0
@@ -52,42 +51,51 @@ end
         recording_label = recording_on ? "Recording" : "Not recording"
     end
 
-    @in chosen = ""
+    @in setups = [Setup()]
+    @in setups_labels = ["Off"]
+    @onchange setups setups_labels = getfield.(setups, :label)
+    @in chosen = 0
+    @onchange chosen set_suns(setups[chosen + 1].suns)
 
-    @onchange chosen begin
-        # when keyboard is pressed the key will be wrong
-        set_suns(setups[][chosen])
-    end
+    # @in chosen_press = "a"
+    # @onchange chosen_press begin
+    #     for (label, x) in zip(keys(setups), 'a':'z')
+    #         if string(x) == chosen_press
+    #             chosen = label
+    #             break
+    #         end
+    #     end
+    # end
 
 end myhandlers
 
 ui() = Html.div(
-                @on("keydown.a", "chosen=\"a\""),
-                @on("keydown.b", "chosen=\"b\""),
-                @on("keydown.c", "chosen=\"c\""),
-                @on("keydown.d", "chosen=\"d\""),
-                @on("keydown.e", "chosen=\"e\""),
-                @on("keydown.f", "chosen=\"f\""),
-                @on("keydown.g", "chosen=\"g\""),
-                @on("keydown.h", "chosen=\"h\""),
-                @on("keydown.i", "chosen=\"i\""),
-                @on("keydown.j", "chosen=\"j\""),
-                @on("keydown.k", "chosen=\"k\""),
-                @on("keydown.l", "chosen=\"l\""),
-                @on("keydown.m", "chosen=\"m\""),
-                @on("keydown.n", "chosen=\"n\""),
-                @on("keydown.o", "chosen=\"o\""),
-                @on("keydown.p", "chosen=\"p\""),
-                @on("keydown.q", "chosen=\"q\""),
-                @on("keydown.r", "chosen=\"r\""),
-                @on("keydown.s", "chosen=\"s\""),
-                @on("keydown.t", "chosen=\"t\""),
-                @on("keydown.u", "chosen=\"u\""),
-                @on("keydown.v", "chosen=\"v\""),
-                @on("keydown.w", "chosen=\"w\""),
-                @on("keydown.x", "chosen=\"x\""),
-                @on("keydown.y", "chosen=\"y\""),
-                @on("keydown.z", "chosen=\"z\""),
+                @on("keydown.a", "chosen=0"),
+                @on("keydown.b", "chosen=1"),
+                @on("keydown.c", "chosen=2"),
+                @on("keydown.d", "chosen=3"),
+                @on("keydown.e", "chosen=4"),
+                @on("keydown.f", "chosen=5"),
+                @on("keydown.g", "chosen=6"),
+                @on("keydown.h", "chosen=7"),
+                @on("keydown.i", "chosen=8"),
+                @on("keydown.j", "chosen=9"),
+                @on("keydown.k", "chosen=10"),
+                @on("keydown.l", "chosen=11"),
+                @on("keydown.m", "chosen=12"),
+                @on("keydown.n", "chosen=13"),
+                @on("keydown.o", "chosen=14"),
+                @on("keydown.p", "chosen=15"),
+                @on("keydown.q", "chosen=16"),
+                @on("keydown.r", "chosen=17"),
+                @on("keydown.s", "chosen=18"),
+                @on("keydown.t", "chosen=19"),
+                @on("keydown.u", "chosen=20"),
+                @on("keydown.v", "chosen=21"),
+                @on("keydown.w", "chosen=22"),
+                @on("keydown.x", "chosen=23"),
+                @on("keydown.y", "chosen=24"),
+                @on("keydown.z", "chosen=25"),
                 [row([
                       btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar"))
                      ])
@@ -108,10 +116,10 @@ ui() = Html.div(
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
                      ])
-                 row([row(radio(msg, :chosen, val = msg)) for msg in ("Off", "One stationary green sun", "Two different suns")])
+                 row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
 
-model = init(FromFile, debounce = 0) |> myhandlers
+global model = init(FromFile, debounce = 0) |> myhandlers
 
 Stipple.js_methods(model::FromFile) = """
 updateimage: async function () { 

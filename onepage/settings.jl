@@ -37,7 +37,7 @@ function try2settings(settings)
     else
         setups = Setup.(dict["setups"])
         pushfirst!(setups, Setup())
-        return OrderedDict(setup.label => setup.suns for setup in setups)
+        return setups
     end
 end
 

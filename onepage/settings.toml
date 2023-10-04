@@ -20,3 +20,31 @@
         red = 41
         green = 128
 
+[[setups]]
+    label = "Crazy"
+    [[setups.suns]]
+        link_factor = 2
+        green = 255
+    [[setups.suns]]
+        link_factor = 1
+        blue = 255
+    [[setups.suns]]
+        link_factor = 0
+        red = 255
+    [[setups.suns]]
+        link_factor = -1
+        green = 255
+        red = 255
+    [[setups.suns]]
+        link_factor = -2
+        blue = 255
+        red = 255
+    [[setups.suns]]
+        link_factor = 0.5
+        blue = 255
+        green = 255
+    [[setups.suns]]
+        link_factor = -0.5
+        red = 255
+        blue = 255
+        green = 255
