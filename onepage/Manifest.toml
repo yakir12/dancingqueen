@@ -2,7 +2,7 @@
 
 julia_version = "1.9.3"
 manifest_format = "2.0"
-project_hash = "9f0db477c98887fb0d02b10b936cb0262d36fdbe"
+project_hash = "b73b2a7cf30cfbc47dd7f4fa2507ed9dac4d5c18"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -469,9 +469,9 @@ version = "2.1.91+0"
 
 [[deps.JuliaFormatter]]
 deps = ["CSTParser", "CommonMark", "DataStructures", "Glob", "Pkg", "PrecompileTools", "Tokenize"]
-git-tree-sha1 = "c0ac2f93058fd148267154c42dd7dc79869f7923"
+git-tree-sha1 = "80031f6e58b09b0de4553bf63d9a36ec5db57967"
 uuid = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
-version = "1.0.37"
+version = "1.0.39"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
@@ -569,9 +569,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[deps.LoggingExtras]]
 deps = ["Dates", "Logging"]
-git-tree-sha1 = "0d097476b6c381ab7906460ef1ef1638fbce1d91"
+git-tree-sha1 = "c1dd6d7978c12545b4179fb6153b9250c96b0075"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
-version = "1.0.2"
+version = "1.0.3"
 
 [[deps.LoweredCodeUtils]]
 deps = ["JuliaInterpreter"]

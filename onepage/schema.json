@@ -23,6 +23,11 @@
                 "link_factor": {
                   "type": "number"
                 },
+                "azimuth": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 360
+                },
                 "width": {
                   "type": "integer",
                   "minimum": 1,

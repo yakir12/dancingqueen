@@ -28,13 +28,14 @@ include("LEDs.jl")
 
 using .Detection, .Track, .LogBooks, .LEDs
 
-export Sun, LEDStrip
-export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV
+# export Sun # maybe remove?
+export LEDStrip, TrackedSun
+export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV, trackedsun_zero
 
 const cam = opencamera()
 const img = read(cam)
 const beetle = Ref{Union{Nothing, Beetle}}(nothing)
-const tsuns = [TrackedSun(0, Sun(0, 1, zero(RGB{N0f8})))]
+const tsuns = [trackedsun_zero()]
 
 task = Threads.@spawn while isopen(cam)
     read!(cam, img)
@@ -43,9 +44,9 @@ task = Threads.@spawn while isopen(cam)
     Threads.@spawn log_record(beetle[], tsuns...)
 end
 
-function set_suns(suns::Vector{Sun})
+function set_suns(new_tsuns::Vector{TrackedSun})
     empty!(tsuns)
-    append!(tsuns, TrackedSun.(0, suns))
+    append!(tsuns, new_tsuns)
 end
 
 get_state() = (; img, beetle = beetle[], tsuns)

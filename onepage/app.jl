@@ -5,13 +5,14 @@ using .DancingQueen
 using TOML
 using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors, JSONSchema, JSONSchema
 import Colors.N0f8
-import DataStructures: OrderedDict
 
 include("display.jl")
 include("settings.jl")
 
 using GenieFramework
 @genietools
+
+const client_fps = 10
 
 isdir("data") || mkdir("data")
 
@@ -31,7 +32,7 @@ route("/settings", method = POST) do
         if _setups isa String
             @warn _setups
         else
-            set_suns(first(_setups).suns)
+            set_suns(first(_setups).tsuns)
             model.setups[] = _setups
         end
     end
@@ -51,51 +52,15 @@ end
         recording_label = recording_on ? "Recording" : "Not recording"
     end
 
-    @in setups = [Setup()]
-    @in setups_labels = ["Off"]
+    @in setups = [setup_off]
+    @in setups_labels = [setup_off.label]
     @onchange setups setups_labels = getfield.(setups, :label)
     @in chosen = 0
-    @onchange chosen set_suns(setups[chosen + 1].suns)
-
-    # @in chosen_press = "a"
-    # @onchange chosen_press begin
-    #     for (label, x) in zip(keys(setups), 'a':'z')
-    #         if string(x) == chosen_press
-    #             chosen = label
-    #             break
-    #         end
-    #     end
-    # end
-
+    @onchange chosen set_suns(setups[chosen + 1].tsuns)
 end myhandlers
 
 ui() = Html.div(
-                @on("keydown.a", "chosen=0"),
-                @on("keydown.b", "chosen=1"),
-                @on("keydown.c", "chosen=2"),
-                @on("keydown.d", "chosen=3"),
-                @on("keydown.e", "chosen=4"),
-                @on("keydown.f", "chosen=5"),
-                @on("keydown.g", "chosen=6"),
-                @on("keydown.h", "chosen=7"),
-                @on("keydown.i", "chosen=8"),
-                @on("keydown.j", "chosen=9"),
-                @on("keydown.k", "chosen=10"),
-                @on("keydown.l", "chosen=11"),
-                @on("keydown.m", "chosen=12"),
-                @on("keydown.n", "chosen=13"),
-                @on("keydown.o", "chosen=14"),
-                @on("keydown.p", "chosen=15"),
-                @on("keydown.q", "chosen=16"),
-                @on("keydown.r", "chosen=17"),
-                @on("keydown.s", "chosen=18"),
-                @on("keydown.t", "chosen=19"),
-                @on("keydown.u", "chosen=20"),
-                @on("keydown.v", "chosen=21"),
-                @on("keydown.w", "chosen=22"),
-                @on("keydown.x", "chosen=23"),
-                @on("keydown.y", "chosen=24"),
-                @on("keydown.z", "chosen=25"),
+                @on("keydown.a", "chosen=0"), @on("keydown.b", "chosen=1"), @on("keydown.c", "chosen=2"), @on("keydown.d", "chosen=3"), @on("keydown.e", "chosen=4"), @on("keydown.f", "chosen=5"), @on("keydown.g", "chosen=6"), @on("keydown.h", "chosen=7"), @on("keydown.i", "chosen=8"), @on("keydown.j", "chosen=9"), @on("keydown.k", "chosen=10"), @on("keydown.l", "chosen=11"), @on("keydown.m", "chosen=12"), @on("keydown.n", "chosen=13"), @on("keydown.o", "chosen=14"), @on("keydown.p", "chosen=15"), @on("keydown.q", "chosen=16"), @on("keydown.r", "chosen=17"), @on("keydown.s", "chosen=18"), @on("keydown.t", "chosen=19"), @on("keydown.u", "chosen=20"), @on("keydown.v", "chosen=21"), @on("keydown.w", "chosen=22"), @on("keydown.x", "chosen=23"), @on("keydown.y", "chosen=24"), @on("keydown.z", "chosen=25"),
                 [row([
                       btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar"))
                      ])
@@ -121,31 +86,12 @@ ui() = Html.div(
 
 global model = init(FromFile, debounce = 0) |> myhandlers
 
-Stipple.js_methods(model::FromFile) = """
-updateimage: async function () { 
-this.imageurl = "frame#" + new Date().getTime()
-}
-"""
+Stipple.js_methods(model::FromFile) = """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
 
-# Stipple.js_created(model::FromFile) = """
-#     setInterval(() => {
-#     this.updateimage();
-#     }, 33);
-# """
-
-# Stipple.js_created(model::FromFile) = """
-# (function loop() {
-#   setTimeout(() => {
-#     () => this.updateimage;
-#     loop();
-#   }, 100);
-# })();
-# """
-
-Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, 101)"# $(round(Int, 5*1000/fps)))"
+Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, $(1000 ÷ client_fps))"
 
 route("/") do
-    global model
+    # global model
     page(model, ui) |> html
 end
 

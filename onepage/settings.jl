@@ -5,29 +5,26 @@ See the [`settings.toml` file](settings.toml) for example.
 """
 const schema = Schema(read("schema.json", String))
 
-function DancingQueen.Sun(d::AbstractDict)
+function DancingQueen.TrackedSun(d::AbstractDict)
     link_factor = d["link_factor"]
     width = get(d, "width", 1)
     color = RGB((get(d, c, 0)/255 for c in ("red", "green", "blue"))...)
-    Sun(link_factor, width, color)
+    azimuth = deg2rad(get(d, "azimuth", 0))
+    TrackedSun(azimuth, DancingQueen.Sun(link_factor, width, color))
 end
-
-DancingQueen.Sun() = Sun(0, 1, zero(RGB{N0f8}))
 
 struct Setup
     label::String
-    suns::Vector{Sun}
+    tsuns::Vector{TrackedSun}
 end
 
-Setup() = Setup("Off", [Sun()])
+const setup_off = Setup("a:Off", [trackedsun_zero()])
 
-function Setup(d::AbstractDict)
-    label = d["label"]
-    suns = Sun.(d["suns"])
-    Setup(label, suns)
+function Setup(key, d::AbstractDict)
+    label = string(key, ": ", d["label"])
+    tsuns = TrackedSun.(d["suns"])
+    Setup(label, tsuns)
 end
-
-const setup = Ref(Setup())
 
 function try2settings(settings)
     dict = TOML.parse(settings)
@@ -35,8 +32,8 @@ function try2settings(settings)
     if !isnothing(msg)
         return msg
     else
-        setups = Setup.(dict["setups"])
-        pushfirst!(setups, Setup())
+        setups = splat(Setup).(zip('b':'z', dict["setups"]))
+        pushfirst!(setups, setup_off)
         return setups
     end
 end

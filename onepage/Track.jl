@@ -1,8 +1,8 @@
 module Track
 
-import ..Beetle, ..Sun
+import ..Beetle, ..Sun, ..RGB, ..N0f8
 
-export TrackedSun, update!
+export TrackedSun, update!, trackedsun_zero
 
 mutable struct TrackedBeetle
     previouse_θ::Float64
@@ -23,6 +23,8 @@ mutable struct TrackedSun
     θ::Float64
     sun::Sun
 end
+
+trackedsun_zero() = TrackedSun(0, Sun(0, 1, zero(RGB{N0f8})))
 
 function rotate!(ts::TrackedSun, tb::TrackedBeetle)
     ts.θ += ts.sun.link_factor * tb.Δ
