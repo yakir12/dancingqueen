@@ -1,6 +1,7 @@
 module LogBooks
 
 using Dates
+import Tar
 
 export log_record, set_recording, get_recordings
 
@@ -32,7 +33,7 @@ function set_recording(is_recording)
 end
 
 function get_recordings()
-    toggle_recording(false)
+    set_recording(false)
     io = IOBuffer()
     Tar.create("data", io)
     msg = String(take!(io))

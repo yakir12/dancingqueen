@@ -52,37 +52,68 @@ end
         recording_label = recording_on ? "Recording" : "Not recording"
     end
 
+    @out interface = "fromfile"
+
+
     @in setups = [setup_off]
     @in setups_labels = [setup_off.label]
     @onchange setups setups_labels = getfield.(setups, :label)
     @in chosen = 0
     @onchange chosen set_suns(setups[chosen + 1].tsuns)
+
+    # TODO: fix the following GUI interface:
+    # @in link_facto = 0.0
+    # @onchange link_facto link_factor[] = link_facto
+    #
+    # @in red = 0.0
+    # @onchange red sun_color[] = RGB(red, sun_color[].g, sun_color[].b)
+    # @in green = 0.0
+    # @onchange green sun_color[] = RGB(sun_color[].r, green, sun_color[].b)
+    # @in blue = 0.0
+    # @onchange blue sun_color[] = RGB(sun_color[].r, sun_color[].g, blue)
+    #
+    # @in sun_widt = 1
+    # @onchange sun_widt sun_width[] = sun_widt
+
 end myhandlers
 
 ui() = Html.div(
                 @on("keydown.a", "chosen=0"), @on("keydown.b", "chosen=1"), @on("keydown.c", "chosen=2"), @on("keydown.d", "chosen=3"), @on("keydown.e", "chosen=4"), @on("keydown.f", "chosen=5"), @on("keydown.g", "chosen=6"), @on("keydown.h", "chosen=7"), @on("keydown.i", "chosen=8"), @on("keydown.j", "chosen=9"), @on("keydown.k", "chosen=10"), @on("keydown.l", "chosen=11"), @on("keydown.m", "chosen=12"), @on("keydown.n", "chosen=13"), @on("keydown.o", "chosen=14"), @on("keydown.p", "chosen=15"), @on("keydown.q", "chosen=16"), @on("keydown.r", "chosen=17"), @on("keydown.s", "chosen=18"), @on("keydown.t", "chosen=19"), @on("keydown.u", "chosen=20"), @on("keydown.v", "chosen=21"), @on("keydown.w", "chosen=22"), @on("keydown.x", "chosen=23"), @on("keydown.y", "chosen=24"), @on("keydown.z", "chosen=25"),
-                [row([
-                      btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar"))
+                [
+        row([
+             h1("DancingQueen")
+            ])
+        row([
+             card(class="st-col col-12", 
+                  [
+                   row([
+                        imageview(src=:imageurl, basic=true, style="max-width: $(h)px")
+                       ])
+                   row([
+                        column(toggle(:recording_label, :recording_on), class = "col-sm st-module")
+                        column(btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar")), class = "col-sm st-module")
                      ])
-                 row([
-                      h1("DancingQueen")
-                     ])
-                 row([
-                      card(class="st-col col-12", 
-                           [
-                            row([
-                                 imageview(src=:imageurl, basic=true, style="max-width: $(h)px")
-                                ])
-                            row([
-                                 toggle(:recording_label, :recording_on)
-                                ])
-                           ])
-                     ])
-                 row([
-                      uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
-                     ])
-                 row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
-                ])
+
+                  ])
+            ])
+        tabgroup(:interface, 
+                 [
+                  tab(name="fromfile", label="Setting from file"),
+                  tab(name="two", label="Tab two")
+                 ])
+        tabpanelgroup(:interface,
+                      [
+                       tabpanel("settings from file", name = "fromfile", [
+                                                                 row([
+                                                                      uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
+                                                                     ])
+                                                                 row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
+                                                                ])
+                       tabpanel("Inside tab two", name = "two", [
+                                                                ])
+                      ])
+       ]
+)
 
 global model = init(FromFile, debounce = 0) |> myhandlers
 

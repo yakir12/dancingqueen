@@ -42,6 +42,7 @@ task = Threads.@spawn while isopen(cam)
     beetle[] = detection(img)
     update!(tsuns, beetle[])
     Threads.@spawn log_record(beetle[], tsuns...)
+    yield()
 end
 
 function set_suns(new_tsuns::Vector{TrackedSun})
