@@ -28,7 +28,6 @@ include("LEDs.jl")
 
 using .Detection, .Track, .LogBooks, .LEDs
 
-# export Sun # maybe remove?
 export LEDStrip, TrackedSun
 export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV, trackedsun_zero
 

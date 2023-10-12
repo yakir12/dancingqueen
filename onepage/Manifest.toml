@@ -237,10 +237,9 @@ uuid = "2e619515-83b5-522b-bb60-26c02a35a201"
 version = "2.5.0+0"
 
 [[deps.ExproniconLite]]
-deps = ["Pkg", "TOML"]
-git-tree-sha1 = "d80b5d5990071086edf5de9018c6c69c83937004"
+git-tree-sha1 = "637309d52dd9034af79c9df9b5f07a824e30ca2f"
 uuid = "55351af7-c7e9-48d6-89ff-24e801d99491"
-version = "0.10.3"
+version = "0.10.4"
 
 [[deps.EzXML]]
 deps = ["Printf", "XML2_jll"]
@@ -328,9 +327,9 @@ version = "2.2.0"
 
 [[deps.GenieDevTools]]
 deps = ["Dates", "Genie", "RemoteREPL", "Revise", "Stipple", "Tables"]
-git-tree-sha1 = "ec8b07b4fe25b52a14d0fde5ed2974cef5f0b16b"
+git-tree-sha1 = "162a6b530b69c37bfe8750dbb3d17fe16f15a908"
 uuid = "4e5d9629-6565-4102-a9ff-45c707eb060e"
-version = "2.5.0"
+version = "2.5.1"
 
 [[deps.GenieFramework]]
 deps = ["GarishPrint", "Genie", "GenieAutoReload", "GenieDevTools", "GeniePackageManager", "Reexport", "Revise", "Stipple", "StipplePlotly", "StippleUI"]

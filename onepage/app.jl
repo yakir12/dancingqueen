@@ -62,19 +62,16 @@ end
     @onchange chosen set_suns(setups[chosen + 1].tsuns)
 
     # TODO: fix the following GUI interface:
-    # @in link_facto = 0.0
-    # @onchange link_facto link_factor[] = link_facto
-    #
-    # @in red = 0.0
-    # @onchange red sun_color[] = RGB(red, sun_color[].g, sun_color[].b)
-    # @in green = 0.0
-    # @onchange green sun_color[] = RGB(sun_color[].r, green, sun_color[].b)
-    # @in blue = 0.0
-    # @onchange blue sun_color[] = RGB(sun_color[].r, sun_color[].g, blue)
-    #
-    # @in sun_widt = 1
-    # @onchange sun_widt sun_width[] = sun_widt
-
+    @in azimuth = 0.0
+    @in link_factor = 0.0
+    @in sun_width = 1
+    @in red = 0.0
+    @in green = 0.0
+    @in blue = 0.0
+    @onchange azimuth, link_factor, sun_width, red, green, blue begin
+        ts = [TrackedSun(deg2rad(azimuth), DancingQueen.Sun(link_factor, sun_width, RGB{N0f8}(red, green, blue)))]
+        set_suns(ts)
+    end
 end myhandlers
 
 ui() = Html.div(
@@ -99,7 +96,7 @@ ui() = Html.div(
         tabgroup(:interface, 
                  [
                   tab(name="fromfile", label="Setting from file"),
-                  tab(name="two", label="Tab two")
+                  tab(name="gui", label="GUI")
                  ])
         tabpanelgroup(:interface,
                       [
@@ -109,7 +106,39 @@ ui() = Html.div(
                                                                      ])
                                                                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                                                                 ])
-                       tabpanel("Inside tab two", name = "two", [
+                       tabpanel("settings from GUI", name = "gui", [
+
+                                                          row([
+                                                               h6("Azimuth")
+                                                               slider(range(0, 359, step=1.0), :azimuth, markers=true, labelalways=true)
+                                                              ])
+                                                          row([
+                                                               h6("Link factor")
+                                                               slider(range(-1, 1, length=21), :link_factor, markers=true, labelalways=true)
+                                                              ])
+                                                          row([
+                                                               h6("Sun color")
+                                                               card(class="st-col col-12",
+                                                                    [
+                                                                     row([
+                                                                          cell(size = 1, span("Red"))
+                                                                          cell(slider(range(0, 1, 256), :red, markers=true, label=true, color="red"))
+                                                                         ])
+                                                                     row([
+                                                                          cell(size = 1, span("Green"))
+                                                                          cell(slider(range(0, 1, 256), :green, markers=true, label=true, color="green"))
+                                                                         ])
+                                                                     row([
+                                                                          cell(size = 1, span("Blue"))
+                                                                          cell(slider(range(0, 1, 256), :blue, markers=true, label=true, color="blue"))
+                                                                         ])
+                                                                    ])
+                                                              ])
+                                                          row([
+                                                               h6("Sun width")
+                                                               slider(1:2:nleds, :sun_width, markers=true, label=true)
+                                                              ])
+
                                                                 ])
                       ])
        ]
@@ -127,3 +156,9 @@ route("/") do
 end
 
 up()
+
+if !isinteractive()
+    c = Condition()
+    wait(c)
+end
+
