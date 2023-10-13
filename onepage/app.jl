@@ -29,8 +29,11 @@ route("/settings", method = POST) do
     for file in files
         txt = String(last(file).data)
         _setups = try2settings(txt)
-        if _setups isa String
-            @warn _setups
+        if _setups isa JSONSchema.SingleIssue
+            io = IOBuffer()
+            show(io, _setups)
+            msg = string("<p>", replace(strip(String(take!(io))), "\n" => "</p><p>"), "</p>")
+            notify(model, msg, :negative, caption = "You have to first fix your setting.toml file", html=true)
         else
             set_suns(first(_setups).tsuns)
             model.setups[] = _setups
@@ -41,6 +44,7 @@ route("/settings", method = POST) do
     end
     return "Upload finished"
 end
+
 
 @app FromFile begin
     @out imageurl = "/frame"
