@@ -2,23 +2,49 @@ module LogBooks
 
 using Dates
 import Tar
+import ..Beetle
 
 export log_record, set_recording, get_recordings
 
 mutable struct LogBook
     io::IOStream
+    l::ReentrantLock
     recording::Bool
     function LogBook()
         io = open(tempname(), "w")
+        # println(io, "time,", get_fieldnames(Beetle), ",tsuns")
         close(io)
-        new(io, false)
+        l = ReentrantLock()
+        new(io, l, false)
     end
+end
+
+function get_fieldnames(T)
+    fields = String[]
+    for f in fieldnames(T)
+        R = fieldtype(T, f)
+        if isempty(fieldnames(R))
+            push!(fields, string(f))
+        else
+            push!(fields, get_fieldnames(R))
+        end
+    end
+    return join(fields, ",")
 end
 
 const logbook = LogBook()
 
-function log_record(args...)
-    logbook.recording && println(logbook.io, now(), ",", args...)
+log_record(::Nothing, _) = nothing
+
+function log_record(beetle, tsuns)
+    @info "logging start"
+    if logbook.recording 
+        @info "is recording"
+        @lock logbook.l println(logbook.io, now(), ",", log_print(beetle), ",\"", join(log_print.(tsuns), ","), "\"")
+        @info "done recording"
+    end
+    @info "logging end"
+    return nothing
 end
 
 function set_recording(is_recording)
