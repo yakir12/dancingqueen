@@ -4,7 +4,8 @@ using VideoIO, StaticArrays, Colors
 import Colors.N0f8
 
 const SV = SVector{2, Float64}
-const w, h = (720, 1280)
+const w, h = (480, 640)
+# const w, h = (720, 1280)
 const nleds = 100
 
 struct Beetle
@@ -31,6 +32,8 @@ using .Detection, .Track, .LogBooks, .LEDs
 export LEDStrip, TrackedSun
 export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV, trackedsun_zero
 
+# VideoIO.DEFAULT_CAMERA_DEVICE[] = "/dev/video2"
+
 const cam = opencamera()
 const img = read(cam)
 const beetle = Ref{Union{Nothing, Beetle}}(nothing)
@@ -41,6 +44,7 @@ task = Threads.@spawn while isopen(cam)
     beetle[] = detection(img)
     update!(tsuns, beetle[])
     Threads.@spawn log_record(beetle[], tsuns...)
+    sleep(0.001)
     yield()
 end
 
