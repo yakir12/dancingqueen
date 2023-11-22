@@ -44,6 +44,7 @@ const cam = opencamera()
 const img = read(cam)
 const beetle = Ref{Union{Nothing, Beetle}}(nothing)
 const tsuns = [trackedsun_zero()]
+const tsuns = [trackedsun_zero()]
 
 task = Threads.@spawn while isopen(cam)
     read!(cam, img)

@@ -15,6 +15,8 @@ struct LEDStrip
     color::RGB{N0f8}
 end
 
+
+
 α2index(α) = round(Int, nleds*α/2π + 0.5)
 
 function LEDStrip(ts::TrackedSun)

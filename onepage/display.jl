@@ -1,3 +1,6 @@
+module DisplayMonitor
+
+
 function get_indices(i1, i2)
     if i1 == i2
         [i1]
@@ -10,8 +13,8 @@ end
 
 topoint(p) = reverse(Tuple(round.(Int, p)))
 
-ImageDraw.draw!(img, ::Nothing) = nothing
-ImageDraw.draw!(img, b) = draw!(img, CirclePointRadius(Point(topoint(b.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
+drawbeetle!(img, ::Nothing) = nothing
+drawbeetle!(img, beetle) = draw!(img, CirclePointRadius(Point(topoint(beetle.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
 
 function ImageDraw.draw!(img, ls::LEDStrip)
     R = 0.45w
@@ -25,10 +28,12 @@ end
 function get_frame()
     img, beetle, tsuns = get_state()
     cimg = RGB.(deepcopy(img))
-    draw!(cimg, beetle)
+    drawbeetle!(cimg, beetle)
     for ts in tsuns
         ls = LEDStrip(ts)
         draw!(cimg, ls)
     end
     String(jpeg_encode(cimg))
+end
+
 end
