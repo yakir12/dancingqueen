@@ -1,13 +1,18 @@
 module Detection 
 
+import TOML
 using StaticArrays, AprilTags
-import ..Beetle, ..SV, ..w, ..h
+import ..Beetle, ..SV
 
 export detection
 
-tag_pixel_width = 100#135#45#37
+const prefs = TOML.parsefile("preferences.toml")
+
+w = prefs["camera"]["width"]
+h = prefs["camera"]["height"]
+tag_pixel_width = prefs["detection"]["tag_pixel_width"]
 const min_radius = tag_pixel_width/sqrt(2)
-const widen_radius = 15#15
+const widen_radius = prefs["detection"]["widen_radius"]
 const SVI = SVector{2, Int}
 const sz = SVI(w, h)
 

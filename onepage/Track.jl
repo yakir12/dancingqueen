@@ -23,7 +23,6 @@ mutable struct TrackedSun
     θ::Float64
     sun::Sun
 end
-log_print(ts::TrackedSun) = string(ts.θ, ",", log_print(ts.sun))
 
 trackedsun_zero() = TrackedSun(0, Sun(0, 1, zero(RGB{N0f8})))
 

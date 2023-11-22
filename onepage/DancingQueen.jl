@@ -1,21 +1,18 @@
 module DancingQueen
 
-using VideoIO, StaticArrays, Colors
-import Colors.N0f8
+import TOML
+using VideoIO, StaticArrays
+import ColorTypes: RGB, N0f8
+
+const prefs = TOML.parsefile("preferences.toml")
+const nleds = prefs["leds"]["n"]
 
 const SV = SVector{2, Float64}
-const w, h = (480, 640)
-# const w, h = (720, 1280)
-const nleds = 100
-
-log_print(c::SV) = string(c.x, ",", c.y)
 
 struct Beetle
     c::SV
     θ::Float64
 end
-
-log_print(b::Beetle) = string(log_print(b.c), ",", b.θ)
 
 struct Sun
     link_factor::Float64
@@ -26,17 +23,20 @@ struct Sun
     Sun(link_factor, width, color) = new(link_factor, width, color, (width - 1)*π/nleds)
 end
 
-log_print(s::Sun) = string(s.link_factor, ",", s.width, ",", s.color, ",", s.δ)
-
 include("Detection.jl")
+using .Detection
+
 include("Track.jl")
+using .Track
+
+# export TrackedSun
 include("LogBooks.jl")
+using .LogBooks
+
 include("LEDs.jl")
+using .LEDs
 
-using .Detection, .Track, .LogBooks, .LEDs
-
-export LEDStrip, TrackedSun
-export set_suns, set_recording, get_recordings, get_state, w, h, nleds, SV, trackedsun_zero
+export LEDStrip, set_suns, set_recording, get_recordings, get_state, SV, trackedsun_zero
 
 # VideoIO.DEFAULT_CAMERA_DEVICE[] = "/dev/video2"
 

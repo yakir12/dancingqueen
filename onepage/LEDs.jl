@@ -1,12 +1,13 @@
 module LEDs
 
-using Colors
-import Colors.N0f8
+import ColorTypes: RGB, N0f8
+import TOML
 using ..Track
 
 export LEDStrip
 
-import ..nleds
+const prefs = TOML.parsefile("preferences.toml")
+const nleds = prefs["leds"]["n"]
 
 struct LEDStrip
     i1::Int

@@ -1,0 +1,13 @@
+[camera]
+width=480
+height=640
+
+[client]
+fps = 10
+
+[detection]
+tag_pixel_width = 200
+widen_radius = 15
+
+[leds]
+n = 100

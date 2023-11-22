@@ -2,17 +2,21 @@ include("DancingQueen.jl")
 
 using .DancingQueen
 
-using TOML
-using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, Colors, JSONSchema, JSONSchema
-import Colors.N0f8
-
-include("display.jl")
-include("settings.jl")
+import TOML
+using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, JSONSchema, JSONSchema
+import ColorTypes: RGB, N0f8
 
 using GenieFramework
 @genietools
 
-const client_fps = 10
+const prefs = TOML.parsefile("preferences.toml")
+const client_fps =  prefs["client"]["fps"]
+const w = prefs["camera"]["width"]
+const h = prefs["camera"]["height"]
+const nleds = prefs["leds"]["n"]
+
+include("display.jl")
+include("settings.jl")
 
 isdir("data") || mkdir("data")
 
@@ -65,7 +69,6 @@ end
     @in chosen = 0
     @onchange chosen set_suns(setups[chosen + 1].tsuns)
 
-    # TODO: fix the following GUI interface:
     @in azimuth = 0.0
     @in link_factor = 0.0
     @in sun_width = 1
