@@ -9,5 +9,9 @@ fps = 10
 tag_pixel_width = 200
 widen_radius = 15
 
-[leds]
-n = 100
+
+[arena]
+nleds = 100
+ring_r = 350.3 # in cm
+origo_offset = [240, 320] # in pixels
+cm_per_pixel = 2.2

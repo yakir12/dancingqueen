@@ -2,27 +2,26 @@ module LEDs
 
 import ColorTypes: RGB, N0f8
 import TOML
-using ..Track
 
-export LEDStrip
+export LEDSun
 
 const prefs = TOML.parsefile("preferences.toml")
-const nleds = prefs["leds"]["n"]
+const nleds = prefs["arena"]["nleds"]
 
-struct LEDStrip
+struct LEDSun
     i1::Int
     i2::Int
     color::RGB{N0f8}
 end
 
-
-
-α2index(α) = round(Int, nleds*α/2π + 0.5)
-
-function LEDStrip(ts::TrackedSun)
-    i1 = α2index(mod(ts.θ - ts.sun.δ, 2π))
-    i2 = α2index(mod(ts.θ + ts.sun.δ, 2π))
-    LEDStrip(i1, i2, ts.sun.color)
+function Base.iterate(ls::LEDSun, state=ls.i1)
+    if ls.i2 < ls.i1
+        state > nleds + ls.i2 - 1 ? nothing : (1 + rem(state - 1, nleds - 1), state + 1)
+    else
+        state > ls.i2 ? nothing : (state, state + 1)
+    end
 end
+
+ledstrip_zero() = LEDSun(1, 1, zero(RGB{N0f8}))
 
 end

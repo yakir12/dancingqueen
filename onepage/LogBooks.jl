@@ -2,7 +2,7 @@ module LogBooks
 
 using Dates
 import Tar
-import ..Beetle, ..Track, ..SV, ..Sun, ..TrackedSun, ..RGB
+import ..Beetle, ..Track, ..SV, ..Sun, ..LEDSun, ..RGB
 
 export log_record, set_recording, get_recordings
 
@@ -12,9 +12,9 @@ log_print(b::Beetle) = string(log_print(b.c), ",", b.θ)
 
 log_print(c::RGB) = string(Int(reinterpret(c.r)), ",", Int(reinterpret(c.g)), ",", Int(reinterpret(c.b)))
 
-log_print(s::Sun) = string(s.link_factor, ",", s.width, ",", log_print(s.color), ",", s.δ)
+# log_print(s::Sun) = string(s.link_factor, ",", s.width, ",", log_print(s.color), ",", s.δ)
 
-log_print(ts::TrackedSun) = string(ts.θ, ",", log_print(ts.sun))
+log_print(ls::LEDSun) = string(ls.i1, ",", ls.i2, ",", log_print(ls.color))
 
 mutable struct LogBook
     io::IOStream
@@ -43,9 +43,9 @@ const logbook = LogBook()
 
 log_record(::Nothing, _) = nothing
 
-function log_record(beetle, tsuns)
+function log_record(beetle, leds)
     if logbook.recording 
-        println(logbook.io, now(), ",", log_print(beetle), ",\"", join(log_print.(tsuns), ","), "\"")
+        println(logbook.io, now(), ",", log_print(beetle), ",\"", join(log_print.(leds), ","), "\"")
     end
     return nothing
 end
@@ -56,7 +56,7 @@ function set_recording(is_recording)
         logbook.io = open(file, "w")
         preamble = read("preferences.toml", String)
         print(logbook.io, preamble)
-        println(logbook.io, "time,x,y,θ,tsuns")
+        println(logbook.io, "time,x,y,θ,leds")
         logbook.recording = true
     else
         logbook.recording = false

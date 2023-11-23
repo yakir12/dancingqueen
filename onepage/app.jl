@@ -3,7 +3,8 @@ include("DancingQueen.jl")
 using .DancingQueen
 
 import TOML
-using ImageDraw, CoordinateTransformations, Rotations, JpegTurbo, JSONSchema, JSONSchema
+# using CoordinateTransformations, Rotations, JpegTurbo, 
+using JSONSchema, JSONSchema
 import ColorTypes: RGB, N0f8
 
 using GenieFramework
@@ -13,9 +14,11 @@ const prefs = TOML.parsefile("preferences.toml")
 const client_fps =  prefs["client"]["fps"]
 const w = prefs["camera"]["width"]
 const h = prefs["camera"]["height"]
-const nleds = prefs["leds"]["n"]
+const nleds = prefs["arena"]["nleds"]
 
-include("display.jl")
+include("DisplayMonitor.jl")
+using .DisplayMonitor
+
 include("settings.jl")
 
 isdir("data") || mkdir("data")
