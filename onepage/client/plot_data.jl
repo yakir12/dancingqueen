@@ -1,28 +1,4 @@
 using GLMakie, Statistics
-using CoordinateTransformations, StaticArrays
-
-const SV = SVector{2, Float64}
-
-const nleds = prefs["arena"]["nleds"]
-const w = prefs["camera"]["width"]
-const h = prefs["camera"]["height"]
-const ring_r = 10prefs["arena"]["ring_r"] # in cm
-const origo_offset = SV(prefs["arena"]["origo_offset"]...) # in pixels
-const cm_per_pixel = prefs["arena"]["cm_per_pixel"]
-
-function index2coordinate(index)
-    θ = 2π/nleds*index
-    ring_r*Point2f(reverse(sincos(θ)))
-end
-
-function image2readworld(x, y)
-    xy = Point2f(x, y)
-    xy -= origo_offset # offset to center
-    xy *= cm_per_pixel # scale to real world coordinates
-    return xy
-end
-
-transform!(df, [:x, :y] => ByRow(image2readworld) => :positions)
 
 
 # topoint(p) = reverse(Tuple(round.(Int, p)))
@@ -42,8 +18,10 @@ positions = Observable([zero(Point2f)])
 rotations = Observable(0.0)
 scatter!(ax, positions; color = :red, markerspace=:data, markersize=ring_r/10, marker = '→', rotations)
 sun_positions = Observable([zero(Point2f)])
+sun_centers = Observable([zero(Point2f)])
 color = Observable([zero(RGB{N0f8})])
 scatter!(ax, sun_positions; color)
+scatter!(ax, sun_centers; color=:black)
 sg = SliderGrid(fig[2, 1],
                 (label = "Time", range = 0:Dates.value(df.time[end] - df.time[1]), startvalue = 0, format = ms -> string(df.time[1] + Millisecond(ms)))
 )
@@ -53,13 +31,20 @@ on(sg.sliders[1].value) do ms
     rotations[] = df.θ[i]
     empty!(sun_positions[])
     empty!(color[])
-    for leds in df.leds[i], j in leds
-        xy = index2coordinate(j)
-        push!(sun_positions[], xy)
-        push!(color[], leds.color)
+    empty!(sun_centers[])
+    for leds in df.leds[i]
+        for j in leds
+            xy = index2coordinate(j)
+            push!(sun_positions[], xy)
+            push!(color[], leds.color)
+        end
+        c = center(leds)
+        xy = index2coordinate(c)
+        push!(sun_centers[], xy)
     end
     notify(sun_positions)
     notify(color)
+    notify(sun_centers)
 end
 display(fig)
 

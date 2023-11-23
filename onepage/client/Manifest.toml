@@ -2,7 +2,7 @@
 
 julia_version = "1.10.0-rc1"
 manifest_format = "2.0"
-project_hash = "ba9cd75a4839262b9d7abeea5a4b33b28aa2e2d1"
+project_hash = "c7a8921e0f63c24064517fabc6d91be70cdbe0f9"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -34,6 +34,12 @@ weakdeps = ["StaticArrays"]
 
     [deps.Adapt.extensions]
     AdaptStaticArraysExt = "StaticArrays"
+
+[[deps.AngleBetweenVectors]]
+deps = ["LinearAlgebra", "Test"]
+git-tree-sha1 = "7f45b5788f4800959a352b5e2c5fdebacf09627c"
+uuid = "ec570357-d46e-52ed-9726-18773498274d"
+version = "0.3.0"
 
 [[deps.Animations]]
 deps = ["Colors"]
