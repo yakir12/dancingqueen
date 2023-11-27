@@ -56,7 +56,7 @@ function set_recording(is_recording)
         logbook.io = open(file, "w")
         preamble = read("preferences.toml", String)
         print(logbook.io, preamble)
-        println(logbook.io, "time,x,y,θ,leds")
+        println(logbook.io, "datetime,x,y,θ,leds")
         logbook.recording = true
     else
         logbook.recording = false

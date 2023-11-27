@@ -12,6 +12,6 @@ widen_radius = 15
 
 [arena]
 nleds = 100
-ring_r = 350.3 # in cm
+ring_r = 3500.3 # in cm
 origo_offset = [240, 320] # in pixels
 cm_per_pixel = 2.2

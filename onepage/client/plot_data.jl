@@ -7,6 +7,8 @@ using GLMakie, Statistics
 # ImageDraw.draw!(img, b) = draw!(img, CirclePointRadius(Point(topoint(b.c)), round(Int, 0.01max(w, h))), RGB{N0f8}(1, 0, 1))
 
 
+file = last(readdir("../data", join=true))
+df = get_df(file)
 
 fig = Figure()
 ax = Axis(fig[1,1], aspect = AxisAspect(1), alignmode=Inside())
