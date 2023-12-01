@@ -2,7 +2,7 @@
 
 julia_version = "1.10.0-rc1"
 manifest_format = "2.0"
-project_hash = "0a57c450cf0e9a405b16c6c93316497a12ad6f1c"
+project_hash = "39f46c399e130f4b4ceb6d26455226dafda7b7c5"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -90,12 +90,6 @@ version = "0.12.10"
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
 version = "1.0.5+1"
-
-[[deps.DancingQueen]]
-deps = ["AprilTags", "ColorTypes", "Dates", "JSON3", "JSONSchema", "Observables", "Preferences", "StaticArrays", "TOML", "Tar", "VideoIO"]
-path = "DancingQueen"
-uuid = "94a9f6fe-37a1-4f65-b230-65a521849305"
-version = "0.1.0"
 
 [[deps.Dates]]
 deps = ["Printf"]

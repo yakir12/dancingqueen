@@ -1,0 +1,33 @@
+[camera]
+width=480
+height=640
+
+[client]
+fps = 10
+
+[detection]
+tag_pixel_width = 200
+widen_radius = 15
+
+[arena]
+nleds = 100
+ring_r = 3500.3 # in cm
+origo_offset = [240, 320] # in pixels
+cm_per_pixel = 2.2
+
+[setup]
+label = "Off"
+key = "a"
+
+    [[setup.suns]]
+    link_factor = 0
+    r = 0
+    width = 1
+    "θ" = 0
+
+        [setup.suns.color]
+        g = 0
+        b = 0
+        r = 0
+
+datetime,x,y,θ,start1, stop1, red1, green1, blue1
