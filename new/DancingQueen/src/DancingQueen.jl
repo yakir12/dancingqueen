@@ -1,15 +1,13 @@
 module DancingQueen
 
 using Dates
-using Observables, StaticArrays, AprilTags, JSONSchema, JSON3, VideoIO, Preferences
-import TOML, Tar
+using Observables, StaticArrays, AprilTags, JSON3, VideoIO, ImageDraw
+import TOML
 import ColorTypes: RGB, N0f8
-# Observables, StaticArrays, AprilTags, JSONSchema, JSON3, VideoIO, TOML, Tar, ColorTypes, Dates
 
 export start
 
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
-const path2schema = joinpath(@__DIR__, "..", "schema.json")
 const path2data = joinpath(@__DIR__, "..", "..", "data")
 const prefs = TOML.parsefile(path2preferences)
 const nleds = prefs["arena"]["nleds"]
@@ -18,44 +16,28 @@ const h = prefs["camera"]["height"]
 
 const Color = RGB{N0f8}
 const SV = SVector{2, Float64}
+const SVI = SVector{2, Int}
+const sz = SVI(w, h)
 
-struct Beetle
-    c::SV
-    θ::Float64
-end
-Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
-
-include("detection.jl")
+include("structs.jl")
 
 const detector = Ref{DetectoRect}()
-
 function __init__()
     detector[] = DetectoRect()
 end
 
-mutable struct Sun
-    link_factor::Float64
-    width::Int
-    color::Color
-    θ::Float64
-    r::Int
-    Sun(link_factor, width, color, θ) = new(link_factor, width, color, θ, (width - 1)/2)
-end
-Base.zero(::Type{Sun}) = Sun(0, 1, zero(Color), 0)
-
-struct Setup
-    label::String
-    key::Char
-    suns::Vector{Sun}
-end
-Base.zero(::Type{Setup}) = Setup("Off", 'a', [zero(Sun)])
-
+include("detection.jl")
 include("tracking.jl")
 include("leds.jl")
 include("logs.jl")
+include("display.jl")
+include("settings.jl")
 
 function connect()
-    setups = Observable([zero(Setup)])
+    setups_dict = Observable(Dict("setups" => [JSON3.read(JSON3.write(zero(Setup)), Dict)]))
+    setups = map(setups_dict) do dict
+        Setup.(dict["setups"])
+    end
     chosen = map(_ -> 1, setups)
     setup = map(i -> setups[][i], chosen)
     logbook = Ref(LogBook())
@@ -83,13 +65,13 @@ function connect()
         log!(logbook[], beetle[], leds)
     end
 
-    return (setups, chosen, img, beetle, leds)
+    get_frame() = _get_frame(img[], beetle[], leds[])
+
+    return (setups_dict, chosen, img, get_frame)
 end
 
 function start()
-    aa = @load_preference("a", 33)
-    @show aa
-    setups, chosen, img, beetle, leds = connect()
+    setups_dict, chosen, img, get_frame = connect()
     cam = opencamera()
     task = Threads.@spawn while isopen(cam)
         read!(cam, img[])
@@ -97,7 +79,7 @@ function start()
         sleep(0.001)
         yield()
     end
-    return (setups, chosen, img, beetle, leds)
+    return (task, setups_dict, chosen, get_frame)
 end
 
 end # module DancingQueen

@@ -3,7 +3,6 @@ Each setup should have a label and at least 1 sun. The label cannot be `Off` (th
 
 See the [`settings.toml` file](settings.toml) for example.
 """
-const schema = Schema(read("schema.json", String))
 
 tocolor(c::Int) = reinterpret(N0f8, UInt8(c))
 
@@ -15,21 +14,5 @@ function Sun(d::AbstractDict)
     Sun(link_factor, width, color, θ)
 end
 
-Setup(key, d::AbstractDict) = Setup(d["label"], key, Sun.(d["suns"]))
+Setup(d::AbstractDict) = Setup(d["label"], Sun.(d["suns"]))
 
-function try2settings(settings)
-    dict = TOML.parse(settings)
-    msg = validate(schema, dict)
-    if !isnothing(msg)
-        return msg
-    else
-        setups = splat(Setup).(zip('b':'z', dict["setups"]))
-        pushfirst!(setups, zero(Setup))
-        return setups
-    end
-end
-
-# txt = read("settings.toml", String)
-# dict = TOML.parse(txt)
-# schem = Schema(read("schema.json", String))
-# msg = validate(schem, dict)

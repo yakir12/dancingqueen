@@ -1,9 +1,6 @@
 [camera]
-width=480
-height=640
-
-[client]
-fps = 10
+width=720#480
+height=1280#640
 
 [detection]
 tag_pixel_width = 200
@@ -16,18 +13,21 @@ origo_offset = [240, 320] # in pixels
 cm_per_pixel = 2.2
 
 [setup]
-label = "Off"
-key = "a"
+label = "One stationary green sun"
 
     [[setup.suns]]
     link_factor = 0
-    r = 0
     width = 1
     "θ" = 0
+    r = 0
 
         [setup.suns.color]
-        g = 0
-        b = 0
         r = 0
+        g = 1
+        b = 0
 
-datetime,x,y,θ,start1, stop1, red1, green1, blue1
+[experiment]
+datetime = 2023-12-01T15:57:40.774Z
+
+ms,x,y,θ,start1,stop1,red1,green1,blue1
+1122,,,,1,1,0,255,0

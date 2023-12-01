@@ -1,0 +1,1871 @@
+┌ Info: 2023-12-01 14:10:14 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:11:44 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:12:07 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:12:10 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:12:11 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 14:12:24 UndefVarError: `h` not defined
+│ Stacktrace:
+│   [1] ui()
+│     @ Main ~/from github/dancingqueen/new/main.jl:86
+│   [2] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [3] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│   [4] normal_element(f::Function, elem::String, args::Vector{Any}, attrs::Vector{Pair{Symbol, Any}})
+│     @ Genie.Renderer.Html ~/.julia/packages/Genie/7wIt2/src/renderers/Html.jl:137
+│   [5] div(::Function; attrs::@Kwargs{id::String, class::String})
+│     @ Genie.Renderer.Html ./none:2
+│   [6] div
+│     @ ./none:1 [inlined]
+│   [7] page(model::var"##FromFile!#225", args::typeof(ui); partial::Bool, title::String, class::String, style::String, channel::String, head_content::String, prepend::String, append::Vector{Any}, core_theme::Bool, kwargs::@Kwargs{})
+│     @ Stipple.Layout ~/.julia/packages/Stipple/TytHs/src/Layout.jl:90
+│   [8] page(model::var"##FromFile!#225", args::Function)
+│     @ Stipple.Layout ~/.julia/packages/Stipple/TytHs/src/Layout.jl:84
+│   [9] (::var"#18#19")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:114
+│  [10] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│  [11] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│  [12] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│  [13] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│  [14] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│  [15] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│  [16] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [17] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [18] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [19] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [20] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [21] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [22] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [23] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [24] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [25] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [26] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [27] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [28] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [29] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [30] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [31] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 14:13:58 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:14:00 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:14:01 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 14:14:19 UndefVarError: `client_fps` not defined
+│ Stacktrace:
+│   [1] js_created(model::var"##FromFile!#225")
+│     @ Main ~/from github/dancingqueen/new/main.jl:110
+│   [2] render(app::var"##FromFile!#225")
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/stipple/rendering.jl:147
+│   [3] |>(x::var"##FromFile!#225", f::typeof(Stipple.render))
+│     @ Base ./operators.jl:917
+│   [4] vue_integration(::Type{FromFile}; vue_app_name::String, core_theme::Bool, debounce::Int64, transport::Module)
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:60
+│   [5] vue_integration
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:52 [inlined]
+│   [6] (::Stipple.var"#58#60"{FromFile, String, Int64, Bool, Module})()
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/Stipple.jl:562
+│   [7] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [8] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [9] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│  [11] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│  [12] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│  [13] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [14] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [15] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [16] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [17] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [18] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [19] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [21] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [22] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [23] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [24] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [28] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:14:20 UndefVarError: `client_fps` not defined
+│ Stacktrace:
+│   [1] js_created(model::var"##FromFile!#225")
+│     @ Main ~/from github/dancingqueen/new/main.jl:110
+│   [2] render(app::var"##FromFile!#225")
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/stipple/rendering.jl:147
+│   [3] |>(x::var"##FromFile!#225", f::typeof(Stipple.render))
+│     @ Base ./operators.jl:917
+│   [4] vue_integration(::Type{FromFile}; vue_app_name::String, core_theme::Bool, debounce::Int64, transport::Module)
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:60
+│   [5] vue_integration
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:52 [inlined]
+│   [6] (::Stipple.var"#58#60"{FromFile, String, Int64, Bool, Module})()
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/Stipple.jl:562
+│   [7] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [8] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [9] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│  [11] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│  [12] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│  [13] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [14] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [15] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [16] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [17] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [18] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [19] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [21] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [22] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [23] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [24] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [28] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 14:16:18 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Error: 2023-12-01 14:16:18 UndefVarError: `client_fps` not defined
+│ Stacktrace:
+│   [1] js_created(model::var"##FromFile!#225")
+│     @ Main ~/from github/dancingqueen/new/main.jl:110
+│   [2] render(app::var"##FromFile!#225")
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/stipple/rendering.jl:147
+│   [3] |>(x::var"##FromFile!#225", f::typeof(Stipple.render))
+│     @ Base ./operators.jl:917
+│   [4] vue_integration(::Type{FromFile}; vue_app_name::String, core_theme::Bool, debounce::Int64, transport::Module)
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:60
+│   [5] vue_integration
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:52 [inlined]
+│   [6] (::Stipple.var"#58#60"{FromFile, String, Int64, Bool, Module})()
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/Stipple.jl:562
+│   [7] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [8] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [9] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│  [11] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│  [12] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│  [13] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [14] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [15] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [16] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [17] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [18] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [19] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [21] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [22] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [23] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [24] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [28] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:16:18 UndefVarError: `client_fps` not defined
+│ Stacktrace:
+│   [1] js_created(model::var"##FromFile!#225")
+│     @ Main ~/from github/dancingqueen/new/main.jl:110
+│   [2] render(app::var"##FromFile!#225")
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/stipple/rendering.jl:147
+│   [3] |>(x::var"##FromFile!#225", f::typeof(Stipple.render))
+│     @ Base ./operators.jl:917
+│   [4] vue_integration(::Type{FromFile}; vue_app_name::String, core_theme::Bool, debounce::Int64, transport::Module)
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:60
+│   [5] vue_integration
+│     @ Stipple.Elements ~/.julia/packages/Stipple/TytHs/src/Elements.jl:52 [inlined]
+│   [6] (::Stipple.var"#58#60"{FromFile, String, Int64, Bool, Module})()
+│     @ Stipple ~/.julia/packages/Stipple/TytHs/src/Stipple.jl:562
+│   [7] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [8] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [9] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│  [11] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│  [12] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│  [13] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [14] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [15] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [16] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [17] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [18] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [19] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [21] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [22] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [23] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [24] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [28] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 14:17:18 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:17:37 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:17:57 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:17:59 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:18:00 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 14:22:02 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:22:02 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:22:56 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:22:58 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:22:59 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 14:29:03 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:29:05 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:29:06 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 14:31:39 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:31:42 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:31:43 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 14:37:52 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:37:55 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:37:56 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 14:38:41 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:39:13 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 14:39:43 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:39:45 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:39:46 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 14:39:56 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:39:58 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:39:58 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:39:58 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:01 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:02 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:03 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Error: 2023-12-01 14:40:04 MethodError: no method matching respond(::Vector{UInt8}, ::Symbol)
+│ 
+│ Closest candidates are:
+│   respond(!Matched::String, ::Union{String, Symbol}, !Matched::Int64)
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::String, ::Union{String, Symbol})
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:247
+│   respond(!Matched::T, ::Union{String, Symbol}) where T<:Exception
+│    @ Genie ~/.julia/packages/Genie/7wIt2/src/Renderer.jl:242
+│   ...
+│ 
+│ Stacktrace:
+│   [1] (::var"#9#10")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:21
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 14:41:22 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:41:24 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:41:25 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 14:42:34 UndefVarError: `settings` not defined
+│ Stacktrace:
+│   [1] (::var"#13#14")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:41
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 14:59:25 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 14:59:28 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 14:59:29 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 15:00:28 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#18":
+│  [1] (::var"#18#19")(chosen)
+│      @ ~/.julia/packages/Stipple/TytHs/src/ReactiveTools.jl:908
+│   Core.CodeInfo[CodeInfo(
+│ 1 ─ %1 = Core.getfield(#self#, :__model__)
+│ │   %2 = Base.getproperty(%1, :chosen)
+│ │   %3 = Base.getindex(%2)
+│ │        Base.setindex!(%3, chosen)
+│ └──      return chosen
+│ )]
+│ 
+│   Type of argument:
+│   Int64
+│ 
+│   Value:
+│   1
+│ 
+│   Exception:
+│   MethodError(setindex!, (1, 1), 0x0000000000007b91)
+│ 
+│   exception = (MethodError(setindex!, (1, 1), 0x0000000000007b91), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f2fbbc3e9d6, Ptr{Nothing} @0x00007f2fbbc45185, Ptr{Nothing} @0x00007f2fbbc46f95, Ptr{Nothing} @0x00007f2f4bdf0bca, Ptr{Nothing} @0x00007f2f4bdf0bf8, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2fbbc56f18, Ptr{Nothing} @0x00007f2f4bdf005e, Ptr{Nothing} @0x00007f2f4bdf0ad9, Ptr{Nothing} @0x00007f2f4bdf0b23, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2f4bdefdd1, Ptr{Nothing} @0x00007f2f4bdefea7, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2f4bddb61f, Ptr{Nothing} @0x00007f2f4bddb8e2, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2f4bdd628c, Ptr{Nothing} @0x00007f2f4bdd66eb, Ptr{Nothing} @0x00007f2f4bdd675a, Ptr{Nothing} @0x00007f2f4bdd6799, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2f4bdc53fd, Ptr{Nothing} @0x00007f2f4bdc5452, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2fbbc56f18, Ptr{Nothing} @0x00007f2fbb7ed903, Ptr{Nothing} @0x00007f2fbb7edd02, Ptr{Nothing} @0x00007f2fbb7f4af7, Ptr{Nothing} @0x00007f2fbb7fda61, Ptr{Nothing} @0x00007f2fbb7fdbb5, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2fbbc56f18, Ptr{Nothing} @0x00007f2fbb7e87b3, Ptr{Nothing} @0x00007f2fbb7eb0b6, Ptr{Nothing} @0x00007f2fbb7eb1a2, Ptr{Nothing} @0x00007f2fbbc4697d, Ptr{Nothing} @0x00007f2fbbc69d5f])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/TytHs/src/stipple/mutators.jl:54
+┌ Info: 2023-12-01 15:03:09 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:03:11 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:03:12 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 15:05:22 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#18":
+│  [1] (::var"#18#19")(chosen)
+│      @ ~/.julia/packages/Stipple/TytHs/src/ReactiveTools.jl:908
+│   Core.CodeInfo[CodeInfo(
+│ 1 ─     Base.setindex!(Main.chosen_setup, chosen)
+│ └──     return chosen
+│ )]
+│ 
+│   Type of argument:
+│   Int64
+│ 
+│   Value:
+│   2
+│ 
+│   Exception:
+│   MethodError(DancingQueen.log_print, (nothing,), 0x0000000000007b8f)
+│ 
+│   exception = (MethodError(DancingQueen.log_print, (nothing,), 0x0000000000007b8f), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f41e063e9d6, Ptr{Nothing} @0x00007f41e0645185, Ptr{Nothing} @0x00007f41e0646f95, Ptr{Nothing} @0x00007f41715deec1, Ptr{Nothing} @0x00007f41715deeff, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e012d542, Ptr{Nothing} @0x00007f41e0168175, Ptr{Nothing} @0x00007f41e01681b5, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e012d542, Ptr{Nothing} @0x00007f41e0168175, Ptr{Nothing} @0x00007f41e01681b5, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e012d542, Ptr{Nothing} @0x00007f41e0168175, Ptr{Nothing} @0x00007f41e01681b5, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e012d542, Ptr{Nothing} @0x00007f41e012d750, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41715e482d, Ptr{Nothing} @0x00007f41715e4878, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41715e3cce, Ptr{Nothing} @0x00007f41715e4749, Ptr{Nothing} @0x00007f41715e4793, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41715e3a41, Ptr{Nothing} @0x00007f41715e3b17, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41715c44df, Ptr{Nothing} @0x00007f41715c47a2, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f417154d50c, Ptr{Nothing} @0x00007f417154d96b, Ptr{Nothing} @0x00007f417154d9da, Ptr{Nothing} @0x00007f417154da19, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f417153c66d, Ptr{Nothing} @0x00007f417153c6c2, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e01ed363, Ptr{Nothing} @0x00007f41e01ed762, Ptr{Nothing} @0x00007f41e01f4557, Ptr{Nothing} @0x00007f41e01fd4c1, Ptr{Nothing} @0x00007f41e01fd615, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0656f18, Ptr{Nothing} @0x00007f41e01e81fa, Ptr{Nothing} @0x00007f41e01eab66, Ptr{Nothing} @0x00007f41e01eac52, Ptr{Nothing} @0x00007f41e064697d, Ptr{Nothing} @0x00007f41e0669d5f])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/TytHs/src/stipple/mutators.jl:54
+┌ Info: 2023-12-01 15:06:46 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:07:25 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:07:28 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:07:29 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:08:36 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:08:36 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:09:11 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:09:13 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:09:14 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:17:57 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:18:00 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:18:00 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:20:06 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:20:06 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:20:29 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:20:32 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:20:33 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:34:31 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:34:34 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:34:35 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:45:52 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:46:43 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:46:46 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:46:47 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 15:47:32 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#18":
+│  [1] (::var"#18#19")(chosen)
+│      @ ~/.julia/packages/Stipple/TytHs/src/ReactiveTools.jl:908
+│   Core.CodeInfo[CodeInfo(
+│ 1 ─ %1 = chosen + 1
+│ │        Base.setindex!(Main.chosen_setup, %1)
+│ └──      return %1
+│ )]
+│ 
+│   Type of argument:
+│   Int64
+│ 
+│   Value:
+│   2
+│ 
+│   Exception:
+│   MethodError(TOML.Internals.Printer.print, (IOStream(<file /home/yakir/from github/dancingqueen/new/DancingQueen/src/../../data/2023-12-01T15:47:31.548 Two different suns.log>), Dict{String, Dict{String, Any}}("setup" => Dict("label" => "Two different suns", "suns" => Any[Dict{String, Any}("link_factor" => 1.5, "color" => Dict{String, Any}("g" => 1, "b" => 0, "r" => 0.39215686274509803), "r" => 5, "width" => 11, "θ" => 1.5707963267948966), Dict{String, Any}("link_factor" => -0.8, "color" => Dict{String, Any}("g" => 0.5019607843137255, "b" => 1, "r" => 0.1607843137254902), "r" => 1, "width" => 3, "θ" => 3.141592653589793)])), "datetime" => DateTime("2023-12-01T15:47:31.548")), 0x0000000000007b8f)
+│ 
+│   exception = (MethodError(TOML.Internals.Printer.print, (IOStream(<file /home/yakir/from github/dancingqueen/new/DancingQueen/src/../../data/2023-12-01T15:47:31.548 Two different suns.log>), Dict{String, Dict{String, Any}}("setup" => Dict("label" => "Two different suns", "suns" => Any[Dict{String, Any}("link_factor" => 1.5, "color" => Dict{String, Any}("g" => 1, "b" => 0, "r" => 0.39215686274509803), "r" => 5, "width" => 11, "θ" => 1.5707963267948966), Dict{String, Any}("link_factor" => -0.8, "color" => Dict{String, Any}("g" => 0.5019607843137255, "b" => 1, "r" => 0.1607843137254902), "r" => 1, "width" => 3, "θ" => 3.141592653589793)])), "datetime" => DateTime("2023-12-01T15:47:31.548")), 0x0000000000007b8f), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f1e8f43e9d6, Ptr{Nothing} @0x00007f1e8f445185, Ptr{Nothing} @0x00007f1e8f446f95, Ptr{Nothing} @0x00007f1e183f1b40, Ptr{Nothing} @0x00007f1e183f1c8c, Ptr{Nothing} @0x00007f1e183f1cb5, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f456f18, Ptr{Nothing} @0x00007f1e8f2d1ff2, Ptr{Nothing} @0x00007f1e8f2f76d5, Ptr{Nothing} @0x00007f1e8f2f7715, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f456f18, Ptr{Nothing} @0x00007f1e8f2d1ff2, Ptr{Nothing} @0x00007f1e8f2d2200, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e183f8c61, Ptr{Nothing} @0x00007f1e183f8ca8, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f456f18, Ptr{Nothing} @0x00007f1e183f80fe, Ptr{Nothing} @0x00007f1e183f8b79, Ptr{Nothing} @0x00007f1e183f8bc3, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e183f7e71, Ptr{Nothing} @0x00007f1e183f7f47, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e183dd2ef, Ptr{Nothing} @0x00007f1e183dd5b2, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e183d1ee8, Ptr{Nothing} @0x00007f1e183d236b, Ptr{Nothing} @0x00007f1e183d23da, Ptr{Nothing} @0x00007f1e183d2419, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e183bc63d, Ptr{Nothing} @0x00007f1e183bc692, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f456f18, Ptr{Nothing} @0x00007f1e8f37ccc3, Ptr{Nothing} @0x00007f1e8f37d0c2, Ptr{Nothing} @0x00007f1e18305069, Ptr{Nothing} @0x00007f1e1830dfb1, Ptr{Nothing} @0x00007f1e1830e105, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f456f18, Ptr{Nothing} @0x00007f1e8f377b73, Ptr{Nothing} @0x00007f1e8f37a4c6, Ptr{Nothing} @0x00007f1e8f37a5b2, Ptr{Nothing} @0x00007f1e8f44697d, Ptr{Nothing} @0x00007f1e8f469d5f])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/TytHs/src/stipple/mutators.jl:54
+┌ Info: 2023-12-01 15:49:03 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:49:28 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:49:30 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:49:31 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 15:53:03 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:53:03 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:53:29 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:53:31 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:53:32 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 15:54:54 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#18":
+│  [1] (::var"#18#19")(chosen)
+│      @ ~/.julia/packages/Stipple/TytHs/src/ReactiveTools.jl:908
+│   Core.CodeInfo[CodeInfo(
+│ 1 ─ %1 = chosen + 1
+│ │        Base.setindex!(Main.chosen_setup, %1)
+│ └──      return %1
+│ )]
+│ 
+│   Type of argument:
+│   Int64
+│ 
+│   Value:
+│   1
+│ 
+│   Exception:
+│   MethodError(Dict, ("setup" => {
+│    "label": "One stationary green sun",
+│     "suns": [
+│               {
+│                  "link_factor": 0,
+│                        "width": 1,
+│                        "color": {
+│                                    "r": 0,
+│                                    "g": 1,
+│                                    "b": 0
+│                                 },
+│                            "θ": 0,
+│                            "r": 0
+│               }
+│             ]
+│ }, Dict("experiment" => Dict("datetime" => DateTime("2023-12-01T15:54:52.910")))), 0x0000000000007b8f)
+│ 
+│   exception = (MethodError(Dict, ("setup" => {
+   "label": "One stationary green sun",
+    "suns": [
+              {
+                 "link_factor": 0,
+                       "width": 1,
+                       "color": {
+                                   "r": 0,
+                                   "g": 1,
+                                   "b": 0
+                                },
+                           "θ": 0,
+                           "r": 0
+              }
+            ]
+}, Dict("experiment" => Dict("datetime" => DateTime("2023-12-01T15:54:52.910")))), 0x0000000000007b8f), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f854683e9d6, Ptr{Nothing} @0x00007f8546845185, Ptr{Nothing} @0x00007f8546846f95, Ptr{Nothing} @0x00007f84cf9ed41c, Ptr{Nothing} @0x00007f84cf9ed56c, Ptr{Nothing} @0x00007f84cf9ed595, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546856f18, Ptr{Nothing} @0x00007f8546352e72, Ptr{Nothing} @0x00007f8546378555, Ptr{Nothing} @0x00007f8546378595, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546856f18, Ptr{Nothing} @0x00007f8546352e72, Ptr{Nothing} @0x00007f8546353080, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f84cf9f4541, Ptr{Nothing} @0x00007f84cf9f4588, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546856f18, Ptr{Nothing} @0x00007f84cf9f39de, Ptr{Nothing} @0x00007f84cf9f4459, Ptr{Nothing} @0x00007f84cf9f44a3, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f84cf9f3751, Ptr{Nothing} @0x00007f84cf9f3827, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f84cf9d4b3f, Ptr{Nothing} @0x00007f84cf9d4e02, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f84cf95d3e8, Ptr{Nothing} @0x00007f84cf95d867, Ptr{Nothing} @0x00007f84cf95d8ca, Ptr{Nothing} @0x00007f84cf95d909, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f84cf94c48d, Ptr{Nothing} @0x00007f84cf94c4e2, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546856f18, Ptr{Nothing} @0x00007f84cf902763, Ptr{Nothing} @0x00007f84cf902b62, Ptr{Nothing} @0x00007f84cf909941, Ptr{Nothing} @0x00007f84cf90dd24, Ptr{Nothing} @0x00007f84cf90de75, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546856f18, Ptr{Nothing} @0x00007f85463f87ba, Ptr{Nothing} @0x00007f85463fb0b6, Ptr{Nothing} @0x00007f85463fb1a2, Ptr{Nothing} @0x00007f854684697d, Ptr{Nothing} @0x00007f8546869d5f])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/TytHs/src/stipple/mutators.jl:54
+┌ Info: 2023-12-01 15:55:54 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 15:56:18 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 15:56:21 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 15:56:22 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2023-12-01 16:01:34 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 16:01:34 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 16:02:19 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-01 16:02:45 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 16:02:48 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 16:02:49 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2023-12-01 16:03:57 UndefVarError: `Tar` not defined
+│ Stacktrace:
+│   [1] (::var"#11#12")()
+│     @ Main ~/from github/dancingqueen/new/main.jl:26
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:537
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Router ~/.julia/packages/Genie/7wIt2/src/Router.jl:173
+│   [4] route_request
+│     @ ~/.julia/packages/Genie/7wIt2/src/Router.jl:147 [inlined]
+│   [5] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:283
+│   [6] handle_request
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:275 [inlined]
+│   [7] (::Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#35#36"{HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}}, HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, @Kwargs{}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] remotecall_fetch(::Function, ::Distributed.Worker)
+│     @ Distributed ~/.julia/juliaup/julia-1.10.0-rc1+0.x64.linux.gnu/share/julia/stdlib/v1.10/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response; stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:327
+│  [16] setup_http_listener (repeats 2 times)
+│     @ ~/.julia/packages/Genie/7wIt2/src/Server.jl:325 [inlined]
+│  [17] (::Genie.Server.var"#32#33"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:296
+│  [18] setup_http_streamer(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:316
+│  [19] (::Genie.Server.var"#7#15")(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/7wIt2/src/Server.jl:123
+│  [20] #invokelatest#2
+│     @ ./essentials.jl:887 [inlined]
+│  [21] invokelatest
+│     @ ./essentials.jl:884 [inlined]
+│  [22] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:450
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#15", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ~/.julia/packages/HTTP/bDoga/src/Servers.jl:386
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:339
+┌ Info: 2023-12-01 16:05:45 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/7wIt2/src/Server.jl:166
+┌ Info: 2023-12-01 16:05:48 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-01 16:05:49 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367

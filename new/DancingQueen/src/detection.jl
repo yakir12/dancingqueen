@@ -1,14 +1,6 @@
 tag_pixel_width = prefs["detection"]["tag_pixel_width"]
 const min_radius = tag_pixel_width/sqrt(2)
 const widen_radius = prefs["detection"]["widen_radius"]
-const SVI = SVector{2, Int}
-const sz = SVI(w, h)
-
-struct DetectoRect
-    detector::AprilTagDetector
-    rect::MVector{4, Int}
-    DetectoRect() = new(AprilTagDetector(), MVector(1, 1, sz::SVI...))
-end
 
 
 function Beetle(tag, r1, c1)

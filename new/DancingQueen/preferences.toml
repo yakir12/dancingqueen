@@ -1,9 +1,6 @@
 [camera]
-width=480
-height=640
-
-[client]
-fps = 10
+width=720#480
+height=1280#640
 
 [detection]
 tag_pixel_width = 200
