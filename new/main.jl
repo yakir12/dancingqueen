@@ -35,15 +35,24 @@ route("/settings", method = POST) do
         txt = String(last(file).data)
         dict = TOML.parse(txt)
         msg = validate(schema, dict)
-        if msg isa JSONSchema.SingleIssue
-            io = IOBuffer()
-            show(io, msg)
-            msg = string("<p>", replace(strip(String(take!(io))), "\n" => "</p><p>"), "</p>")
-            notify(model, msg, :negative, caption = "You have to first fix your setting.toml file", html=true)
-        else
+        if isnothing(msg)
             pushfirst!(dict["setups"], Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)]))
             setups_dict[] = dict
             model.setups_labels[] = get_labels(dict)
+        else
+            @warn "settings file was bad"
+
+            io = IOBuffer()
+            show(io, msg)
+            warning = string(msg.x, " is wrong")
+            # warning = filter(∈('a':'z'), String(take!(io)))
+
+            # model.msg[] = string("<p>", replace(strip(String(take!(io))), "\n" => "</p><p>"), "</p>")
+            # @show msg
+            # warning = String(replace(strip(String(take!(io))), "\n" => "<br>"))
+            # warning = String(replace(strip(String(take!(io))), "\n" => " ", "\"" => "", " " => "", "\t" => ""))
+            # warning = String(strip(String(take!(io))))
+            notify(model, warning, :negative, caption = "You have to first fix your setting.toml file", html=true)
         end
     end
     if length(files) == 0
@@ -52,27 +61,30 @@ route("/settings", method = POST) do
     return "Upload finished"
 end
 
-
 @app FromFile begin
     @out imageurl = "/frame"
     @in setups_labels = get_labels(setups_dict[])
     @in chosen = 0
     @onchange chosen chosen_setup[] = chosen + 1
-    @event download_data begin
-        @info "pressed download"
-        io = IOBuffer()
-        try
-            Tar.create("data", io)
-            download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
-            @info "download worked, deleting file"
-            rm.(readdir("data"; join=true))
-        catch ex
-            @warn ex
-            @warn "download failed, not delteing file"
-        end
-        close(io)
-    end
 end myhandlers
+
+function downloaddata()
+    @info "pressed download"
+    model.chosen[] = 0 # close the recording
+    io = IOBuffer()
+    try
+        Tar.create("data", io)
+        download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
+        @info "download worked, deleting file"
+        rm.(readdir("data"; join=true))
+    catch ex
+        @warn ex
+        @warn "download failed, not delteing file"
+    end
+    close(io)
+end
+
+@event FromFile download_data downloaddata()
 
 ui() = Html.div(
                 @on("keydown.a", "chosen=0"), @on("keydown.b", "chosen=1"), @on("keydown.c", "chosen=2"), @on("keydown.d", "chosen=3"), @on("keydown.e", "chosen=4"), @on("keydown.f", "chosen=5"), @on("keydown.g", "chosen=6"), @on("keydown.h", "chosen=7"), @on("keydown.i", "chosen=8"), @on("keydown.j", "chosen=9"), @on("keydown.k", "chosen=10"), @on("keydown.l", "chosen=11"), @on("keydown.m", "chosen=12"), @on("keydown.n", "chosen=13"), @on("keydown.o", "chosen=14"), @on("keydown.p", "chosen=15"), @on("keydown.q", "chosen=16"), @on("keydown.r", "chosen=17"), @on("keydown.s", "chosen=18"), @on("keydown.t", "chosen=19"), @on("keydown.u", "chosen=20"), @on("keydown.v", "chosen=21"), @on("keydown.w", "chosen=22"), @on("keydown.x", "chosen=23"), @on("keydown.y", "chosen=24"), @on("keydown.z", "chosen=25"),
@@ -89,8 +101,8 @@ ui() = Html.div(
                            ])
                      ])
                  row([
-                      uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
-                      btn(class = "q-ml-lg", "Download data", icon = "download", @click(:download_data), color = "primary", nocaps = true)
+                      uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=true, nothumbnails=true, field__name="csv_file", autoupload=true)
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @on(:click, :download_data), color = "primary", nocaps = true, nothumbnails = true)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])

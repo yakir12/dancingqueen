@@ -5,7 +5,6 @@ using Observables, StaticArrays, AprilTags, JSON3, VideoIO, ImageDraw
 import TOML
 import ColorTypes: RGB, N0f8
 
-
 export start
 
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
@@ -14,6 +13,7 @@ const prefs = TOML.parsefile(path2preferences)
 const nleds = prefs["arena"]["nleds"]
 const w = prefs["camera"]["width"]
 const h = prefs["camera"]["height"]
+const baudrate = prefs["arena"]["baudrate"]
 
 const Color = RGB{N0f8}
 const SV = SVector{2, Float64}
@@ -22,9 +22,14 @@ const sz = SVI(w, h)
 
 include("structs.jl")
 
+using LibSerialPort
+
+const serialport = Ref{SerialPort}()
 const detector = Ref{DetectoRect}()
 function __init__()
     detector[] = DetectoRect()
+    # serialport[] = get_port()
+    serialport[] = open(first(get_port_list()), baudrate)
 end
 
 include("detection.jl")
@@ -61,6 +66,9 @@ function connect()
     end
     leds = map(suns) do suns
         LEDSun.(suns)
+    end
+    on(leds) do leds
+        writeLED.(leds)
     end
     on(leds) do leds
         log!(logbook[], beetle[], leds)

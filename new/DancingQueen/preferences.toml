@@ -1,15 +1,16 @@
 [camera]
-width=480
-height=640
-# width=720
-# height=1280
+# width=480
+# height=640
+width=720
+height=1280
 
 [detection]
 tag_pixel_width = 200
 widen_radius = 15
 
 [arena]
-nleds = 100
+nleds = 198
 ring_r = 3500.3 # in cm
 origo_offset = [240, 320] # in pixels
 cm_per_pixel = 2.2
+baudrate = 115200 #9600##921600#
