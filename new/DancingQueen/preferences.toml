@@ -1,6 +1,8 @@
 [camera]
-width=720#480
-height=1280#640
+width=480
+height=640
+# width=720
+# height=1280
 
 [detection]
 tag_pixel_width = 200

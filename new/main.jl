@@ -1,6 +1,10 @@
 using DancingQueen
 using JSONSchema, JpegTurbo
 using GenieFramework
+using Stipple, Stipple.ReactiveTools
+using StippleUI
+using StippleDownloads
+import Stipple.opts
 import TOML, Tar
 @genietools
 
@@ -20,15 +24,6 @@ isdir("data") || mkdir("data")
 route("/frame") do
     respond(String(jpeg_encode(get_frame())), :jpg)
 end
-
-route("/data") do
-    io = IOBuffer()
-    Tar.create("data", io)
-    msg = String(take!(io))
-    close(io)
-    return respond(msg)
-end
-
 
 Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
 Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
@@ -63,6 +58,20 @@ end
     @in setups_labels = get_labels(setups_dict[])
     @in chosen = 0
     @onchange chosen chosen_setup[] = chosen + 1
+    @event download_data begin
+        @info "pressed download"
+        io = IOBuffer()
+        try
+            Tar.create("data", io)
+            download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
+            @info "download worked, deleting file"
+            rm.(readdir("data"; join=true))
+        catch ex
+            @warn ex
+            @warn "download failed, not delteing file"
+        end
+        close(io)
+    end
 end myhandlers
 
 ui() = Html.div(
@@ -81,7 +90,7 @@ ui() = Html.div(
                      ])
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=false, nothumbnails=true, field__name="csv_file", autoupload=true)
-                      btn(class = "q-mt-lg", "Download data", color = "primary", href="data", download=string(round(now(), Second(1)), ".tar"))
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @click(:download_data), color = "primary", nocaps = true)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
