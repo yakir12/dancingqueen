@@ -1,0 +1,96 @@
+[camera]
+# width=480
+# height=640
+width=720
+height=1280
+
+[detection]
+tag_pixel_width = 200
+widen_radius = 15
+
+[arena]
+nleds = 113#198
+ring_r = 3500.3 # in cm
+origo_offset = [240, 320] # in pixels
+cm_per_pixel = 2.2
+baudrate = 115200#9600###921600#
+
+[setup]
+label = "Crazy"
+
+    [[setup.suns]]
+    link_factor = 2
+    width = 11
+    "θ" = 18.453330411176232
+    r = 5
+
+        [setup.suns.color]
+        r = 0
+        g = 1
+        b = 0
+    [[setup.suns]]
+    link_factor = 1
+    width = 1
+    "θ" = 10.099329831585276
+    r = 0
+
+        [setup.suns.color]
+        r = 0
+        g = 0
+        b = 1
+    [[setup.suns]]
+    link_factor = 0
+    width = 1
+    "θ" = 1.7453292519943295
+    r = 0
+
+        [setup.suns.color]
+        r = 1
+        g = 0
+        b = 0
+    [[setup.suns]]
+    link_factor = -1
+    width = 1
+    "θ" = -6.608671327596625
+    r = 0
+
+        [setup.suns.color]
+        r = 1
+        g = 1
+        b = 0
+    [[setup.suns]]
+    link_factor = -2
+    width = 1
+    "θ" = -14.96267190718758
+    r = 0
+
+        [setup.suns.color]
+        r = 1
+        g = 0
+        b = 1
+    [[setup.suns]]
+    link_factor = 0.5
+    width = 1
+    "θ" = 8.97665573277988
+    r = 0
+
+        [setup.suns.color]
+        r = 0
+        g = 1
+        b = 1
+    [[setup.suns]]
+    link_factor = -0.5
+    width = 1
+    "θ" = 0.6226551531889319
+    r = 0
+
+        [setup.suns.color]
+        r = 1
+        g = 1
+        b = 1
+
+[experiment]
+datetime = 2023-12-05T21:31:25.012Z
+
+ms,x,y,θ,start1,stop1,red1,green1,blue1,start2,stop2,red2,green2,blue2,start3,stop3,red3,green3,blue3,start4,stop4,red4,green4,blue4,start5,stop5,red5,green5,blue5,start6,stop6,red6,green6,blue6,start7,stop7,red7,green7,blue7
+1,,,,102,112,0,255,0,70,70,0,0,255,32,32,255,0,0,108,108,255,255,0,71,71,255,0,255,49,49,0,255,255,12,12,255,255,255

@@ -72,6 +72,11 @@ git-tree-sha1 = "eb4cb44a499229b3b8426dcfb5dd85333951ff90"
 uuid = "fa961155-64e5-5f13-b03f-caf6b980ea82"
 version = "0.4.2"
 
+[[deps.COBSReduced]]
+git-tree-sha1 = "6fc65f4af90d539b60b1f20c3de5711a42020396"
+uuid = "719baba0-b808-11eb-2c94-7207250cf58f"
+version = "0.1.0"
+
 [[deps.CSTParser]]
 deps = ["Tokenize"]
 git-tree-sha1 = "3ddd48d200eb8ddf9cb3e0189fc059fd49b97c1f"
@@ -159,7 +164,7 @@ uuid = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
 version = "4.1.1"
 
 [[deps.DancingQueen]]
-deps = ["AprilTags", "ColorTypes", "Dates", "ImageDraw", "JSON3", "Observables", "StaticArrays", "TOML", "VideoIO"]
+deps = ["AprilTags", "COBSReduced", "ColorTypes", "Dates", "ImageDraw", "JSON3", "LibSerialPort", "Observables", "StaticArrays", "TOML", "VideoIO"]
 path = "DancingQueen"
 uuid = "94a9f6fe-37a1-4f65-b230-65a521849305"
 version = "0.1.0"
@@ -315,15 +320,15 @@ version = "0.5.1"
 
 [[deps.Genie]]
 deps = ["ArgParse", "Base64", "Dates", "Distributed", "DotEnv", "EzXML", "FilePathsBase", "HTTP", "HttpCommon", "Inflector", "JSON3", "JuliaFormatter", "Logging", "LoggingExtras", "MIMEs", "Markdown", "Millboard", "Nettle", "OrderedCollections", "Pkg", "REPL", "Random", "Reexport", "Revise", "SHA", "Serialization", "Sockets", "UUIDs", "Unicode", "XML2_jll", "YAML"]
-git-tree-sha1 = "f283cfcdca8e36c49a367266e196cc2b5454d1fc"
+git-tree-sha1 = "f6e5ee4e39b2a0757c2037ad41501450051537f6"
 uuid = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
-version = "5.23.3"
+version = "5.23.4"
 
 [[deps.GenieAutoReload]]
 deps = ["Distributed", "Genie", "Logging", "Revise"]
-git-tree-sha1 = "34c1270578f21c5c1b4bb716b438b860c1366ce9"
+git-tree-sha1 = "f1e1310333b4f10c1794026d0778b58037082f48"
 uuid = "c6228e60-a24f-11e9-1776-c313472ebacc"
-version = "2.2.0"
+version = "2.2.1"
 
 [[deps.GenieDevTools]]
 deps = ["Dates", "Genie", "RemoteREPL", "Revise", "Stipple", "Tables"]
@@ -529,6 +534,12 @@ deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
 uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
 version = "1.11.0+1"
 
+[[deps.LibSerialPort]]
+deps = ["Libdl", "libserialport_jll"]
+git-tree-sha1 = "69403284a6217f6e60e76553032a103893b7d910"
+uuid = "a05a14c7-6e3b-5ba9-90a2-45558833e1df"
+version = "0.5.2"
+
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 
@@ -583,9 +594,9 @@ version = "1.0.3"
 
 [[deps.LoweredCodeUtils]]
 deps = ["JuliaInterpreter"]
-git-tree-sha1 = "c165f205e030208760ebd75b5e1f7706761d9218"
+git-tree-sha1 = "0b8cf121228f7dae022700c1c11ac1f04122f384"
 uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "2.3.1"
+version = "2.3.2"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "65f28ad4b594aebe22157d6fac869786a255b7eb"
@@ -1133,6 +1144,12 @@ deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg", "Zlib_jll"]
 git-tree-sha1 = "94d180a6d2b5e55e447e2d27a29ed04fe79eb30c"
 uuid = "b53b4c65-9356-5827-b1ea-8c7a1a84506f"
 version = "1.6.38+0"
+
+[[deps.libserialport_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "aacc5af8e8ba0b48a6feadac7afd4bca5d4e98d8"
+uuid = "220460dc-b50e-5ed0-8176-09b0fd261e90"
+version = "0.1.3+0"
 
 [[deps.libvorbis_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Ogg_jll", "Pkg"]

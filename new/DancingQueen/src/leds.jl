@@ -2,6 +2,11 @@ struct LEDSun
     i1::Int
     i2::Int
     color::Color
+    msg::NTuple{5, UInt8}
+    function LEDSun(i1, i2, color)
+        msg = (reinterpret(UInt8, color.r), reinterpret(UInt8, color.g), reinterpret(UInt8, color.b), mod(i1 - 1, nleds) + 1, mod(i2 - 1, nleds) + 1)
+        new(i1, i2, color, msg)
+    end
 end
 
 function Base.iterate(ls::LEDSun, i::Int=ls.i1)
@@ -34,7 +39,15 @@ function LEDSun(sun::Sun)
     LEDSun(i - sun.r, i + sun.r, sun.color)
 end
 
-writeLED!(sp, led::LEDSun) = write(sp, reinterpret(UInt8, led.color.r), reinterpret(UInt8, led.color.g), reinterpret(UInt8, led.color.b), led.i1, mod(led.i2 - 1, nleds) + 1)
+function writeLEDs(leds::Vector{LEDSun}) 
+    msg = Vector{UInt8}(undef, 5*length(leds))
+    for (i, led) in enumerate(leds)
+        msg[(i - 1)*5 + 1:5i] .= led.msg
+    end
+    encoded = cobs_encode(msg)
+    write(serialport[], encoded)
+end
+
 
 
 # good_port(port) = try

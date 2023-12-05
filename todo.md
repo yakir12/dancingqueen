@@ -1,4 +1,5 @@
 # DancingQueen
+test uploading a Project.toml file or something to see if it errors correctly
 ## General
 [x] fix the warnings about bad settings files
 [ ] clean the files and organize the folders

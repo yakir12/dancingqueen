@@ -1,0 +1,56 @@
+[camera]
+# width=480
+# height=640
+width=720
+height=1280
+
+[detection]
+tag_pixel_width = 200
+widen_radius = 15
+
+[arena]
+nleds = 113#198
+ring_r = 3500.3 # in cm
+origo_offset = [240, 320] # in pixels
+cm_per_pixel = 2.2
+baudrate = 9600##115200 #921600#
+
+[setup]
+label = "Three stationary suns"
+
+    [[setup.suns]]
+    link_factor = 0
+    width = 1
+    "θ" = 0
+    r = 0
+
+        [setup.suns.color]
+        r = 1
+        g = 0
+        b = 0
+    [[setup.suns]]
+    link_factor = 0
+    width = 1
+    "θ" = 1.5707963267948966
+    r = 0
+
+        [setup.suns.color]
+        r = 0
+        g = 1
+        b = 0
+    [[setup.suns]]
+    link_factor = 0
+    width = 1
+    "θ" = 3.141592653589793
+    r = 0
+
+        [setup.suns.color]
+        r = 0
+        g = 0
+        b = 1
+
+[experiment]
+datetime = 2023-12-05T21:26:17.180Z
+
+ms,x,y,θ,start1,stop1,red1,green1,blue1,start2,stop2,red2,green2,blue2,start3,stop3,red3,green3,blue3
+1,,,,1,1,255,0,0,29,29,0,255,0,57,57,0,0,255

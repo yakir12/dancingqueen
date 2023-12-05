@@ -1,11 +1,12 @@
 module DancingQueen
 
 using Dates
-using Observables, StaticArrays, AprilTags, JSON3, VideoIO, ImageDraw
+using Observables, StaticArrays, AprilTags, JSON3, VideoIO, ImageDraw, COBSReduced
 import TOML
 import ColorTypes: RGB, N0f8
 
 export start
+
 
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
 const path2data = joinpath(@__DIR__, "..", "..", "data")
@@ -64,12 +65,10 @@ function connect()
             notify(suns)
         end
     end
-    leds = map(suns) do suns
+    leds = map(suns; ignore_equal_values=true) do suns
         LEDSun.(suns)
     end
-    on(leds) do leds
-        writeLED.(leds)
-    end
+    on(writeLEDs, leds)
     on(leds) do leds
         log!(logbook[], beetle[], leds)
     end
@@ -81,7 +80,7 @@ end
 
 function start()
     setups_dict, chosen, img, get_frame = connect()
-    cam = opencamera()
+    cam = opencamera("/dev/video2")
     task = Threads.@spawn while isopen(cam)
         read!(cam, img[])
         notify(img)

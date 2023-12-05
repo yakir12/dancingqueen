@@ -1,0 +1,46 @@
+[camera]
+# width=480
+# height=640
+width=720
+height=1280
+
+[detection]
+tag_pixel_width = 200
+widen_radius = 15
+
+[arena]
+nleds = 113#198
+ring_r = 3500.3 # in cm
+origo_offset = [240, 320] # in pixels
+cm_per_pixel = 2.2
+baudrate = 115200#9600###921600#
+
+[setup]
+label = "Two different suns"
+
+    [[setup.suns]]
+    link_factor = 1.5
+    width = 11
+    "θ" = 5.88553221406171
+    r = 5
+
+        [setup.suns.color]
+        r = 0.39215686274509803
+        g = 1
+        b = 0
+    [[setup.suns]]
+    link_factor = -0.8
+    width = 3
+    "θ" = 0.8404001803808236
+    r = 1
+
+        [setup.suns.color]
+        r = 0.1607843137254902
+        g = 0.5019607843137255
+        b = 1
+
+[experiment]
+datetime = 2023-12-05T21:31:30.692Z
+
+ms,x,y,θ,start1,stop1,red1,green1,blue1,start2,stop2,red2,green2,blue2
+0,,,,102,112,100,255,0,15,17,41,128,255
