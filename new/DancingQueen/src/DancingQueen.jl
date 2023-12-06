@@ -14,6 +14,7 @@ const prefs = TOML.parsefile(path2preferences)
 const nleds = prefs["arena"]["nleds"]
 const w = prefs["camera"]["width"]
 const h = prefs["camera"]["height"]
+const fps = prefs["camera"]["fps"]
 const baudrate = prefs["arena"]["baudrate"]
 
 const Color = RGB{N0f8}
@@ -40,7 +41,7 @@ include("logs.jl")
 include("display.jl")
 include("settings.jl")
 
-function connect()
+function connect(img, click)
     setups_dict = Observable(Dict("setups" => [JSON3.read(JSON3.write(zero(Setup)), Dict)]))
     setups = map(setups_dict) do dict
         Setup.(dict["setups"])
@@ -55,9 +56,12 @@ function connect()
         end
     end
     suns = map(su -> su.suns, setup)
-    img = Observable(PermutedDimsArray(rand(Color, h, w), (2,1)))
+    # img = Observable(PermutedDimsArray(rand(Color, h, w), (2,1)))
     beetle = Observable{Union{Nothing, Beetle}}()
-    map!(img -> detector[](img), beetle, img)
+    map!(beetle, click) do _
+        detector[](img)
+    end
+    # map!(img -> detector[](img), beetle, img)
     on(beetle) do beetle
         if !isnothing(beetle)
             track(beetle)
@@ -73,21 +77,24 @@ function connect()
         log!(logbook[], beetle[], leds)
     end
 
-    get_frame() = _get_frame(img[], beetle[], leds[])
+    get_frame() = _get_frame(img, beetle[], leds[])
 
-    return (setups_dict, chosen, img, get_frame)
+    return (setups_dict, chosen, get_frame)
 end
 
 function start()
-    setups_dict, chosen, img, get_frame = connect()
-    cam = opencamera("/dev/video2")
-    task = Threads.@spawn while isopen(cam)
-        read!(cam, img[])
-        notify(img)
-        sleep(0.001)
-        yield()
-    end
-    return (task, setups_dict, chosen, get_frame)
+    cam = Camera(w, h, fps)
+    setups_dict, chosen, get_frame = connect(cam.img, cam.click)
+    # cam = opencamera("/dev/video2")
+    # cam = opencamera()
+    # task = Threads.@spawn while isopen(cam)
+    #     read!(cam, img[])
+    #     notify(img)
+    #     sleep(0.001)
+    #     yield()
+    # end
+    return (cam.task, setups_dict, chosen, get_frame)
 end
 
 end # module DancingQueen
+

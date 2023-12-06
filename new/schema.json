@@ -9,13 +9,13 @@
           "label": {
             "type": "string",
             "maxLength": 60,
-            "not": {"pattern": "Off"}
+            "pattern": "^(?!Off$).*"
           },
           "suns": {
             "type": "array",
             "items": {
               "type": "object",
-              "anyOf": [
+              "oneOf": [
                 {"required": ["red", "link_factor"]},
                 {"required": ["green", "link_factor"]},
                 {"required": ["blue", "link_factor"]}
@@ -61,7 +61,7 @@
       "minItems": 1,
       "maxItems": 26,
       "uniqueItems": true
-    },
-    "required": [ "setups" ]
-  }
+    }
+  },
+  "required": [ "setups" ]
 }

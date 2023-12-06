@@ -30,29 +30,26 @@ Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
 Genie.config.cors_headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,DELETE,OPTIONS"
 Genie.config.cors_allowed_origins = ["*"]
 route("/settings", method = POST) do
+    caption = "You have to first fix your setting.toml file"
     files = Genie.Requests.filespayload()
     for file in files
         txt = String(last(file).data)
-        dict = TOML.parse(txt)
-        msg = validate(schema, dict)
-        if isnothing(msg)
-            pushfirst!(dict["setups"], Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)]))
-            setups_dict[] = dict
-            model.setups_labels[] = get_labels(dict)
+        dict = TOML.tryparse(txt)
+        if dict isa Base.TOML.ParserError
+            warning = "settings file had bad TOML format"
+            @warn warning
+            notify(model, warning, :negative; caption)
         else
-            @warn "settings file was bad"
-
-            io = IOBuffer()
-            show(io, msg)
-            warning = string(msg.x, " is wrong")
-            # warning = filter(∈('a':'z'), String(take!(io)))
-
-            # model.msg[] = string("<p>", replace(strip(String(take!(io))), "\n" => "</p><p>"), "</p>")
-            # @show msg
-            # warning = String(replace(strip(String(take!(io))), "\n" => "<br>"))
-            # warning = String(replace(strip(String(take!(io))), "\n" => " ", "\"" => "", " " => "", "\t" => ""))
-            # warning = String(strip(String(take!(io))))
-            notify(model, warning, :negative, caption = "You have to first fix your setting.toml file", html=true)
+            msg = validate(schema, dict)
+            if isnothing(msg)
+                pushfirst!(dict["setups"], Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)]))
+                setups_dict[] = dict
+                model.setups_labels[] = get_labels(dict)
+            else
+                warning = string(msg.x, " is wrong")
+                @warn warning
+                notify(model, warning, :negative; caption)
+            end
         end
     end
     if length(files) == 0
