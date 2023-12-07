@@ -20,7 +20,7 @@ function drawleds!(img, leds)
 end
 
 function _get_frame(img, beetle, leds)
-    cimg = RGB.(deepcopy(img))
+    cimg = RGB.(reinterpret.(N0f8, img))
     drawbeetle!(cimg, beetle)
     drawleds!(cimg, leds)
     return cimg
