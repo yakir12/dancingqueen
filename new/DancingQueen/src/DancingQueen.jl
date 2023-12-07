@@ -41,7 +41,7 @@ include("logs.jl")
 include("display.jl")
 include("settings.jl")
 
-function connect(img, click)
+function connect(img)
     setups_dict = Observable(Dict("setups" => [JSON3.read(JSON3.write(zero(Setup)), Dict)]))
     setups = map(setups_dict) do dict
         Setup.(dict["setups"])
@@ -58,7 +58,7 @@ function connect(img, click)
     suns = map(su -> su.suns, setup)
     # img = Observable(PermutedDimsArray(rand(Color, h, w), (2,1)))
     beetle = Observable{Union{Nothing, Beetle}}()
-    map!(beetle, click) do _
+    map!(beetle, img) do img
         detector[](img)
     end
     # map!(img -> detector[](img), beetle, img)
@@ -84,7 +84,7 @@ end
 
 function start()
     cam = Camera(w, h, fps)
-    setups_dict, chosen, get_frame = connect(cam.img, cam.click)
+    setups_dict, chosen, get_frame = connect(cam.img)
     # cam = opencamera("/dev/video2")
     # cam = opencamera()
     # task = Threads.@spawn while isopen(cam)
