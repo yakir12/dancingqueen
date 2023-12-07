@@ -5,7 +5,6 @@ using Observables, StaticArrays, AprilTags, JSON3, ImageDraw, COBSReduced, Image
 import TOML
 import ColorTypes: RGB, N0f8
 
-
 export start
 
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
