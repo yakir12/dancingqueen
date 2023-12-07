@@ -26,7 +26,7 @@ function create_buffer(w, h)
     h2 = 32ceil(Int, h/32)
     nb = Int(w2*h2*3//2) # total number of bytes per frame
     buff = Vector{UInt8}(undef, nb)
-    view2img = colorview(Gray, normedview(Base.view(reshape(Base.view(buff, 1:w2*h2), w2, h2), 1:w, 1:h)))
+    view2img = colorview(Gray, normedview(Base.view(reshape(Base.view(buff, 1:w2*h2), w2, h2), w:-1:1, 1:h)))
     return (buff, view2img)
 end
 
