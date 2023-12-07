@@ -1,7 +1,7 @@
 module DancingQueen
 
 using Dates
-using Observables, StaticArrays, AprilTags, JSON3, VideoIO, ImageDraw, COBSReduced
+using Observables, StaticArrays, AprilTags, JSON3, ImageDraw, COBSReduced, ImageCore
 import TOML
 import ColorTypes: RGB, N0f8
 
