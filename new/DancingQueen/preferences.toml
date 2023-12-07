@@ -3,9 +3,11 @@
 # height=640
 # width=720
 # height=1280
-width=1536
-height=1024
-fps=30
+# width=1536
+# height=1024
+width=640
+height=480
+fps=10
 
 [detection]
 tag_pixel_width = 100
