@@ -1,7 +1,7 @@
 struct Camera
     o::Base.Process
     task::Task
-    img::Observable{Base.ReinterpretArray{Gray{N0f8}, 2, N0f8, ImageCore.MappedArrays.MappedArray{N0f8, 2, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, UnitRange{Int64}}, false}, ImageCore.var"#39#40"{N0f8}, typeof(reinterpret)}, true}}
+    img#::Observable{Base.ReinterpretArray{Gray{N0f8}, 2, N0f8, ImageCore.MappedArrays.MappedArray{N0f8, 2, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, UnitRange{Int64}}, false}, ImageCore.var"#39#40"{N0f8}, typeof(reinterpret)}, true}}
     function Camera(w, h, fps)
         buff, view2img = create_buffer(w, h)
         o, task, img = otask(buff, view2img)
