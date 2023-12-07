@@ -40,6 +40,7 @@ include("leds.jl")
 include("logs.jl")
 include("display.jl")
 include("settings.jl")
+include("camera.jl")
 
 function connect(img)
     setups_dict = Observable(Dict("setups" => [JSON3.read(JSON3.write(zero(Setup)), Dict)]))

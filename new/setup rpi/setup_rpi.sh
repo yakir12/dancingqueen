@@ -19,8 +19,13 @@ curl -fsSL https://install.julialang.org | sh -s -- --yes --default-channel rele
 # update bash
 . $HOME/.bashrc
 # setup software
+
 git clone https://github.com/yakir12/dancingqueen.git
-cd $HOME/dancingqueen/pi
+
+# ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+# git clone git@github.com:yakir12/dancingqueen.git
+
+cd $HOME/dancingqueen/new
 julia --project=. -e "import Pkg; Pkg.instantiate()"
 
 # configure dnsmasq
