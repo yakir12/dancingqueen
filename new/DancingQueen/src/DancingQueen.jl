@@ -78,7 +78,7 @@ function connect(img)
         log!(logbook[], beetle[], leds)
     end
 
-    get_frame() = _get_frame(img, beetle[], leds[])
+    get_frame() = _get_frame(img[], beetle[], leds[])
 
     return (setups_dict, chosen, get_frame)
 end

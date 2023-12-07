@@ -26,7 +26,10 @@ git clone https://github.com/yakir12/dancingqueen.git
 # git clone git@github.com:yakir12/dancingqueen.git
 
 cd $HOME/dancingqueen/new
-julia --project=. -e "import Pkg; Pkg.instantiate()"
+
+julia --project -e "import Pkg; Pkg.instantiate()"
+
+julia --project --threads auto main.jl
 
 # configure dnsmasq
 # echo 'interface=eth0' | sudo tee -a /etc/dnsmasq.conf

@@ -1,17 +1,19 @@
 [camera]
 # width=480
 # height=640
+# width=720
+# height=1280
 width=720
-height=1280
+height=720
 fps=30
 
 [detection]
-tag_pixel_width = 200
+tag_pixel_width = 100
 widen_radius = 15
 
 [arena]
 nleds = 113#198
-ring_r = 3500.3 # in cm
-origo_offset = [240, 320] # in pixels
-cm_per_pixel = 2.2
+ring_r = 30 # in cm
+origo_offset = [360, 360] # in pixels
+cm_per_pixel = 0.1
 baudrate = 115200#9600###921600#
