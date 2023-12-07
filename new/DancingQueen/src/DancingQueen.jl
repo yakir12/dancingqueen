@@ -48,7 +48,13 @@ function connect(img)
         Setup.(dict["setups"])
     end
     chosen = map(_ -> 1, setups)
-    setup = map(i -> setups[][i], chosen)
+    safe_chosen = Observable(1)
+    on(chosen) do chosen
+        if 1 ≤ chosen ≤ length(setups[])
+            safe_chosen[] = chosen
+        end
+    end
+    setup = map(i -> setups[][i], safe_chosen)
     logbook = Ref(LogBook())
     on(setup) do setup
         close_log!(logbook[])

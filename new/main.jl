@@ -72,11 +72,11 @@ function downloaddata()
     try
         Tar.create("data", io)
         download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
-        @info "download worked, deleting file"
+        @info "download worked, deleting files"
         rm.(readdir("data"; join=true))
     catch ex
         @warn ex
-        @warn "download failed, not delteing file"
+        @warn "download failed, not delteing files"
     end
     close(io)
 end
