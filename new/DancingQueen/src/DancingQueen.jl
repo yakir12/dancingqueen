@@ -7,7 +7,6 @@ import ColorTypes: RGB, N0f8
 
 export start
 
-
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
 const path2data = joinpath(@__DIR__, "..", "..", "data")
 const prefs = TOML.parsefile(path2preferences)
