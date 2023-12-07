@@ -3,8 +3,8 @@
 # height=640
 # width=720
 # height=1280
-width=1640
-height=1232
+width=1232
+height=1640
 fps=30
 
 [detection]
