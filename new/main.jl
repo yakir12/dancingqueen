@@ -115,7 +115,7 @@ route("/") do
     page(model, ui) |> html
 end
 
-up()
+up(8000, "0.0.0.0")
 
 if !isinteractive()
     c = Condition()
