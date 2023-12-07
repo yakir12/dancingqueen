@@ -93,7 +93,7 @@ ui() = Html.div(
                       card(class="st-col col-12", 
                            [
                             row([
-                                 imageview(src=:imageurl, basic=true, style="max-width: $(DancingQueen.h)px")
+                                 imageview(src=:imageurl, basic=true, style="max-width: $(DancingQueen.w)px")
                                 ])
                            ])
                      ])

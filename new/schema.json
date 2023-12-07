@@ -15,7 +15,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "oneOf": [
+              "anyOf": [
                 {"required": ["red", "link_factor"]},
                 {"required": ["green", "link_factor"]},
                 {"required": ["blue", "link_factor"]}

@@ -23,6 +23,6 @@ function _get_frame(img, beetle, leds)
     cimg = RGB.(img)
     drawbeetle!(cimg, beetle)
     drawleds!(cimg, leds)
-    return cimg
+    return cimg'
 end
 
