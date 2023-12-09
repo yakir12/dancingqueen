@@ -40,66 +40,58 @@ struct Instance{N}
     frame::Frame{N}
     save::Bool
     running::Ref{Bool}
-    function Instance{N}(setup::Dict{String, any}) where N
+    task::Task
+    function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
-        suns = Tuple((Sun(sun) for sun in setup["suns"]))
-        cam = Camera("/dev/video2")
+        cam = Camera("/dev/video0")
         detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
         frame = Frame(cam, suns)
         save = setup["label"] ≠ "Off"
         running = Ref(true)
-        new(logbook, suns, cam, detector, tracker, leds, frame, save, running)
+        task = Threads.@spawn while running[]
+            one_iter(cam, detector, tracker, leds, save, logbook, frame)
+        end
+        img[] = frame.cimg
+        new(logbook, suns, cam, detector, tracker, leds, frame, save, running, task)
     end
 end
-Instance(logbook, suns::NTuple{N, Sun}, cam, detector, tracker::Track{N}, leds::LEDs{N, M}, frame::Frame{N}, save, running) where {N, M} = Instance{N}(logbook, suns, cam, detector, tracker, leds, frame, save, running)
-
-function one_iter(i::Instance)
-    snap(i.cam)
-    beetle = detector(i.cam.img)
-    tracker(i.beetle)
-    update_suns!(i.tracker)
-    i.leds(i.tracker.sun_θs)
-    i.save && log!(i.logbook, beetle, i.leds)
-    i.frame(i.cam.img, beetle, i.leds)
-end
-
-function start(setup::Dict{String, Any}, img)
-    # initiate everything
-    logbook = LogBook(setup)
+Instance(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where {N} = Instance{N}(suns, setup, img)
+function Instance(setup::Dict{String, Any}, img)
     suns = Tuple((Sun(sun) for sun in setup["suns"]))
-    cam = Camera("/dev/video2")
-    detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
-    tracker = Track(suns)
-    leds = LEDs(baudrate, suns)
-    frame = Frame(cam, suns)
-    save = setup["label"] ≠ "Off"
-    keep_going = Ref(true)
-    # sample
-    Threads.@spawn while keep_going[]
-        one_iter(save, cam, detector, tracker, leds, logbook, frame)
-    end
-    img[] = frame.cimg
-    return (; keep_going, cam, detector, leds, logbook)
+    Instance(suns, setup, img)
 end
 
-function stop(instance)
-    instance.keep_going[] = false
-    sleep(0.1)
-    # clean up
-    close(instance.cam)
-    close(instance.detector)
-    close(instance.leds)
-    close(instance.logbook)
+function one_iter(cam, detector, tracker, leds, save, logbook, frame)
+    snap(cam)
+    beetle = detector(cam.img)
+    tracker(beetle)
+    update_suns!(tracker)
+    leds(tracker.sun_θs)
+    save && log!(logbook, beetle, leds)
+    frame(cam.img, beetle, leds)
 end
 
-function main(setup::Observable{Dict{String, Any}}, img::Ref{Matrix{Color}})
-    instance = Ref{Any}(start(setup[], img))
+function stop(i::Instance)
+    i.running[] = false
+    wait(i.task)
+    close(i.cam)
+    close(i.detector)
+    close(i.leds)
+    close(i.logbook)
+end
+
+function main()
+    off = Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)])
+    setup = Observable(off)
+    img = Ref(zeros(Color, 10, 10))
+    instance = Ref{Instance}(Instance(setup[], img))
     on(setup) do setup
         stop(instance[])
-        instance[] = start(setup, img)
+        instance[] = Instance(setup, img)
     end
+    return setup, img
 end
 
 end # module DancingQueen

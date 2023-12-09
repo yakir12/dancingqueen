@@ -3,7 +3,7 @@ struct LEDs{N, M}
     r::NTuple{N, Int}
     msg::MVector{M, UInt8}
     function LEDs{N, M}(baudrate, suns::NTuple{N, Sun}) where {N, M}
-        sp = open(first(get_port_list()), baudrate)
+        sp = open(last(get_port_list()), baudrate)
         r = ntuple(i -> (suns[i].width - 1)/2, N)
         msg = MVector{5N, UInt8}(undef)
         for (i, sun) in zip(1:5:5N, suns)
