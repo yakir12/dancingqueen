@@ -12,7 +12,7 @@ cam = Camera("/dev/video2")
 detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
 tracker = Track(setup.suns)
 leds = LEDs(baudrate, setup.suns)
-frame = Frame(cam)
+frame = Frame(cam, setup.suns)
 
 # fetch an image that contains a tag in it
 beetle = Ref{Union{Nothing, Beetle}}(nothing)
@@ -28,7 +28,7 @@ function fun(cam, detector, tracker, leds, logbook, frame)
     # # the rest takes: 1.5 ms 150 kb 1500 alloc, my PR
     beetle = detector(cam.img) # 500 μs 100 kb 30 alloc
     tracker(beetle) # 20 ns 16 b 1 alloc
-    tracker(setup.suns) # 100 ns 600 b 2 alloc
+    update_suns!(tracker) # 100 ns 600 b 2 alloc
     leds(tracker.sun_θs) # 133 ns 0 b 0 alloc * excluding writing to serial
     log!(logbook, beetle, leds) # 4 μs 5 kb 112 alloc *with no spawning
     # frame(cam.img, beetle[], leds) # 4 ms 3.7 mb 9760 alloc, most of the memory and allocations come from draw!ing the leds

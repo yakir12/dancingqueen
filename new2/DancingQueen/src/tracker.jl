@@ -2,9 +2,10 @@ mutable struct Track{N}
     sun_θs::MVector{N, Float64}
     previouse_beetle_θ::Float64
     beetle_Δ::Float64
-    Track{N}(suns::SVector{N, Sun}) where {N} = new(MVector{N, Float64}(getfield.(suns, :θ)), 0, 0)
+    link_factors::NTuple{N, Float64}
+    Track{N}(suns::NTuple{N, Sun}) where {N} = new(MVector{N, Float64}(getfield.(suns, :θ)), 0, 0, NTuple{N, Float64}(getfield.(suns, :link_factor)))
 end
-Track(suns::SVector{N, Sun}) where {N} = Track{N}(suns)
+Track(suns::NTuple{N, Sun}) where {N} = Track{N}(suns)
 
 function (tracker::Track)(::Nothing)
     tracker.beetle_Δ = 0.0
@@ -17,9 +18,5 @@ function (tracker::Track)(beetle::Beetle)
     tracker.previouse_beetle_θ = beetle.θ
 end
 
-function (tracker::Track{N})(suns::SVector{N, Sun}) where {N}
-    for (i, sun) in enumerate(suns)
-        tracker.sun_θs[i] += sun.link_factor * tracker.beetle_Δ
-    end
-end
+update_suns!(tracker) = tracker.sun_θs .+= tracker.link_factors .* tracker.beetle_Δ
 

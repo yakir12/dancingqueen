@@ -2,7 +2,7 @@
 
 julia_version = "1.9.4"
 manifest_format = "2.0"
-project_hash = "4b2def781e5742bb3ccd5a5f66421173ae7c4742"
+project_hash = "db1044bc44adaaa6ef40df200b26e8edb1af1b5e"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -95,6 +95,12 @@ version = "0.12.10"
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
 version = "1.0.5+0"
+
+[[deps.DancingQueen]]
+deps = ["AprilTags", "COBSReduced", "ColorTypes", "Dates", "ImageDraw", "LibSerialPort", "Observables", "StaticArrays", "TOML", "VideoIO"]
+path = "new2/DancingQueen"
+uuid = "2a4fde1f-2e33-47a3-961e-f5a43f592eaf"
+version = "0.1.0"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -347,6 +353,11 @@ version = "2022.10.11"
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
 version = "1.2.0"
+
+[[deps.Observables]]
+git-tree-sha1 = "7438a59546cf62428fc9d1bc94729146d37a7225"
+uuid = "510215fc-4207-5dde-b226-833fc4488ee2"
+version = "0.5.5"
 
 [[deps.OffsetArrays]]
 deps = ["Adapt"]
