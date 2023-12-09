@@ -39,18 +39,30 @@ struct Instance{N}
     leds::LEDs{N}
     frame::Frame{N}
     save::Bool
-    status::Bool
-    Instance(setup::Dict{String, any}) #here
+    running::Ref{Bool}
+    function Instance{N}(setup::Dict{String, any}) where N
+        logbook = LogBook(setup)
+        suns = Tuple((Sun(sun) for sun in setup["suns"]))
+        cam = Camera("/dev/video2")
+        detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
+        tracker = Track(suns)
+        leds = LEDs(baudrate, suns)
+        frame = Frame(cam, suns)
+        save = setup["label"] ≠ "Off"
+        running = Ref(true)
+        new(logbook, suns, cam, detector, tracker, leds, frame, save, running)
+    end
 end
+Instance(logbook, suns::NTuple{N, Sun}, cam, detector, tracker::Track{N}, leds::LEDs{N, M}, frame::Frame{N}, save, running) where {N, M} = Instance{N}(logbook, suns, cam, detector, tracker, leds, frame, save, running)
 
-function one_iter(save, cam, detector, tracker, leds, logbook, frame)
-    snap(cam)
-    beetle = detector(cam.img)
-    tracker(beetle)
-    update_suns!(tracker)
-    leds(tracker.sun_θs)
-    save && log!(logbook, beetle, leds)
-    frame(cam.img, beetle, leds)
+function one_iter(i::Instance)
+    snap(i.cam)
+    beetle = detector(i.cam.img)
+    tracker(i.beetle)
+    update_suns!(i.tracker)
+    i.leds(i.tracker.sun_θs)
+    i.save && log!(i.logbook, beetle, i.leds)
+    i.frame(i.cam.img, beetle, i.leds)
 end
 
 function start(setup::Dict{String, Any}, img)
