@@ -11,7 +11,7 @@ struct Frame{N}
         marker_radius = round(Int, ring_radius*sin(π/nleds)) # marker radius sized such that the LEDs touch each other around the ring
         c = SV(w/2, h/2)
         colors = NTuple{N, Color}(getfield.(suns, :color))
-        new(cimg, ring_radius, marker_radius, c)
+        new(cimg, ring_radius, marker_radius, c, colors)
     end
 end
 Frame(cam, suns::NTuple{N, Sun}) where {N} = Frame{N}(cam, suns)
@@ -24,7 +24,7 @@ function index2point(index, c, ring_radius)
     return topoint(p)
 end
 
-collect_indices(i1, i2) = i1 < i2 ? collect(i1:i2) : [i2:nleds; 1:i1]
+collect_indices(i1, i2) = i1 ≤ i2 ? collect(i1:i2) : [i1:nleds; 1:i2]
 
 (f::Frame)(::Nothing) = nothing
 (f::Frame)(beetle::Beetle) = draw!(f.cimg, CirclePointRadius(topoint(beetle.c), f.marker_radius), Color(1, 0, 1))
