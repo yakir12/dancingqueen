@@ -76,3 +76,22 @@
         red = 255
         blue = 255
         green = 255
+
+[[setups]]
+    label = "Three moving suns"
+    [[setups.suns]] # you can have as many suns as you like
+        link_factor = 4
+        azimuth = 0
+        width = 1
+        red = 255
+    [[setups.suns]] # you can have as many suns as you like
+        link_factor = 2
+        azimuth = 90
+        width = 1
+        green = 255
+    [[setups.suns]]
+        link_factor = -2
+        azimuth = 180
+        width = 1
+        blue = 255
+
