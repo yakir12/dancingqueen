@@ -57,6 +57,7 @@ route("/settings", method = POST) do
 end
 
 @app FromFile begin
+    @out downloading = false
     @out imageurl = "/frame"
     @in setups = [off]
     @in setups_labels = ["a: Off"]
@@ -72,6 +73,7 @@ end
 end myhandlers
 
 function downloaddata()
+    model.downloading[] = true
     @info "pressed download"
     model.chosen[] = 0 # close the recording
     io = IOBuffer()
@@ -85,6 +87,7 @@ function downloaddata()
         @warn "download failed, not delteing files"
     end
     close(io)
+    model.downloading[] = false
 end
 
 @event FromFile download_data downloaddata()
@@ -105,7 +108,7 @@ ui() = Html.div(
                      ])
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=true, nothumbnails=true, field__name="csv_file", autoupload=true)
-                      btn(class = "q-ml-lg", "Download data", icon = "download", @on(:click, :download_data), color = "primary", nocaps = true, nothumbnails = true)
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @on(:click, :download_data), color = "primary", nocaps = true, nothumbnails = true, loading = :downloading)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
