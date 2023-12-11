@@ -91,7 +91,7 @@ function main()
             instance[] = Instance(setup, img)
         end
     end
-    return setup, img, instance
+    return setup, img
 end
 
 end # module DancingQueen
