@@ -27,7 +27,7 @@ struct Camera
         buff, view2img = create_buffer(w, h)
         cmd = `libcamera-vid -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
         o = open(cmd)
-        new(o, buff, view2img, h, w)
+        new(o, buff, view2img, w, h)
     end
 end
 
