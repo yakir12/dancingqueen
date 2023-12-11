@@ -99,7 +99,7 @@ ui() = Html.div(
                       card(class="st-col col-12", 
                            [
                             row([
-                                 imageview(src=:imageurl, basic=true, style="max-width: $(DancingQueen.w)px")
+                                 imageview(src=:imageurl, basic=true, style="max-width: 640px")
                                 ])
                            ])
                      ])
@@ -114,7 +114,7 @@ global model = init(FromFile, debounce = 0) |> myhandlers
 
 Stipple.js_methods(model::FromFile) = """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
 
-Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, $(1000 ÷ client_fps))"
+Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, 100)"
 
 route("/") do
     # global model
