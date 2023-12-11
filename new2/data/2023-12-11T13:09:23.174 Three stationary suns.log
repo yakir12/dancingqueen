@@ -1,0 +1,45 @@
+[camera]
+# width=480
+# height=640
+# width=720
+# height=1280
+# width=1536
+# height=1024
+# width=640
+# height=480
+# fps=30
+
+[detection]
+tag_pixel_width = 100
+widen_radius = 15
+
+[arena]
+nleds = 113#198
+ring_r = 30 # in cm
+origo_offset = [360, 360] # in pixels
+cm_per_pixel = 0.1
+baudrate = 115200#9600###921600#
+
+[setup]
+label = "Three stationary suns"
+
+    [[setup.suns]]
+    link_factor = 0
+    azimuth = 0
+    width = 1
+    red = 255
+    [[setup.suns]]
+    link_factor = 0
+    green = 255
+    azimuth = 90
+    width = 1
+    [[setup.suns]]
+    blue = 255
+    link_factor = 0
+    azimuth = 180
+    width = 1
+
+[experiment]
+datetime = 2023-12-11T13:09:23.174Z
+
+ms,x,y,θ,start1,stop1,start2,stop2,start3,stop3
