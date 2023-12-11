@@ -2,7 +2,7 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables, ImageCore
 import ColorTypes: RGB, N0f8, Gray
 using VideoIO
 
@@ -83,7 +83,7 @@ end
 
 function main()
     off = Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)])
-    setup = async_latest(Observable(off), 1)
+    setup = async_latest(Observable(off), 1) # do I need this?
     img = Ref(zeros(Color, 10, 10))
     instance = Ref{Instance}(Instance(setup[], img))
     on(setup) do setup
