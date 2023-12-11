@@ -61,12 +61,12 @@ end
     @in setups = [off]
     @in setups_labels = ["a: Off"]
     @onchange setups begin
-        setups_labels[] = get_labels(setups)
+        setups_labels = get_labels(setups)
     end
     @in chosen = 0
     @onchange chosen begin
         if chosen < length(setups[])
-            setup[] = setups[][chosen + 1]
+            setup = setups[][chosen + 1]
         end
     end
 end myhandlers
