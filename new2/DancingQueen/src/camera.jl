@@ -40,7 +40,11 @@ function create_buffer(w, h)
     return (buff, view2img)
 end
 
-Base.close(cam::Camera) = close(cam.o)
+function Base.close(cam::Camera) 
+    close(cam.o)
+    wait(cam.o)
+end
+
 Base.size(cam::Camera) = (cam.w, cam.h)
 
 Base.isopen(cam::Camera) = isopen(cam.o)
