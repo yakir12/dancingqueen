@@ -65,8 +65,8 @@ end
     end
     @in chosen = 0
     @onchange chosen begin
-        if chosen < length(setups[])
-            setup = setups[chosen + 1]
+        if chosen < length(setups)
+            setup[] = setups[chosen + 1]
         end
     end
 end myhandlers
