@@ -1,6 +1,7 @@
 import TOML
 using DancingQueen
-# setup, img, i = main();
+setup, img, i = main();
+
 # txt = read("settings.toml", String);
 # setups = TOML.parse(txt)["setups"];
 # push!(setups,  Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)]));
