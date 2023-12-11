@@ -1,2 +1,4 @@
 [deps]
 DancingQueen = "2a4fde1f-2e33-47a3-961e-f5a43f592eaf"
+GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+JpegTurbo = "b835a17e-a41a-41e7-81f0-2f016b05efe0"
