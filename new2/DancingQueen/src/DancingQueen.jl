@@ -3,7 +3,7 @@ module DancingQueen
 import TOML
 using Dates
 using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables
-import ColorTypes: RGB, N0f8
+import ColorTypes: RGB, N0f8, Gray
 using VideoIO
 
 export main
