@@ -43,7 +43,7 @@ struct Instance{N}
     task::Task
     function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
-        cam = Camera("/dev/video2")
+        cam = Camera()
         detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
