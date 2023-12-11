@@ -11,7 +11,7 @@ import Stipple.opts
 
 const schema = Schema(read("schema.json", String))
 
-get_labels(setups::Vector{AbstractDict}) = [string(k, ": ", setup["label"]) for (k, setup) in zip('a':'z', setups)]
+get_labels(setups::Vector{<:AbstractDict}) = [string(k, ": ", setup["label"]) for (k, setup) in zip('a':'z', setups)]
 
 setup, img = main();
 
