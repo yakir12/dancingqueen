@@ -49,4 +49,4 @@ route("/") do
     page(model, ui) |> html
 end
 
-Server.up()
+Server.up(8000, "0.0.0.0")
