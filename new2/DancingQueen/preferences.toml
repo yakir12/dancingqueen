@@ -14,7 +14,7 @@ tag_pixel_width = 100
 widen_radius = 15
 
 [arena]
-nleds = 113#198
+nleds = 198
 ring_r = 30 # in cm
 origo_offset = [360, 360] # in pixels
 cm_per_pixel = 0.1

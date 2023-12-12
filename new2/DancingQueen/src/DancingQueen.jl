@@ -7,6 +7,7 @@ import ColorTypes: RGB, N0f8, Gray
 
 export main
 
+
 const SV = SVector{2, Float64}
 const SVI = SVector{2, Int}
 const Color = RGB{N0f8}
