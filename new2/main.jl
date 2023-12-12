@@ -23,12 +23,9 @@ using JpegTurbo
 using GenieFramework
 @genietools
 
-# a convinience function to convert pixel matrices to jpegs
-to_frame = String ∘ jpeg_encode
-
 # avoid writing to disk, when the user asks for a frame they get the latest one
 route("/frame") do
-    String(jpeg_encode(img[]))
+    respond(String(jpeg_encode(img[])), :jpg)
 end
 
 @app Webcam begin
