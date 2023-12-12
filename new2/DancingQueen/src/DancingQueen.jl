@@ -49,7 +49,7 @@ struct Instance{N}
         leds = LEDs(baudrate, suns)
         frame = Frame(cam, suns)
         running = Ref(true)
-        img[] = frame.cimg
+        img[] = frame.smaller
         task = Threads.@spawn while running[]
             one_iter(cam, detector, tracker, leds, logbook, frame)
             yield()
