@@ -39,9 +39,9 @@ function (f::Frame)(img, beetle, leds)
     end
     f(beetle)
     for ((i1, i2), color) in zip(iterate_leds_indices(leds), f.colors), i in collect_indices(i1, i2)
-        draw!(f.cimg, CirclePointRadius(index2point(i, f.c, f.ring_radius), f.marker_radius), color)
+        draw!(f.smaller, CirclePointRadius(index2point(i, f.c, f.ring_radius), f.marker_radius), color)
     end
-    return f.cimg
+    return f.smaller
 end
 
 
