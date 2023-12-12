@@ -1,6 +1,6 @@
 import TOML
 using DancingQueen
-setup, img, i = main();
+setup, img = main();
 
 txt = read("settings.toml", String);
 setups = TOML.parse(txt)["setups"];
@@ -17,7 +17,7 @@ push!(setups,  Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)]));
 #     setup[] = rand(setups)
 # end
 #
-# setup[] = setups[2]
+setup[] = setups[4]
 
 using JpegTurbo
 using GenieFramework
