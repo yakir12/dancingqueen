@@ -23,7 +23,7 @@ struct Camera
     w::Int
     h::Int
     function Camera()
-        w, h, fps = (1080, 1080, 30)
+        w, h, fps = (1920, 1080, 30)
         # w, h, fps = (640, 480, 30)
         buff, view2img = create_buffer(w, h)
         cmd = `libcamera-vid -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
