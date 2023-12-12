@@ -21,7 +21,6 @@ struct Camera
     buff::Vector{UInt8}
     img
     w::Int
-    h::Int
     function Camera()
         # w, h, fps = (1920, 1080, 30)
         w, h, fps = (1080, 1920, 30)
@@ -38,7 +37,9 @@ function create_buffer(w, h)
     h2 = 32ceil(Int, h/32)
     nb = Int(w2*h2*3//2) # total number of bytes per frame
     buff = Vector{UInt8}(undef, nb)
-    view2img = colorview(Gray, normedview(Base.view(reshape(Base.view(buff, 1:w2*h2), w2, h2), w:-1:1, 1:h)))
+    i1 = (h - w) ÷ 2
+    i2 = i1 + w - 1
+    view2img = colorview(Gray, normedview(Base.view(reshape(Base.view(buff, 1:w2*h2), w2, h2), w:-1:1, i1:i2)))
     return (buff, view2img)
 end
 
@@ -47,7 +48,7 @@ function Base.close(cam::Camera)
     wait(cam.o)
 end
 
-Base.size(cam::Camera) = (cam.w, cam.h)
+Base.size(cam::Camera) = (cam.w, cam.w)
 
 Base.isopen(cam::Camera) = isopen(cam.o)
 function snap(cam::Camera) 
