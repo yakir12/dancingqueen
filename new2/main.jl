@@ -38,7 +38,7 @@ global model = init(Webcam, debounce = 0) |> myhandlers
 Stipple.js_methods(model::Webcam) = """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
 
 # have the client update the image every 33 milliseconds (should be changed to the camera's actual 1000/fps or less)
-Stipple.js_created(model::Webcam) = "setInterval(this.updateimage, 100)"
+Stipple.js_created(model::Webcam) = "setInterval(this.updateimage, 1000)"
 
 # set the image style to basic to avoid the loading wheel etc
 ui() = [imageview(src=:imageurl, basic=true)]
