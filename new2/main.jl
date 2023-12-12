@@ -28,7 +28,7 @@ to_frame = String ∘ jpeg_encode
 
 # avoid writing to disk, when the user asks for a frame they get the latest one
 route("/frame") do
-    String(jpeg_encode(img[]; transpose = true))
+    String(jpeg_encode(img[]))
 end
 
 @app Webcam begin
