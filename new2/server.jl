@@ -20,7 +20,7 @@ off = Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)])
 isdir("data") || mkdir("data")
 
 route("/frame") do
-    respond(String(jpeg_encode(img[])), :jpg)
+    respond(String(jpeg_encode(img[]; transpose = true)), :jpg)
 end
 
 Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
@@ -102,7 +102,7 @@ ui() = Html.div(
                       card(class="st-col col-12", 
                            [
                             row([
-                                 imageview(src=:imageurl, basic=true, style="max-width: 640px")
+                                 imageview(src=:imageurl, basic=true, style="max-width: 1920px")
                                 ])
                            ])
                      ])
