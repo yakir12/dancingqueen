@@ -2,6 +2,7 @@
 
 [[setups]]
     label = "One stationary sun" # this label will be on the button that evokes this setup, and therefore is limited to 60 characters
+    camera = 3280
     [[setups.suns]]
         link_factor = 0 # the order of `link_factor`, `width`, `red`, `green`, and `blue` does not matter
         green = 255 # `red` and `blue` are assumed to be 0 here
@@ -79,6 +80,7 @@
 
 [[setups]]
     label = "Three moving suns"
+    camera = 3280
     [[setups.suns]] # you can have as many suns as you like
         link_factor = 4
         azimuth = 0

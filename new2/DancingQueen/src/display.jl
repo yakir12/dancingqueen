@@ -12,7 +12,7 @@ struct Frame{N}
         indices = vec(li[ci])
         smaller = RGB{N0f8}.(cam.img[ci])
         ring_radius = 0.45min(w, h)/2
-        marker_radius = round(Int, ring_radius*sin(π/nleds)/2) # marker radius sized such that the LEDs touch each other around the ring
+        marker_radius = round(Int, ring_radius*sin(π/nleds)) # marker radius sized such that the LEDs touch each other around the ring
         c = SV(w/4, h/4)
         colors = NTuple{N, Color}(getfield.(suns, :color))
         new(smaller, ring_radius, marker_radius, c, colors, indices)

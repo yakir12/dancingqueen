@@ -54,6 +54,15 @@
             },
             "minItems": 1,
             "uniqueItems": true
+          },
+          "camera": {
+              "type": "number",
+              "oneOf": [
+                {"required": [640]},
+                {"required": [1640]},
+                {"required": [1920]},
+                {"required": [3280]}
+              ]
           }
         },
         "required": [ "suns", "label" ]

@@ -16,30 +16,41 @@
 # Base.isopen(cam::Camera) = isopen(cam.cam)
 # snap(cam::Camera) = read!(cam.cam, cam.img)
 
+##### the only four options:
+# w, h, fps = (3280, 2464, 21) # 
+# w, h, fps = (1920, 1080, 47) # same high resolution as 3280
+# w, h, fps = (1640, 1232, 83) # same low resolution as 640
+# w, h, fps = (640, 480, 206)
+
+const camera_settings = Dict(640 => (w = 640, h = 480, fps = 206),
+                             1640 => (w = 1640, h = 1232, fps = 83),
+                             1920 => (w = 1920, h = 1080, fps = 47),
+                             3280 => (w = 3280, h = 2464, fps = 21)
+                            )
+
 struct Camera
     o::Base.Process
     buff::Vector{UInt8}
     img
     w::Int
-    function Camera()
-        # w, h, fps = (1920, 1080, 30)
-        w, h, fps = (1080, 1920, 30)
-        # w, h, fps = (640, 480, 30)
+    h::Int
+    function Camera(w)
+        w, h, fps = camera_settings[w]
         buff, view2img = create_buffer(w, h)
-        cmd = `libcamera-vid -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
+        cmd = `rpicam-vid --denoise cdn_off -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
         o = open(cmd)
-        new(o, buff, view2img, w)
+        new(o, buff, view2img, w, h)
     end
 end
 
 function create_buffer(w, h)
     w2 = 64ceil(Int, w/64) # dimension adjustments to hardware restrictions
-    h2 = 32ceil(Int, h/32)
-    nb = Int(w2*h2*3//2) # total number of bytes per frame
+    nb = Int(w2*h*3/2) # total number of bytes per frame
     buff = Vector{UInt8}(undef, nb)
-    i1 = (h - w) ÷ 2
-    i2 = i1 + w - 1
-    view2img = colorview(Gray, normedview(Base.view(reshape(Base.view(buff, 1:w2*h2), w2, h2), w:-1:1, i1:i2)))
+    i1 = (w - h) ÷ 2
+    i2 = i1 + h - 1
+    frame = view(reshape(view(buff, 1:w2*h), w2, h), i2:-1:i1, 1:h)
+    view2img = colorview(Gray, normedview(frame))
     return (buff, view2img)
 end
 
@@ -48,7 +59,7 @@ function Base.close(cam::Camera)
     wait(cam.o)
 end
 
-Base.size(cam::Camera) = (cam.w, cam.w)
+Base.size(cam::Camera) = (cam.h, cam.h)
 
 Base.isopen(cam::Camera) = isopen(cam.o)
 function snap(cam::Camera) 
