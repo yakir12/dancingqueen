@@ -44,7 +44,7 @@ route("/settings", method = POST) do
                 pushfirst!(setups, off)
                 model.setups[] = setups
             else
-                warning = string(replace(msg.x, ">" => "&gt;"), " is wrong")
+                warning = string(replace(string(msg.x), ">" => "&gt;"), " is wrong")
                 @warn warning
                 notify(model, warning, :negative; caption)
             end

@@ -1,7 +1,7 @@
 # First
 [x] Figure out what image dimensions, and fps are best
 [x] Test and see what is the best way to crop that image into a w x w square
-[ ] test the schema, and the reports (specifically the camera field), make sure a fail reports
+[x] test the schema, and the reports (specifically the camera field), make sure a fail reports
 [ ] Mark the location of the arena and the posts to center it all around the ring (tape and string)
 [ ] Get an IR strobe and place it well (must be a few in the lab), if not, get a lamp (BUY A LIHJY BULB)
 [ ] Discover the largest distance between the camera and the arena such that the apriltag is still reliably detectable (BUY SCREW POLE!!!), if not, raise the arena
