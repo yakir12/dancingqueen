@@ -3,11 +3,11 @@
 [x] Test and see what is the best way to crop that image into a w x w square
 [x] test the schema, and the reports (specifically the camera field), make sure a fail reports
 [x] Mark the location of the arena and the posts to center it all around the ring (tape and string)
+[x] Calculate the smallest window size in the detector to match the largest apriltag on the arena
 [ ] Discover the largest distance between the camera and the arena such that the apriltag is still reliably detectable (BUY SCREW POLE!!!), if not, raise the arena
 [ ] Get an IR strobe and place it well (must be a few in the lab), if not, get a lamp (BUY A LIHJY BULB)
 [ ] Glue the camera to its holder (hot glue)
 [ ] Center the camera above the center of the ring, Rotate the camera to align with North, Level the camera so all the lines are straight (GET A GRID FOR THE FLOOR)
-[ ] Calculate the smallest window size in the detector to match the largest apriltag on the arena
 [ ] Benchmark fps to ensure we're not dropping frames
 [ ] Stress test it
 [ ] Clean the code base
