@@ -4,13 +4,15 @@ struct Beetle
 end
 Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
 
+get_min_radius(camera_distance, tag_width, h) = h*2atand(tag_width/2camera_distance)/camera_fov[h]/sqrt(2)
+
 struct DetectoRect
     detector::AprilTagDetector
     rect::MVector{4, Int}
     sz::SVI
     min_radius::Float64
     widen_radius::Int
-    DetectoRect(w, h, tag_pixel_width, widen_radius) = new(AprilTagDetector(), MVector(1, 1, w, h), SVI(w, h), tag_pixel_width/sqrt(2), widen_radius)
+    DetectoRect(w, h, camera_distance, tag_width, widen_radius) = new(AprilTagDetector(), MVector(1, 1, w, h), SVI(w, h), get_min_radius(camera_distance, tag_width, h), widen_radius)
 end
 
 Base.close(d::DetectoRect) = freeDetector!(d.detector)

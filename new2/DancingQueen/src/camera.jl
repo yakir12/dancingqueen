@@ -22,11 +22,17 @@
 # w, h, fps = (1640, 1232, 83) # same low resolution as 640
 # w, h, fps = (640, 480, 206)
 
-const camera_settings = Dict(640 => (w = 640, h = 480, fps = 206),
-                             1640 => (w = 1640, h = 1232, fps = 83),
-                             1920 => (w = 1920, h = 1080, fps = 47),
-                             3280 => (w = 3280, h = 2464, fps = 21)
+const camera_settings = Dict(480 => (w = 640, h = 480, fps = 206),
+                             1232 => (w = 1640, h = 1232, fps = 83),
+                             1080 => (w = 1920, h = 1080, fps = 47),
+                             2464 => (w = 3280, h = 2464, fps = 21)
                             )
+
+const camera_fov = Dict(480 => 480/1232*48.8,
+                        1232 => 48.8,
+                        1080 => 1080/2464*48.8,
+                        2464 => 48.8
+                       )
 
 struct Camera
     o::Base.Process
@@ -34,8 +40,8 @@ struct Camera
     img
     w::Int
     h::Int
-    function Camera(w)
-        w, h, fps = camera_settings[w]
+    function Camera(h)
+        w, h, fps = camera_settings[h]
         buff, view2img = create_buffer(w, h)
         cmd = `rpicam-vid --denoise cdn_off -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
         o = open(cmd)

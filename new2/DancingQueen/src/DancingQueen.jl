@@ -7,7 +7,6 @@ import ColorTypes: RGB, N0f8, Gray
 
 export main
 
-
 const SV = SVector{2, Float64}
 const SVI = SVector{2, Int}
 const Color = RGB{N0f8}
@@ -18,7 +17,8 @@ const path2data = joinpath(@__DIR__, "..", "..", "data")
 const prefs = TOML.parsefile(path2preferences)
 const baudrate = prefs["arena"]["baudrate"]
 const nleds = prefs["arena"]["nleds"]
-const tag_pixel_width = prefs["detection"]["tag_pixel_width"]
+const camera_distance = prefs["detection"]["camera_distance"]
+const tag_width = prefs["detection"]["tag_width"]
 const widen_radius = prefs["detection"]["widen_radius"]
 # const w = prefs["camera"]["width"]
 # const h = prefs["camera"]["height"]
@@ -43,8 +43,8 @@ struct Instance{N}
     task::Task
     function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
-        cam = Camera(get(setup, "camera", 1920))
-        detector = DetectoRect(size(cam)..., tag_pixel_width, widen_radius)
+        cam = Camera(get(setup, "camera", 1080))
+        detector = DetectoRect(size(cam)..., camera_distance, tag_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
         frame = Frame(cam, suns)
@@ -70,7 +70,7 @@ function one_iter(cam, detector, tracker, leds, logbook, frame)
     update_suns!(tracker)
     leds(tracker.sun_θs)
     log_print(logbook, beetle, leds)
-    frame(cam.img, beetle, leds)
+    frame(cam.img, beetle, leds, detector.rect)
 end
 
 function stop(i::Instance)
