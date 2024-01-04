@@ -2,7 +2,7 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables, ImageCore
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables, ImageCore, ImageTransformations
 import ColorTypes: RGB, N0f8, Gray
 
 export main
@@ -31,6 +31,16 @@ include("leds.jl")
 include("logs.jl")
 include("display.jl")
 
+const benchmark = Ref(now())
+
+function report_bm()
+    t = now()
+    Δ = t - benchmark[]
+    fps = 1000 ÷ max(1, Dates.value(Δ))
+    benchmark[] = t
+    println(fps)
+end
+
 struct Instance{N}
     logbook::LogBook
     suns::NTuple{N, Sun}
@@ -43,7 +53,7 @@ struct Instance{N}
     task::Task
     function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
-        cam = Camera(get(setup, "camera", 1080))
+        cam = Camera(get(setup, "camera", 2464))
         detector = DetectoRect(size(cam)..., camera_distance, tag_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
@@ -52,6 +62,7 @@ struct Instance{N}
         img[] = frame.smaller
         task = Threads.@spawn while running[]
             one_iter(cam, detector, tracker, leds, logbook, frame)
+            report_bm()
             yield()
         end
         new(logbook, suns, cam, detector, tracker, leds, frame, running, task)
