@@ -15,8 +15,6 @@ get_labels(setups::Vector{<:AbstractDict}) = [string(k, ": ", setup["label"]) fo
 
 setup, img = main();
 
-off = Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)])
-
 isdir("data") || mkdir("data")
 
 route("/frame") do
@@ -41,8 +39,9 @@ route("/settings", method = POST) do
             msg = validate(schema, dict)
             if isnothing(msg)
                 setups = dict["setups"]
-                pushfirst!(setups, off)
+                pushfirst!(setups, DancingQueen.off_sun)
                 model.setups[] = setups
+                notify(model.setups)
             else
                 warning = string(replace(string(msg.x), ">" => "&gt;"), " is wrong")
                 @warn msg
@@ -59,7 +58,7 @@ end
 @app FromFile begin
     @out downloading = false
     @out imageurl = "/frame"
-    @in setups = [off]
+    @in setups = [DancingQueen.off_sun]
     @in setups_labels = ["a: Off"]
     @onchange setups begin
         setups_labels = get_labels(setups)
@@ -102,7 +101,7 @@ ui() = Html.div(
                       card(class="st-col col-12", 
                            [
                             row([
-                                 imageview(src=:imageurl, basic=true, style="max-width: 540px")
+                                 imageview(src=:imageurl, basic=true, style="max-width: 500px")
                                 ])
                            ])
                      ])
@@ -113,14 +112,13 @@ ui() = Html.div(
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
 
-global model = init(FromFile, debounce = 0) |> myhandlers
 
 Stipple.js_methods(model::FromFile) = """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
 
 Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, 100)"
 
 route("/") do
-    # global model
+    global model = init(FromFile, debounce = 0) |> myhandlers
     page(model, ui) |> html
 end
 

@@ -31,6 +31,8 @@ include("leds.jl")
 include("logs.jl")
 include("display.jl")
 
+const off_sun = Dict("label" => "Off", "camera" => 2464, "suns" => [Dict("link_factor" => 0)])
+
 const benchmark = Ref(now())
 
 function report_bm()
@@ -53,7 +55,7 @@ struct Instance{N}
     task::Task
     function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
-        cam = Camera(get(setup, "camera", 2464))
+        cam = Camera(get(setup, "camera", 1080))
         detector = DetectoRect(size(cam)..., camera_distance, tag_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
@@ -62,7 +64,7 @@ struct Instance{N}
         img[] = frame.smaller
         task = Threads.@spawn while running[]
             one_iter(cam, detector, tracker, leds, logbook, frame)
-            report_bm()
+            # report_bm()
             yield()
         end
         new(logbook, suns, cam, detector, tracker, leds, frame, running, task)
@@ -93,8 +95,7 @@ function stop(i::Instance)
 end
 
 function main()
-    off = Dict("label" => "Off", "suns" => [Dict("link_factor" => 0)])
-    setup = async_latest(Observable(off), 1) # do I need this?
+    setup = async_latest(Observable(off_sun), 1) # do I need this?
     img = Ref(zeros(Color, 10, 10))
     instance = Ref{Instance}(Instance(setup[], img))
     on(setup) do setup
