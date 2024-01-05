@@ -33,15 +33,15 @@ include("display.jl")
 
 const off_sun = Dict("label" => "Off", "camera" => 2464, "suns" => [Dict("link_factor" => 0)])
 
-const benchmark = Ref(now())
-
-function report_bm()
-    t = now()
-    Δ = t - benchmark[]
-    fps = 1000 ÷ max(1, Dates.value(Δ))
-    benchmark[] = t
-    println(fps)
-end
+# const benchmark = Ref(now())
+#
+# function report_bm()
+#     t = now()
+#     Δ = t - benchmark[]
+#     fps = 1000 ÷ max(1, Dates.value(Δ))
+#     benchmark[] = t
+#     println(fps)
+# end
 
 struct Instance{N}
     logbook::LogBook

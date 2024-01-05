@@ -36,7 +36,7 @@ end
 
 function (leds::LEDs{N})(sun_θs::MVector{N, Float64}) where N
     for (i, r, sun_θ) in zip(1:5:5N, leds.r, sun_θs)
-        leds.msg[i + 3:i + 4] .= θ2indices(r, sun_θ)
+        leds.msg[i + 3:i + 4] .= θ2indices(r, sun_θ - π/2) # -90° cause the LED ring zero is pointing to the West
     end
     # Threads.@spawn 
     @lock leds.l write(leds.sp, cobs_encode(leds.msg))

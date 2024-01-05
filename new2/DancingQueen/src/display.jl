@@ -25,7 +25,7 @@ Frame(cam, suns::NTuple{N, Sun}) where {N} = Frame{N}(cam, suns)
 topoint(p) = Point(reverse(Tuple(round.(Int, p))))
 
 function index2point(index, c, ring_radius)
-    θ = 2π/nleds*index
+    θ = 2π/nleds*index - π/2
     p = ring_radius*SV(reverse(sincos(θ))) + c
     return topoint(p)
 end

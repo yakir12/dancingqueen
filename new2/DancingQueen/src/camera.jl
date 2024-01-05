@@ -55,7 +55,7 @@ function create_buffer(w, h)
     buff = Vector{UInt8}(undef, nb)
     i1 = (w - h) ÷ 2
     i2 = i1 + h - 1
-    frame = view(reshape(view(buff, 1:w2*h), w2, h), i2:-1:i1, 1:h)
+    frame = view(reshape(view(buff, 1:w2*h), w2, h), i1:i2, h:-1:1)
     view2img = colorview(Gray, normedview(frame))
     return (buff, view2img)
 end

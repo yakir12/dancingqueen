@@ -18,7 +18,7 @@ setup, img = main();
 isdir("data") || mkdir("data")
 
 route("/frame") do
-    respond(String(jpeg_encode(img[]; transpose = true)), :jpg)
+    respond(String(jpeg_encode(img[]; transpose = false)), :jpg)
 end
 
 Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
