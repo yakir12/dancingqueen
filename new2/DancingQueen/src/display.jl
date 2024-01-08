@@ -8,19 +8,18 @@ struct Frame{N}
     c::SV
     colors::NTuple{N, Color}
     ratio::Float64
-    function Frame{N}(cam, suns) where N
+    function Frame{N}(h, suns) where N
         smaller = zeros(Color, disp_w, disp_w)
         buffer = similar(smaller)
-        w, h = size(cam)
         ratio = disp_w/h
-        ring_radius = 0.45min(w, h)*ratio
+        ring_radius = 0.45h*ratio
         marker_radius = round(Int, ring_radius*sin(π/nleds)) # marker radius sized such that the LEDs touch each other around the ring
-        c = ratio*SV(w/2, h/2)
+        c = ratio*SV(h/2, h/2)
         colors = NTuple{N, Color}(getfield.(suns, :color))
         new(smaller, buffer, ring_radius, marker_radius, c, colors, ratio)
     end
 end
-Frame(cam, suns::NTuple{N, Sun}) where {N} = Frame{N}(cam, suns)
+Frame(h::Int, suns::NTuple{N, Sun}) where {N} = Frame{N}(h, suns)
 
 topoint(p) = Point(reverse(Tuple(round.(Int, p))))
 

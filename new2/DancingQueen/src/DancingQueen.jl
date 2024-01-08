@@ -43,6 +43,8 @@ const off_sun = Dict("label" => "Off", "camera" => 2464, "suns" => [Dict("link_f
 #     println(fps)
 # end
 
+int2enum(::Missing) = best
+
 struct Instance{N}
     logbook::LogBook
     suns::NTuple{N, Sun}
@@ -56,10 +58,10 @@ struct Instance{N}
     function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
         logbook = LogBook(setup)
         cam = Camera(get(setup, "camera", 1080))
-        detector = DetectoRect(size(cam)..., camera_distance, tag_width, widen_radius)
+        detector = DetectoRect(cam.h, camera_distance, tag_width, widen_radius)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
-        frame = Frame(cam, suns)
+        frame = Frame(cam.h, suns)
         running = Ref(true)
         img[] = frame.smaller
         task = Threads.@spawn while running[]

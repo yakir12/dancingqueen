@@ -6,8 +6,8 @@
 [x] post processing: make sure it all looks correctly, and fits exactly with reality (no mirroring, counter rotations, switching cameras etc)
 [x] tweak the fps of the client to see if that helps maxing out the fps of the cameras
 [x] Benchmark fps to ensure we're not dropping frames
-[ ] replace global Dicts with enums
-[ ] Discover the largest distance between the camera and the arena such that the apriltag is still reliably detectable
+[x] replace global Dicts with enums
+[x] Discover the largest distance between the camera and the arena such that the apriltag is still reliably detectable
 [ ] Get an IR strobe and place it well (must be a few in the lab), if not, get a lamp (BUY A LIHJY BULB)
 [ ] Glue the camera to its holder (hot glue)
 [ ] Center the camera above the center of the ring, Rotate the camera to align with North, Level the camera so all the lines are straight (GET A GRID FOR THE FLOOR)
