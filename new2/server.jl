@@ -56,14 +56,19 @@ route("/settings", method = POST) do
 end
 
 @app FromFile begin
+    @in chosen = 0
     @out downloading = false
+    @onchange downloading begin
+        chosen = 0 # close the recording
+        sleep(1) # wait for the file to close before you start downloading
+        downloaddata()
+    end
     @out imageurl = "/frame"
     @in setups = [DancingQueen.off_sun]
     @in setups_labels = ["a: Off"]
     @onchange setups begin
         setups_labels = get_labels(setups)
     end
-    @in chosen = 0
     @onchange chosen begin
         if chosen < length(setups)
             setup[] = setups[chosen + 1]
@@ -72,9 +77,7 @@ end
 end myhandlers
 
 function downloaddata()
-    model.downloading[] = true
     @info "pressed download"
-    model.chosen[] = 0 # close the recording
     io = IOBuffer()
     try
         Tar.create("data", io)
@@ -86,7 +89,6 @@ function downloaddata()
         @warn "download failed, not delteing files"
     end
     close(io)
-    model.downloading[] = false
 end
 
 @event FromFile download_data downloaddata()
@@ -107,7 +109,7 @@ ui() = Html.div(
                      ])
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=true, nothumbnails=true, field__name="csv_file", autoupload=true)
-                      btn(class = "q-ml-lg", "Download data", icon = "download", @on(:click, :download_data), color = "primary", nocaps = true, nothumbnails = true, loading = :downloading)
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @click(:downloading), color = "primary", nocaps = true, nothumbnails = true, loading = :downloading)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
