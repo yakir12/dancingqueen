@@ -21,6 +21,45 @@ route("/frame") do
     respond(String(jpeg_encode(img[]; transpose = false)), :jpg)
 end
 
+function downloaddata()
+    @info "pressed download"
+    io = IOBuffer()
+    try
+        Tar.create("data", io)
+        download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
+        @info "download worked, deleting files"
+        rm.(readdir("data"; join=true))
+    catch ex
+        @warn ex
+        @warn "download failed, not delteing files"
+    end
+    close(io)
+end
+
+function get_setups(msg)
+    if isempty(msg)
+        warning = "settings file was empty"
+        @warn warning
+        return warning
+    end
+    txt = String(msg)
+    dict = TOML.tryparse(txt)
+    if dict isa Base.TOML.ParserError
+        warning = "settings file had bad TOML format"
+        @warn warning
+        return warning
+    end
+    error_msg = validate(schema, dict)
+    if !isnothing(error_msg)
+        warning = string(replace(string(msg.x), ">" => "&gt;"), " is wrong")
+        @warn error_msg
+        return warning
+    end
+    setups = dict["setups"]
+    pushfirst!(setups, DancingQueen.off_sun)
+    return setups
+end
+
 Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
 Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
 Genie.config.cors_headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,DELETE,OPTIONS"
@@ -75,21 +114,6 @@ end
         end
     end
 end myhandlers
-
-function downloaddata()
-    @info "pressed download"
-    io = IOBuffer()
-    try
-        Tar.create("data", io)
-        download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
-        @info "download worked, deleting files"
-        rm.(readdir("data"; join=true))
-    catch ex
-        @warn ex
-        @warn "download failed, not delteing files"
-    end
-    close(io)
-end
 
 @event FromFile download_data downloaddata()
 
