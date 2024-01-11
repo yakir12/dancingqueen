@@ -13,14 +13,16 @@
 [ ] Experiment without global model
 [ ] Clean the code base
 
-[ ] Come up with an easy way to correct the camera if it got moved
+[x] Come up with an easy way to correct the camera if it got moved
+[ ] draw the huge cross on the arena
+[ ] draw the cross on the image
 [ ] Center the camera above the center of the ring, Rotate the camera to align with North, Level the camera so all the lines are straight (GET A GRID FOR THE FLOOR)
 [ ] Measure the calibration parameters needed for approximate transformation from pixel to real-world coordinates: ring center in image, ring zero azimuth relative to image axes, cm per pixel. 
 [ ] Make sure you can reproduce the original data from the saved/logged data (the plotted data needs to look like what it does on the screen and the LEDs): ./DancingQueen/src/display.jl#L28
 [ ] Add instructions
 
 [ ] Glue the camera to its holder (hot glue)
-[ ] Blacken out the LEDs of the arduino and rpi (BUY BLACKING GLUE)
+[x] Blacken out the LEDs of the arduino and rpi (BUY BLACKING GLUE)
 [ ] Get a box with a fan for the rpi
 [ ] Close the tent, fix it up, etc
 
@@ -29,3 +31,16 @@
 [ ] build .sh script for the rpi
 [ ] It is advisable to set force_turbo=1 in /boot/firmware/config.txt to ensure the CPU clock does not get throttled during the video capture. See the force_turbo documentation for further details.
 [ ] install from fresh and repreduce it reliably
+add the following to `/boot/config.txt`
+```
+[pi4]
+# Disable the PWR LED
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
+# Disable the Activity LED
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=off
+# Disable ethernet port LEDs
+dtparam=eth_led0=4
+dtparam=eth_led1=4
+```

@@ -8,6 +8,7 @@ struct Frame{N}
     c::SV
     colors::NTuple{N, Color}
     ratio::Float64
+    cross::Cross
     function Frame{N}(h, suns) where N
         smaller = zeros(Color, disp_w, disp_w)
         buffer = similar(smaller)
@@ -16,7 +17,8 @@ struct Frame{N}
         marker_radius = round(Int, ring_radius*sin(π/nleds)) # marker radius sized such that the LEDs touch each other around the ring
         c = ratio*SV(h/2, h/2)
         colors = NTuple{N, Color}(getfield.(suns, :color))
-        new(smaller, buffer, ring_radius, marker_radius, c, colors, ratio)
+        cross = Cross(topoint(c), round(Int, ratio*h/2))
+        new(smaller, buffer, ring_radius, marker_radius, c, colors, ratio, cross)
     end
 end
 Frame(h::Int, suns::NTuple{N, Sun}) where {N} = Frame{N}(h, suns)
@@ -40,6 +42,7 @@ function (f::DancingQueen.Frame)(img, beetle, leds, rect)
     for ((i1, i2), color) in zip(iterate_leds_indices(leds), f.colors), i in collect_indices(i1, i2)
         draw!(f.buffer, CirclePointRadius(index2point(i, f.c, f.ring_radius), f.marker_radius), color)
     end
+    draw!(f.buffer, f.cross, Color(1,1,1))
     rect2 = round.(Int, f.ratio*rect)
     x1, y1 = max.(1, rect2[1:2])
     x2, y2 = rect2[3:4]
