@@ -36,13 +36,12 @@ function downloaddata()
     close(io)
 end
 
-function get_setups(msg)
-    if isempty(msg)
+function get_setups(txt)
+    if isempty(txt)
         warning = "settings file was empty"
         @warn warning
         return warning
     end
-    txt = String(msg)
     dict = TOML.tryparse(txt)
     if dict isa Base.TOML.ParserError
         warning = "settings file had bad TOML format"
@@ -51,7 +50,7 @@ function get_setups(msg)
     end
     error_msg = validate(schema, dict)
     if !isnothing(error_msg)
-        warning = string(replace(string(msg.x), ">" => "&gt;"), " is wrong")
+        warning = string(replace(string(error_msg.x), ">" => "&gt;"), " is wrong")
         @warn error_msg
         return warning
     end
@@ -95,27 +94,48 @@ route("/settings", method = POST) do
 end
 
 @app FromFile begin
-    @in chosen = 0
-    @out downloading = false
-    @onchange downloading begin
-        chosen = 0 # close the recording
-        sleep(1) # wait for the file to close before you start downloading
-        downloaddata()
-    end
     @out imageurl = "/frame"
     @in setups = [DancingQueen.off_sun]
     @in setups_labels = ["a: Off"]
+    @onchange fileuploads begin
+        if !isempty(fileuploads)
+            @info "File was uploaded: " fileuploads
+            try
+                setups_or_warning = get_setups(read(fileuploads["path"], String))
+                if setups_or_warning isa String
+                    notify(__model__, setups_or_warning)
+                else
+                    setups = setups_or_warning
+                end
+            catch e
+                @error "Error processing file: $e"
+                notify(__model__,"Error processing file: $(fileuploads["name"])")
+            end
+            empty!(fileuploads)
+            # fileuploads = Dict{AbstractString,AbstractString}()
+        end
+    end
     @onchange setups begin
         setups_labels = get_labels(setups)
     end
+    @in chosen = 0
     @onchange chosen begin
         if chosen < length(setups)
             setup[] = setups[chosen + 1]
         end
     end
+    @in download_data = false
+    @onchange download_data begin
+        if download_data
+            chosen = 0 # close the recording
+            sleep(1) # wait for the file to close before you start downloading
+            downloaddata()
+        end
+        download_data = false
+    end
 end myhandlers
 
-@event FromFile download_data downloaddata()
+# @event FromFile download_data downloaddata()
 
 ui() = Html.div(
                 @on("keydown.a", "chosen=0"), @on("keydown.b", "chosen=1"), @on("keydown.c", "chosen=2"), @on("keydown.d", "chosen=3"), @on("keydown.e", "chosen=4"), @on("keydown.f", "chosen=5"), @on("keydown.g", "chosen=6"), @on("keydown.h", "chosen=7"), @on("keydown.i", "chosen=8"), @on("keydown.j", "chosen=9"), @on("keydown.k", "chosen=10"), @on("keydown.l", "chosen=11"), @on("keydown.m", "chosen=12"), @on("keydown.n", "chosen=13"), @on("keydown.o", "chosen=14"), @on("keydown.p", "chosen=15"), @on("keydown.q", "chosen=16"), @on("keydown.r", "chosen=17"), @on("keydown.s", "chosen=18"), @on("keydown.t", "chosen=19"), @on("keydown.u", "chosen=20"), @on("keydown.v", "chosen=21"), @on("keydown.w", "chosen=22"), @on("keydown.x", "chosen=23"), @on("keydown.y", "chosen=24"), @on("keydown.z", "chosen=25"),
@@ -133,7 +153,7 @@ ui() = Html.div(
                      ])
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", method="POST", url="/settings", hideuploadbtn=true, nothumbnails=true, field__name="csv_file", autoupload=true)
-                      btn(class = "q-ml-lg", "Download data", icon = "download", @click(:downloading), color = "primary", nocaps = true, nothumbnails = true, loading = :downloading)
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @click("download_data = !download_data"), color = "primary", nocaps = true, nothumbnails = true, loading = :download_data)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
