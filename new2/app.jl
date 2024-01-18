@@ -23,81 +23,9 @@ route("/frame") do
     respond(String(jpeg_encode(img[]; transpose = false)), :jpg)
 end
 
-# function downloaddata()
-#     @info "pressed download"
-#     io = IOBuffer()
-#     try
-#         Tar.create("data", io)
-#         download_binary(model, take!(io), string(round(now(), Second(1)), ".tar"))
-#         @info "download worked, deleting files"
-#         rm.(readdir("data"; join=true))
-#     catch ex
-#         @warn ex
-#         @warn "download failed, not delteing files"
-#     end
-#     close(io)
-# end
-
-# function get_setups(txt)
-#     if isempty(txt)
-#         warning = "settings file was empty"
-#         @warn warning
-#         return warning
-#     end
-#     dict = TOML.tryparse(txt)
-#     if dict isa Base.TOML.ParserError
-#         warning = "settings file had bad TOML format"
-#         @warn warning
-#         return warning
-#     end
-#     error_msg = validate(schema, dict)
-#     if !isnothing(error_msg)
-#         warning = string(replace(string(error_msg.x), ">" => "&gt;"), " is wrong")
-#         @warn error_msg
-#         return warning
-#     end
-#     setups = dict["setups"]
-#     pushfirst!(setups, DancingQueen.off_sun)
-#     return setups
-# end
-
-# Genie.config.cors_headers["Access-Control-Allow-Origin"]  =  "*"
-# Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
-# Genie.config.cors_headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,DELETE,OPTIONS"
-# Genie.config.cors_allowed_origins = ["*"]
-# route("/settings", method = POST) do
-#     caption = "You have to first fix your setting.toml file"
-#     files = Genie.Requests.filespayload()
-#     for file in files
-#         txt = String(last(file).data)
-#         dict = TOML.tryparse(txt)
-#         if dict isa Base.TOML.ParserError
-#             warning = "settings file had bad TOML format"
-#             @warn warning
-#             notify(model, warning, :negative; caption)
-#         else
-#             msg = validate(schema, dict)
-#             if isnothing(msg)
-#                 setups = dict["setups"]
-#                 pushfirst!(setups, DancingQueen.off_sun)
-#                 model.setups[] = setups
-#                 notify(model.setups)
-#             else
-#                 warning = string(replace(string(msg.x), ">" => "&gt;"), " is wrong")
-#                 @warn msg
-#                 notify(model, warning, :negative; caption)
-#             end
-#         end
-#     end
-#     if length(files) == 0
-#         @info "No file uploaded"
-#     end
-#     return "Upload finished"
-# end
-
-@app FromFile begin
-    @out imageurl = "/frame"
-    @in setups = [DancingQueen.off_sun]
+@app begin
+    @private imageurl = "/frame"
+    @private setups = [DancingQueen.off_sun]
     @onchange fileuploads begin
         if !isempty(fileuploads)
             @info "File was uploaded: " fileuploads
@@ -137,7 +65,7 @@ end
         @info "rejected"
         notify(__model__, "Please upload a valid file")
     end
-    @in setups_labels = ["a: Off"]
+    @out setups_labels = ["a: Off"]
     @onchange setups begin
         setups_labels = get_labels(setups)
     end
@@ -147,29 +75,23 @@ end
             setup[] = setups[chosen + 1]
         end
     end
-    @in download_data = false
-    @onchange download_data begin
-        if download_data
-            chosen = 0 # close the recording
-            sleep(1) # wait for the file to close before you start downloading
-            @info "pressed download"
-            io = IOBuffer()
-            try
-                Tar.create("data", io)
-                download_binary(__model__, take!(io), string(round(now(), Second(1)), ".tar"))
-                @info "download worked, deleting files"
-                rm.(readdir("data"; join=true))
-            catch ex
-                @warn ex
-                @warn "download failed, not delteing files"
-            end
-            close(io)
+    @event download_event begin
+        chosen = 0 # close the recording
+        sleep(1) # wait for the file to close before you start downloading
+        @info "pressed download"
+        io = IOBuffer()
+        try
+            Tar.create("data", io)
+            download_binary(__model__, take!(io), string(round(now(), Second(1)), ".tar"); client = event["_client"])
+            @info "download worked, deleting files"
+            rm.(readdir("data"; join=true))
+        catch ex
+            @warn ex
+            @warn "download failed, not delteing files"
         end
-        download_data = false
+        close(io)
     end
-end# myhandlers
-
-# @event FromFile download_data downloaddata()
+end
 
 ui() = Html.div(
                 @on("keydown.a", "chosen=0"), @on("keydown.b", "chosen=1"), @on("keydown.c", "chosen=2"), @on("keydown.d", "chosen=3"), @on("keydown.e", "chosen=4"), @on("keydown.f", "chosen=5"), @on("keydown.g", "chosen=6"), @on("keydown.h", "chosen=7"), @on("keydown.i", "chosen=8"), @on("keydown.j", "chosen=9"), @on("keydown.k", "chosen=10"), @on("keydown.l", "chosen=11"), @on("keydown.m", "chosen=12"), @on("keydown.n", "chosen=13"), @on("keydown.o", "chosen=14"), @on("keydown.p", "chosen=15"), @on("keydown.q", "chosen=16"), @on("keydown.r", "chosen=17"), @on("keydown.s", "chosen=18"), @on("keydown.t", "chosen=19"), @on("keydown.u", "chosen=20"), @on("keydown.v", "chosen=21"), @on("keydown.w", "chosen=22"), @on("keydown.x", "chosen=23"), @on("keydown.y", "chosen=24"), @on("keydown.z", "chosen=25"),
@@ -187,20 +109,13 @@ ui() = Html.div(
                      ])
                  row([
                       uploader(label="Upload settings", multiple=false, accept=".toml", hideuploadbtn=true, nothumbnails=true, autoupload=true, @on("rejected", :rejected), @on("uploaded", :uploaded))
-                      btn(class = "q-ml-lg", "Download data", icon = "download", @click("download_data = !download_data"), color = "primary", nocaps = true, nothumbnails = true, loading = :download_data)
+                      btn(class = "q-ml-lg", "Download data", icon = "download", @on(:click, :download_event, :addclient), color = "primary", nocaps = true, nothumbnails = true)
                      ])
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
 
-
-Stipple.js_methods(model::FromFile) = """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
-
-Stipple.js_created(model::FromFile) = "setInterval(this.updateimage, 100)"
-
-# route("/") do
-# global model = init(FromFile, debounce = 0) |> myhandlers
-# page(model, ui) |> html
-# end
+@methods """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
+@created "setInterval(this.updateimage, 100)"
 
 @page("/", ui)
 
