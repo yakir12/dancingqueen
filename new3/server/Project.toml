@@ -1,0 +1,4 @@
+[deps]
+DancingQueen = "2a4fde1f-2e33-47a3-961e-f5a43f592eaf"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+ImageCore = "a09fc81d-aa75-5fe9-8630-4744c3626534"
