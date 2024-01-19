@@ -1,3 +1,18 @@
+msg packing
+message contents
+stream data instead of log on rpi
+have it work for one setup
+build setup switching etc
+maybe separate setups observable from camera observable, no reason to reset camera
+benchmark the shortest time an iteration takes, set the max fps to that (minus logging, minus plotting...)
+investigate why the lag
+add health checks
+merge the analysis tool with the monitoring tool
+
+
+
+
+
 [x] Figure out what image dimensions, and fps are best
 [x] Test and see what is the best way to crop that image into a w x w square
 [x] test the schema, and the reports (specifically the camera field), make sure a fail reports
