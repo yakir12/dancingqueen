@@ -8,7 +8,7 @@ struct Sun
     width::Int
     Sun(link_factor, width, color, θ) = new(link_factor, color, θ, width)
 end
-Base.zero(::Type{Sun}) = Sun(0, 1, zero(Color), 0)
+# Base.zero(::Type{Sun}) = Sun(0, 1, zero(Color), 0)
 
 function Sun(d::AbstractDict)
     link_factor = d["link_factor"]

@@ -1,36 +1,52 @@
 using Dates
 using GLMakie, ImageCore
 using HTTP.WebSockets
-import ColorTypes: RGB, N0f8
+import ColorTypes: Gray, N0f8
+using JSON3
 
-w = 300
-_img = ones(RGB{N0f8}, w, w)
-const bts = reshape(rawview(channelview(_img)), :)
+c = Condition()
 
-function fun(ws)
-    send(ws, "hello")
-    for msg in ws
-        bts .= msg
-        send(ws, "again")
-    end
-end
+h = 2464
+setup = Observable(Dict("camera" => h, "suns" => [Dict("link_factor" => 0)]))
+bts = zeros(UInt8, h*h)
 
-
-
-# y = Observable(rand(0:255, 5))
+convert2image(bts, h) = colorview(Gray, normedview(reshape(bts, h, h)))
+img = Observable(convert2image(bts, h))
 
 fig = Figure()
-ax = Axis(fig[1,1], aspect = AxisAspect(1), yreversed=true)
-img = Observable(_img)
+ax = Axis(fig[1,1], aspect = AxisAspect(1))
+on(setup) do _
+    h = get(setup[], "camera", 1080)
+    bts = zeros(UInt8, h*h)
+    img[] = convert2image(bts, h)
+    autolimits!(ax)
+end
 image!(ax, img)
 display(fig)
 
-h1 = Threads.@spawn while true
-    notify(img)
-    sleep(1/3)
+client = @async WebSockets.open("ws://192.168.50.187:8000") do ws
+    send(ws, JSON3.write(setup[]))
+    for msg in ws
+        h = get(setup[], "camera", 1080)
+        if sqrt(length(msg)) == h
+            img[] = convert2image(msg, h)
+        end
+        send(ws, JSON3.write(setup[]))
+    end
 end
 
-h = Threads.@spawn WebSockets.open(fun, "ws://192.168.50.187:8000", verbose=true)
+# setup[] = Dict("camera" => 480, "suns" => [Dict("link_factor" => 0)])
+
+
+
+
+
+# h1 = Threads.@spawn while true
+#     notify(img)
+#     sleep(1/3)
+# end
+
+# h = Threads.@spawn WebSockets.open(fun, "ws://192.168.50.187:8000", verbose=true)
 
 
 # using GLMakie

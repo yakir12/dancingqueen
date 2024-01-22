@@ -1,41 +1,3 @@
-# struct Camera
-#     cam::VideoIO.VideoReader{true, VideoIO.SwsTransform, String}
-#     img::PermutedDimsArray{RGB{N0f8}, 2, (2, 1), (2, 1), Matrix{RGB{N0f8}}}
-#     w::Int
-#     h::Int
-#     function Camera(dev)
-#         cam = opencamera(dev)
-#         img = read(cam)
-#         w, h = size(img)
-#         new(cam, img, w, h)
-#     end
-# end
-# Base.close(cam::Camera) = close(cam.cam)
-# Base.size(cam::Camera) = (cam.w, cam.h)
-#
-# Base.isopen(cam::Camera) = isopen(cam.cam)
-# snap(cam::Camera) = read!(cam.cam, cam.img)
-
-##### the only four options:
-# w, h, fps = (3280, 2464, 21) # 
-# w, h, fps = (1920, 1080, 47) # same high resolution as 3280
-# w, h, fps = (1640, 1232, 83) # same low resolution as 640
-# w, h, fps = (640, 480, 206)
-
-get_camera_settings(h::Int) = 
-    h == 480 ? (w = 640, h = 480, fps = 206) :
-    h == 1232 ? (w = 1640, h = 1232, fps = 83) :
-    h == 1080 ? (w = 1920, h = 1080, fps = 47) :
-    h == 2464 ? (w = 3280, h = 2464, fps = 21) :
-    nothing
-
-get_camera_fov(h::Int) = 
-    h == 480 ? 480/1232*48.8 :
-    h == 1232 ? 48.8 :
-    h == 1080 ? 1080/2464*48.8 :
-    h == 2464 ? 48.8 :
-    nothing
-
 struct Camera
     o::Base.Process
     buff::Vector{UInt8}
@@ -69,7 +31,29 @@ end
 Base.size(cam::Camera) = (cam.h, cam.h)
 
 Base.isopen(cam::Camera) = isopen(cam.o)
+
 function snap(cam::Camera) 
     read!(cam.o, cam.buff)
     return cam.img
 end
+
+##### the only four options:
+# w, h, fps = (3280, 2464, 21) # 
+# w, h, fps = (1920, 1080, 47) # same high resolution as 3280
+# w, h, fps = (1640, 1232, 83) # same low resolution as 640
+# w, h, fps = (640, 480, 206)
+
+get_camera_settings(h::Int) = 
+    h == 480 ? (w = 640, h = 480, fps = 206) :
+    h == 1232 ? (w = 1640, h = 1232, fps = 83) :
+    h == 1080 ? (w = 1920, h = 1080, fps = 47) :
+    h == 2464 ? (w = 3280, h = 2464, fps = 21) :
+    nothing
+
+get_camera_fov(h::Int) = 
+    h == 480 ? 480/1232*48.8 :
+    h == 1232 ? 48.8 :
+    h == 1080 ? 1080/2464*48.8 :
+    h == 2464 ? 48.8 :
+    nothing
+

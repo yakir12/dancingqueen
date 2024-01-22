@@ -2,7 +2,7 @@ struct Beetle
     c::SV
     θ::Float64
 end
-Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
+# Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
 
 get_min_radius(h, camera_distance, tag_width, camera_fov) = h*2atand(tag_width/2camera_distance)/camera_fov/sqrt(2)
 

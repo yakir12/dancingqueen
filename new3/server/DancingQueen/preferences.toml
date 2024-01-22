@@ -7,6 +7,6 @@ widen_radius = 15
 [arena]
 nleds = 198
 ring_r = 105 # in cm
-origo_offset = [360, 360] # in pixels
+origo_offset = [360, 360] # in pixels TODO ???
 cm_per_pixel = 0.1
-baudrate = 115200#9600###921600#
+baudrate = 115200

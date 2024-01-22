@@ -2,10 +2,10 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, ImageDraw, Observables, ImageCore, ImageTransformations
-import ColorTypes: RGB, N0f8, Gray
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables, ImageCore
+import ColorTypes: N0f8, Gray
 
-export main
+export main, get_image, get_state
 
 const SV = SVector{2, Float64}
 const SVI = SVector{2, Int}
@@ -13,7 +13,7 @@ const Color = RGB{N0f8}
 
 const l = ReentrantLock()
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
-const path2data = joinpath(@__DIR__, "..", "..", "data")
+# const path2data = joinpath(@__DIR__, "..", "..", "data")
 const prefs = TOML.parsefile(path2preferences)
 const baudrate = prefs["arena"]["baudrate"]
 const nleds = prefs["arena"]["nleds"]
@@ -28,10 +28,10 @@ include("detector.jl")
 include("suns.jl")
 include("tracker.jl")
 include("leds.jl")
-include("logs.jl")
-include("display.jl")
+# include("logs.jl")
+# include("display.jl")
 
-const off_sun = Dict("label" => "Off", "camera" => 2464, "suns" => [Dict("link_factor" => 0)])
+const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
 
 # const benchmark = Ref(now())
 #
@@ -43,70 +43,63 @@ const off_sun = Dict("label" => "Off", "camera" => 2464, "suns" => [Dict("link_f
 #     println(fps)
 # end
 
-int2enum(::Missing) = best
+get_image(cam::Ref{Camera}) = collect(reshape(rawview(channelview(cam[].img)), :))
 
 struct Instance{N}
-    logbook::LogBook
     suns::NTuple{N, Sun}
-    cam::Camera
     detector::DetectoRect
+    beetle::Ref{Union{Nothing, Beetle}}
     tracker::Track{N}
     leds::LEDs{N}
-    frame::Frame{N}
     running::Ref{Bool}
     task::Task
-    function Instance{N}(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where N
-        logbook = LogBook(setup)
-        cam = Camera(get(setup, "camera", 1080))
+    function Instance{N}(cam, suns::NTuple{N, Sun}) where N
         detector = DetectoRect(cam.h, camera_distance, tag_width, widen_radius)
+        beetle = Ref{Union{Nothing, Beetle}}(nothing)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
-        frame = Frame(cam.h, suns)
         running = Ref(true)
-        img[] = frame.smaller
         task = Threads.@spawn while running[]
-            one_iter(cam, detector, tracker, leds, logbook, frame)
+            one_iter(cam, detector, beetle, tracker, leds)
             # report_bm()
             yield()
         end
-        new(logbook, suns, cam, detector, tracker, leds, frame, running, task)
+        new(suns, detector, beetle, tracker, leds, running, task)
     end
 end
-Instance(suns::NTuple{N, Sun}, setup::Dict{String, Any}, img) where {N} = Instance{N}(suns, setup, img)
-function Instance(setup::Dict{String, Any}, img)
-    suns = Tuple((Sun(sun) for sun in setup["suns"]))
-    Instance(suns, setup, img)
-end
+Instance(cam, suns::NTuple{N, Sun}) where {N} = Instance{N}(cam, suns)
+Instance(cam, suns) = Instance(cam, Tuple(Sun.(suns)))
 
-function one_iter(cam, detector, tracker, leds, logbook, frame)
-    snap(cam)
-    beetle = detector(cam.img)
-    tracker(beetle)
+get_state(i::Ref{Instance}) = (i[].beetle, i[].leds, i[].detector.rect)
+
+function one_iter(cam, detector, beetle, tracker, leds)
+    beetle[] = detector(snap(cam))
+    tracker(beetle[])
     update_suns!(tracker)
     leds(tracker.sun_θs)
-    log_print(logbook, beetle, leds)
-    frame(cam.img, beetle, leds, detector.rect)
 end
 
 function stop(i::Instance)
     i.running[] = false
     wait(i.task)
-    close(i.cam)
     close(i.detector)
     close(i.leds)
 end
 
 function main()
-    setup = async_latest(Observable(off_sun), 1) # do I need this?
-    img = Ref(zeros(Color, 10, 10))
-    instance = Ref{Instance}(Instance(setup[], img))
+    setup = Observable(off_sun; ignore_equal_values = true)
+    cam = Ref(Camera(setup[]["camera"]))
+    instance = Ref(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
-        @lock l begin
-            stop(instance[])
-            instance[] = Instance(setup, img)
+        stop(instance[])
+        cam_height = get(setup, "camera", 1080)
+        if cam_height ≠ cam[].h
+            close(cam[])
+            cam[] = Camera(cam_height)
         end
+        instance[] = Instance(cam[], setup["suns"])
     end
-    return setup, img
+    return setup, cam, instance
 end
 
 end # module DancingQueen

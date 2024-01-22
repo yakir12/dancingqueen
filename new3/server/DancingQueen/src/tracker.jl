@@ -19,4 +19,3 @@ function (tracker::Track)(beetle::Beetle)
 end
 
 update_suns!(tracker) = tracker.sun_θs .+= tracker.link_factors .* tracker.beetle_Δ
-

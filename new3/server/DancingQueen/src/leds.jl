@@ -42,5 +42,5 @@ function (leds::LEDs{N})(sun_θs::MVector{N, Float64}) where N
     @lock leds.l write(leds.sp, cobs_encode(leds.msg))
 end
 
-iterate_leds_indices(leds::LEDs{N}) where {N} = (leds.msg[i + 3:i + 4] for i in 1:5:5N)
+# iterate_leds_indices(leds::LEDs{N}) where {N} = (leds.msg[i + 3:i + 4] for i in 1:5:5N)
 
