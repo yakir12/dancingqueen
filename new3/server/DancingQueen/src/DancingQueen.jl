@@ -53,30 +53,36 @@ struct Instance{N}
     leds::LEDs{N}
     running::Ref{Bool}
     task::Task
-    function Instance{N}(cam, suns::NTuple{N, Sun}) where N
+    function Instance{N}(cam, suns::NTuple{N, Sun}, state) where N
         detector = DetectoRect(cam.h, camera_distance, tag_width, widen_radius)
         beetle = Ref{Union{Nothing, Beetle}}(nothing)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
         running = Ref(true)
         task = Threads.@spawn while running[]
-            one_iter(cam, detector, beetle, tracker, leds)
+            one_iter(cam, detector, beetle, tracker, leds, state)
             # report_bm()
             yield()
         end
         new(suns, detector, beetle, tracker, leds, running, task)
     end
 end
-Instance(cam, suns::NTuple{N, Sun}) where {N} = Instance{N}(cam, suns)
-Instance(cam, suns) = Instance(cam, Tuple(Sun.(suns)))
+Instance(cam, suns::NTuple{N, Sun}, state) where {N} = Instance{N}(cam, suns, state)
+Instance(cam, suns, state) = Instance(cam, Tuple(Sun.(suns)), state)
 
-get_state(i::Ref{Instance}) = (i[].beetle, i[].leds, i[].detector.rect)
-
-function one_iter(cam, detector, beetle, tracker, leds)
+function one_iter(cam, detector, beetle, tracker, leds, state)
     beetle[] = detector(snap(cam))
     tracker(beetle[])
     update_suns!(tracker)
     leds(tracker.sun_θs)
+    set_state!(state, beetle, tracker.rect, leds)
+end
+
+set_state_beetle!(state, ::Nothing) = (state["beetle_x"] = nothing)
+set_state_beetle!(state, beetle::Beetle) = (state["beetle_x"] = beetle.xy.x)
+
+function set_state!(state, beetle, rect, leds)
+    set_state_beetle!(state, beetle)
 end
 
 function stop(i::Instance)
@@ -88,18 +94,18 @@ end
 
 function main()
     setup = Observable(off_sun; ignore_equal_values = true)
-    cam = Ref(Camera(setup[]["camera"]))
-    instance = Ref(Instance(cam[], setup[]["suns"]))
+    cam = Camera(setup[]["camera"])
+    state = Dict("beetle_x" => 0.0)
+    instance = Ref(Instance(cam, setup[]["suns"], state))
     on(setup) do setup
-        stop(instance[])
-        cam_height = get(setup, "camera", 1080)
-        if cam_height ≠ cam[].h
-            close(cam[])
-            cam[] = Camera(cam_height)
+        if !haskey(setup, "camera")
+            setup["camera"] = 1080
         end
-        instance[] = Instance(cam[], setup["suns"])
+        stop(instance[])
+        update!(cam, setup["camera"])
+        instance[] = Instance(cam, setup["suns"], state)
     end
-    return setup, cam, instance
+    return setup, cam.bytes, state
 end
 
 end # module DancingQueen

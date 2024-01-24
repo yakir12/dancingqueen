@@ -1,11 +1,15 @@
 using Dates
 using DancingQueen
-using HTTP.WebSockets
-using Sockets
+using Oxygen
 using ImageCore
 using JSON3
 
 setup, cam, instance = main();
+
+
+@get "/frame" function(req::HTTP.Request)
+    binary(get_image())
+end
 
 server = WebSockets.listen!("0.0.0.0", 8000) do ws
     Sockets.nagle(ws.io.io, false)
