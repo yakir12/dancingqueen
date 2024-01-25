@@ -21,10 +21,18 @@ for i in 1:100
     end
 end
 
+n = 1000
+t = @elapsed begin
+    for i in 1:n
+        r = HTTP.request("GET", "http://192.168.50.187:8000/state")
+        a = JSON3.read(String(r.body))
+    end
+end
+fps = n/t
 
-using HTTP
-r = HTTP.request("GET", "http://192.168.50.187:8000/c")
-a = JSON3.read(String(r.body))
+
+
+
 
 
 

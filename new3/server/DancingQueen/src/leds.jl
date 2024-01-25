@@ -27,8 +27,8 @@ tomsg(c::Color) = [tounsigend(getfield(c, f)) for f in (:r, :g, :b)]
 
 α2index(α) = mod(round(Int, nleds*α/2π), nleds) + 1
 
-function θ2indices(r, θ)
-    i = α2index(θ)  
+function θ2indices(r, theta)
+    i = α2index(theta)  
     i1 = mod(i - r - 1, nleds) + 1
     i2 = mod(i + r - 1, nleds) + 1
     return (i1, i2)

@@ -1,6 +1,6 @@
 struct Beetle
     c::SV
-    θ::Float64
+    theta::Float64
 end
 # Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
 
