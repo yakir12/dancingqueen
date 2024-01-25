@@ -12,6 +12,14 @@ img = Observable(convert2image(buff, h))
 
 image(img)
 
+function twait(f, mint)
+    cond = Condition()
+    Timer(x -> notify(cond), mint)
+    t = @async f()
+    wait(cond)
+    fetch(t)
+end
+
 for i in 1:100
     HTTP.open("GET", "http://192.168.50.187:8000/frame") do io
         while !eof(io)
