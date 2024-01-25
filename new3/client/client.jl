@@ -7,27 +7,31 @@ using JSON3
 convert2image(bts, h) = colorview(Gray, normedview(reshape(bts, h, h)))
 
 h = 2464
-buff = Vector{UInt8}(undef, h^2)
+buff = Vector{UInt8}(undef, h, h)
 img = Observable(convert2image(buff, h))
 
 image(img)
 
-function twait(f, mint)
-    cond = Condition()
-    Timer(x -> notify(cond), mint)
-    t = @async f()
-    wait(cond)
-    fetch(t)
-end
 
-for i in 1:100
+function update_img!(buff, img)
     HTTP.open("GET", "http://192.168.50.187:8000/frame") do io
         while !eof(io)
             read!(io, buff)
         end
-        img[] = convert2image(buff, h)
+        notify(img)
     end
 end
+
+fps = 25
+
+@async while true
+    h = @async update_img!(buff, img)
+    t = Timer(1/fps)
+    wait(t)
+    fetch(h)
+end
+
+
 
 n = 1000
 t = @elapsed begin
