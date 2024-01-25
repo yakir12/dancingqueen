@@ -2,10 +2,10 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables, ImageCore
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables, ImageCore, StructTypes
 import ColorTypes: N0f8, Gray
 
-export main, get_image, get_state
+export main
 
 const SV = SVector{2, Float64}
 const SVI = SVector{2, Int}
@@ -53,36 +53,28 @@ struct Instance{N}
     leds::LEDs{N}
     running::Ref{Bool}
     task::Task
-    function Instance{N}(cam, suns::NTuple{N, Sun}, state) where N
+    function Instance{N}(cam, suns::NTuple{N, Sun}) where N
         detector = DetectoRect(cam.h, camera_distance, tag_width, widen_radius)
         beetle = Ref{Union{Nothing, Beetle}}(nothing)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
         running = Ref(true)
         task = Threads.@spawn while running[]
-            one_iter(cam, detector, beetle, tracker, leds, state)
+            one_iter(cam, detector, beetle, tracker, leds)
             # report_bm()
             yield()
         end
         new(suns, detector, beetle, tracker, leds, running, task)
     end
 end
-Instance(cam, suns::NTuple{N, Sun}, state) where {N} = Instance{N}(cam, suns, state)
-Instance(cam, suns, state) = Instance(cam, Tuple(Sun.(suns)), state)
+Instance(cam, suns::NTuple{N, Sun}) where {N} = Instance{N}(cam, suns)
+Instance(cam, suns) = Instance(cam, Tuple(Sun.(suns)))
 
-function one_iter(cam, detector, beetle, tracker, leds, state)
+function one_iter(cam, detector, beetle, tracker, leds)
     beetle[] = detector(snap(cam))
     tracker(beetle[])
     update_suns!(tracker)
     leds(tracker.sun_θs)
-    set_state!(state, beetle, tracker.rect, leds)
-end
-
-set_state_beetle!(state, ::Nothing) = (state["beetle_x"] = nothing)
-set_state_beetle!(state, beetle::Beetle) = (state["beetle_x"] = beetle.xy.x)
-
-function set_state!(state, beetle, rect, leds)
-    set_state_beetle!(state, beetle)
 end
 
 function stop(i::Instance)
@@ -94,18 +86,23 @@ end
 
 function main()
     setup = Observable(off_sun; ignore_equal_values = true)
-    cam = Camera(setup[]["camera"])
-    state = Dict("beetle_x" => 0.0)
-    instance = Ref(Instance(cam, setup[]["suns"], state))
+    cam = Ref(Camera(setup[]["camera"]))
+    instance = Ref(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
+        stop(instance[])
         if !haskey(setup, "camera")
             setup["camera"] = 1080
         end
-        stop(instance[])
-        update!(cam, setup["camera"])
-        instance[] = Instance(cam, setup["suns"], state)
+        h = setup["camera"]
+        if h ≠ cam[].h
+            close(cam[])
+            cam[] = Camera(h)
+        end
+        instance[] = Instance(cam[], setup["suns"])
     end
-    return setup, cam.bytes, state
+    get_bytes() = cam[].bytes
+    get_state() = (rect = instance[].detector.rect, beetle = instance[].beetle[]) #, leds = instance[].leds)
+    return setup, get_bytes, get_state
 end
 
 end # module DancingQueen

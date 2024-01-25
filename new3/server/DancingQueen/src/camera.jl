@@ -1,19 +1,16 @@
-mutable struct Camera
+struct Camera
     o::Base.Process
     buff::Vector{UInt8}
-    bytes::Ref{Base.ReshapedArray{UInt8, 1, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}, Tuple{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64}}}}
+    bytes::Base.ReshapedArray{UInt8, 1, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}, Tuple{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64}}}
     img::Base.ReinterpretArray{Gray{N0f8}, 2, N0f8, ImageCore.MappedArrays.MappedArray{N0f8, 2, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}, ImageCore.var"#39#40"{N0f8}, typeof(reinterpret)}, true}
     h::Int
-
-    Camera(h::Int) = new(create_camera(h)..., h)
-end
-
-function create_camera(h)
-    w, h, fps = get_camera_settings(h)
-    buff, bytes, img = create_buffer(w, h)
-    cmd = `rpicam-vid --denoise cdn_off -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
-    o = open(cmd)
-    return (o, buff, Ref(bytes), img)
+    function Camera(h::Int)
+        w, h, fps = get_camera_settings(h)
+        buff, bytes, img = create_buffer(w, h)
+        cmd = `rpicam-vid --denoise cdn_off -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
+        o = open(cmd)
+        new(o, buff, bytes, img, h)
+    end
 end
 
 function create_buffer(w, h)
@@ -31,18 +28,6 @@ end
 function Base.close(cam::Camera) 
     close(cam.o)
     wait(cam.o)
-end
-
-function update!(cam::Camera, h::Int)
-    if h ≠ cam.h
-        close(cam)
-        o, buff, bytes, img = create_camera(h)
-        cam.o = o
-        cam.buff = buff
-        cam.bytes[] = bytes[]
-        cam.img = img
-        cam.h = h
-    end
 end
 
 Base.size(cam::Camera) = (cam.h, cam.h)

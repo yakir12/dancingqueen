@@ -1,8 +1,32 @@
 using Dates
 using GLMakie, ImageCore
-using HTTP.WebSockets
+using HTTP
 import ColorTypes: Gray, N0f8
 using JSON3
+
+convert2image(bts, h) = colorview(Gray, normedview(reshape(bts, h, h)))
+
+h = 2464
+buff = Vector{UInt8}(undef, h^2)
+img = Observable(convert2image(buff, h))
+
+image(img)
+
+for i in 1:100
+    HTTP.open("GET", "http://192.168.50.187:8000/frame") do io
+        while !eof(io)
+            read!(io, buff)
+        end
+        img[] = convert2image(buff, h)
+    end
+end
+
+
+using HTTP
+r = HTTP.request("GET", "http://192.168.50.187:8000/c")
+a = JSON3.read(String(r.body))
+
+
 
 c = Condition()
 
@@ -10,7 +34,6 @@ h = 2464
 setup = Observable(Dict("camera" => h, "suns" => [Dict("link_factor" => 0)]))
 bts = zeros(UInt8, h*h)
 
-convert2image(bts, h) = colorview(Gray, normedview(reshape(bts, h, h)))
 img = Observable(convert2image(bts, h))
 
 fig = Figure()
@@ -35,7 +58,7 @@ function report_bm()
 end
 
 client = @async WebSockets.open("ws://127.0.0.0:8000") do ws
-# client = @async WebSockets.open("ws://192.168.50.187:8000") do ws
+    # client = @async WebSockets.open("ws://192.168.50.187:8000") do ws
     send(ws, JSON3.write(setup[]))
     for msg in ws
         h = get(setup[], "camera", 1080)

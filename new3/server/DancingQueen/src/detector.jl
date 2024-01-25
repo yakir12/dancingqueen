@@ -4,6 +4,11 @@ struct Beetle
 end
 # Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
 
+StructTypes.StructType(::Type{Beetle}) = StructTypes.DictType()
+Base.pairs(beetle::Beetle) = (f => getfield(beetle, f) for f in fieldnames(Beetle))
+StructTypes.StructType(::Type{SV}) = StructTypes.DictType()
+Base.pairs(c::SV) = (f => getproperty(c, f) for f in (:x, :y))
+
 get_min_radius(h, camera_distance, tag_width, camera_fov) = h*2atand(tag_width/2camera_distance)/camera_fov/sqrt(2)
 
 struct DetectoRect
