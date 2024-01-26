@@ -101,7 +101,7 @@ function main()
         instance[] = Instance(cam[], setup["suns"])
     end
     get_bytes() = cam[].bytes
-    get_state() = (rect = instance[].detector.rect, beetle = instance[].beetle[]) #, leds = instance[].leds)
+    get_state() = (rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
     return setup, get_bytes, get_state
 end
 

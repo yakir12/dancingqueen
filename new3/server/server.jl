@@ -15,6 +15,11 @@ end
     get_state()
 end
 
+@post "/setup" function(req::HTTP.Request)
+    setup[] = json(req, Dict)
+    return nothing
+end
+
 serve(host="0.0.0.0", port=8000)
 
 
