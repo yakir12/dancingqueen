@@ -1,5 +1,4 @@
-tofixed(c::UInt8) = reinterpret(N0f8, c)
-tocolor(d::AbstractDict) = Color((tofixed(UInt8(get(d, c, 0))) for c in ("red", "green", "blue"))...)
+tocolor(d::AbstractDict) = Color(UInt8(get(d, c, 0)) for c in ("red", "green", "blue"))
 
 struct Sun
     link_factor::Float64

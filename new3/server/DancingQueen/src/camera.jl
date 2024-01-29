@@ -1,28 +1,25 @@
 struct Camera
     o::Base.Process
     buff::Vector{UInt8}
-    bytes::Base.ReshapedArray{UInt8, 1, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}, Tuple{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64}}}
-    img::Base.ReinterpretArray{Gray{N0f8}, 2, N0f8, ImageCore.MappedArrays.MappedArray{N0f8, 2, SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}, ImageCore.var"#39#40"{N0f8}, typeof(reinterpret)}, true}
+    img::SubArray{UInt8, 2, Base.ReshapedArray{UInt8, 2, SubArray{UInt8, 1, Vector{UInt8}, Tuple{UnitRange{Int64}}, true}, Tuple{}}, Tuple{UnitRange{Int64}, StepRange{Int64, Int64}}, false}
     h::Int
     function Camera(h::Int)
         w, h, fps = get_camera_settings(h)
-        buff, bytes, img = create_buffer(w, h)
+        buff, img = create_buffer(w, h)
         cmd = `rpicam-vid --denoise cdn_off -n --framerate $fps --width $w --height $h --timeout 0 --codec yuv420 -o -`
         o = open(cmd)
-        new(o, buff, bytes, img, h)
+        new(o, buff, img, h)
     end
 end
 
 function create_buffer(w, h)
     w2 = 64ceil(Int, w/64) # dimension adjustments to hardware restrictions
-    nb = Int(w2*h*3/2) # total number of bytes per frame
+    nb = Int(w2*h*3/2) # total number of bytes per img
     buff = Vector{UInt8}(undef, nb)
     i1 = (w - h) ÷ 2
     i2 = i1 + h - 1
-    frame = view(reshape(view(buff, 1:w2*h), w2, h), i1:i2, h:-1:1)
-    bytes = reshape(frame, :)
-    img = colorview(Gray, normedview(frame))
-    return (buff, bytes, img)
+    img = view(reshape(view(buff, 1:w2*h), w2, h), i1:i2, h:-1:1)
+    return (buff, img)
 end
 
 function Base.close(cam::Camera) 

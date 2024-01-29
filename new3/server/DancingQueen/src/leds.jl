@@ -8,7 +8,7 @@ struct LEDs{N, M}
         r = ntuple(i -> (suns[i].width - 1)/2, N)
         msg = MVector{5N, UInt8}(undef)
         for (i, sun) in zip(1:5:5N, suns)
-            msg[i:i + 2] .= tomsg(sun.color)
+            msg[i:i + 2] .= sun.color
         end
         new(sp, r, msg, ReentrantLock())
     end
@@ -20,10 +20,6 @@ function Base.close(leds::LEDs)
     write(leds.sp, cobs_encode(leds.msg))
     close(leds.sp)
 end
-
-tounsigend(x::N0f8) = reinterpret(UInt8, x)
-
-tomsg(c::Color) = [tounsigend(getfield(c, f)) for f in (:r, :g, :b)]
 
 α2index(α) = mod(round(Int, nleds*α/2π), nleds) + 1
 

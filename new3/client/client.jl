@@ -87,7 +87,7 @@ on(throttled_state) do st
     if isnothing(st.beetle) 
         beetle_xy[] = Point2f(NaN, NaN) 
     else
-        beetle_xy[] = Point2f(st.beetle.c.x, st.beetle.c.y)
+        beetle_xy[] = Point2f(st.beetle.c)
         beetle_dir[] = st.beetle.theta
     end
     n = Int(length(st.leds) / 5)

@@ -2,14 +2,13 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables, ImageCore, StructTypes
-import ColorTypes: N0f8, Gray
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables#, StructTypes
 
 export main
 
 const SV = SVector{2, Float64}
 const SVI = SVector{2, Int}
-const Color = RGB{N0f8}
+const Color = SVector{3, UInt8}
 
 const l = ReentrantLock()
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
@@ -100,7 +99,7 @@ function main()
         end
         instance[] = Instance(cam[], setup["suns"])
     end
-    get_bytes() = cam[].bytes
+    get_bytes() = vec(cam[].img)
     get_state() = (rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
     return setup, get_bytes, get_state
 end
