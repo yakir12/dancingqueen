@@ -18,7 +18,14 @@ struct DetectoRect
     min_radius::Float64
     widen_radius::Int
     function DetectoRect(h, camera_distance, tag_width, widen_radius) 
-        new(AprilTagDetector(), MVector(1, 1, h, h), SVI(h, h), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
+        detector = AprilTagDetector()
+        @assert Threads.nthreads() ≥ 4
+        detector.nThreads = 4
+        detector.quad_decimate =  1.0
+        detector.quad_sigma = 0.0
+        detector.refine_edges = 1
+        detector.decode_sharpening = 0.25
+        new(detector, MVector(1, 1, h, h), SVI(h, h), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
     end
 end
 
