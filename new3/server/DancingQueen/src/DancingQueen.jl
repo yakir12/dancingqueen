@@ -7,10 +7,8 @@ using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables
 export main
 
 const SV = SVector{2, Float64}
-const SVI = SVector{2, Int}
 const Color = SVector{3, UInt8}
 
-const l = ReentrantLock()
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
 const prefs = TOML.parsefile(path2preferences)
 const baudrate = prefs["arena"]["baudrate"]
