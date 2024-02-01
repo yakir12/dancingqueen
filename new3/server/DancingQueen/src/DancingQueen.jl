@@ -2,7 +2,7 @@ module DancingQueen
 
 import TOML
 using Dates
-using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables#, StructTypes
+using StaticArrays, AprilTags, LibSerialPort, COBSReduced, Observables
 
 export main
 
@@ -12,23 +12,18 @@ const Color = SVector{3, UInt8}
 
 const l = ReentrantLock()
 const path2preferences = joinpath(@__DIR__, "..", "preferences.toml")
-# const path2data = joinpath(@__DIR__, "..", "..", "data")
 const prefs = TOML.parsefile(path2preferences)
 const baudrate = prefs["arena"]["baudrate"]
 const nleds = prefs["arena"]["nleds"]
 const camera_distance = prefs["detection"]["camera_distance"]
 const tag_width = prefs["detection"]["tag_width"]
 const widen_radius = prefs["detection"]["widen_radius"]
-# const w = prefs["camera"]["width"]
-# const h = prefs["camera"]["height"]
 
 include("camera.jl")
 include("detector.jl")
 include("suns.jl")
 include("tracker.jl")
 include("leds.jl")
-# include("logs.jl")
-# include("display.jl")
 
 const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
 
@@ -42,18 +37,18 @@ const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
 #     println(fps)
 # end
 
-get_image(cam::Ref{Camera}) = collect(reshape(rawview(channelview(cam[].img)), :))
+# get_image(cam::Ref{Camera}) = collect(reshape(rawview(channelview(cam[].img)), :))
 
-struct Instance{N}
+struct Instance{N, H}
     suns::NTuple{N, Sun}
-    detector::DetectoRect
+    detector::DetectoRect{H}
     beetle::Ref{Union{Nothing, Beetle}}
     tracker::Track{N}
     leds::LEDs{N}
     running::Ref{Bool}
     task::Task
-    function Instance{N}(cam, suns::NTuple{N, Sun}) where N
-        detector = DetectoRect(cam.h, camera_distance, tag_width, widen_radius)
+    function Instance(cam::Camera{H}, suns::NTuple{N, Sun}) where {N, H}
+        detector = DetectoRect(cam, camera_distance, tag_width, widen_radius)
         beetle = Ref{Union{Nothing, Beetle}}(nothing)
         tracker = Track(suns)
         leds = LEDs(baudrate, suns)
@@ -63,11 +58,11 @@ struct Instance{N}
             # report_bm()
             yield()
         end
-        new(suns, detector, beetle, tracker, leds, running, task)
+        new{N, H}(suns, detector, beetle, tracker, leds, running, task)
     end
 end
-Instance(cam, suns::NTuple{N, Sun}) where {N} = Instance{N}(cam, suns)
-Instance(cam, suns) = Instance(cam, Tuple(Sun.(suns)))
+# Instance(cam::Camera{H}, suns::NTuple{N, Sun}) where {N, H} = Instance{N, H}(cam, suns)
+Instance(cam, suns::Vector{Dict}) = Instance(cam, Tuple(Sun.(suns)))
 
 function one_iter(cam, detector, beetle, tracker, leds)
     beetle[] = detector(snap(cam))
@@ -77,30 +72,29 @@ function one_iter(cam, detector, beetle, tracker, leds)
 end
 
 function stop(i::Instance)
-    i.running[] = false
-    wait(i.task)
-    close(i.detector)
-    close(i.leds)
+    if instance[].running[]
+        i.running[] = false
+        wait(i.task)
+        close(i.detector)
+        close(i.leds)
+    end
 end
 
 function main()
     setup = Observable(off_sun; ignore_equal_values = true)
-    cam = Ref(Camera(setup[]["camera"]))
+    cam = Ref(Camera(setup[]))
     instance = Ref(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
         stop(instance[])
-        if !haskey(setup, "camera")
-            setup["camera"] = 1080
-        end
-        h = setup["camera"]
-        if h ≠ cam[].h
+        if haskey(setup, "shutdown")
             close(cam[])
-            cam[] = Camera(h)
+        else
+            cam[]= update(cam[], setup)
+            instance[] = Instance(cam[], setup["suns"])
         end
-        instance[] = Instance(cam[], setup["suns"])
     end
     get_bytes() = vec(cam[].img)
-    get_state() = (rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
+    get_state() = (datetime = now(), rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
     return setup, get_bytes, get_state
 end
 

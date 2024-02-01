@@ -1,27 +1,19 @@
-# using Dates
 using DancingQueen
 using Oxygen
-using HTTP
-# using JSON3
 
 setup, get_bytes, get_state = main();
 
-@get "/frame" function(req::HTTP.Request)
-    binary(collect(get_bytes()))
-end
+frame() = binary(collect(get_bytes()))
+state() = get_state()
 
-@get "/state" function(req::HTTP.Request)
-    # TODO can't have θ in the field name of beetle
-    get_state()
-end
+@get "/frame" frame
 
-@post "/setup" function(req::HTTP.Request)
+@get "/state" state
+
+@post "/setup" function(req)
     setup[] = json(req, Dict)
     return nothing
 end
 
 serve(access_log=nothing, host="0.0.0.0", port=8000)
-
-
-
 

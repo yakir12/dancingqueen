@@ -2,30 +2,28 @@ struct Beetle
     c::SV
     theta::Float64
 end
-# Base.zero(::Type{Beetle}) = Beetle(zero(SV), 0)
-
-# StructTypes.StructType(::Type{Beetle}) = StructTypes.DictType()
-# Base.pairs(beetle::Beetle) = (f => getfield(beetle, f) for f in fieldnames(Beetle))
-# StructTypes.StructType(::Type{SV}) = StructTypes.DictType()
-# Base.pairs(c::SV) = (f => getproperty(c, f) for f in (:x, :y))
 
 get_min_radius(h, camera_distance, tag_width, camera_fov) = h*2atand(tag_width/2camera_distance)/camera_fov/sqrt(2)
 
-struct DetectoRect
+function set_detector!(detector, n=2)
+    @assert Threads.nthreads() ≥ n
+    detector.nThreads = n
+    detector.quad_decimate =  1.0
+    detector.quad_sigma = 0.0
+    detector.refine_edges = 1
+    detector.decode_sharpening = 0.25
+    return detector
+end
+
+struct DetectoRect{H}
     detector::AprilTagDetector
     rect::MVector{4, Int}
-    sz::SVI
     min_radius::Float64
     widen_radius::Int
-    function DetectoRect(h, camera_distance, tag_width, widen_radius) 
+    function DetectoRect(::Camera{H}, camera_distance, tag_width, widen_radius) where H
         detector = AprilTagDetector()
-        @assert Threads.nthreads() ≥ 4
-        detector.nThreads = 4
-        detector.quad_decimate =  1.0
-        detector.quad_sigma = 0.0
-        detector.refine_edges = 1
-        detector.decode_sharpening = 0.25
-        new(detector, MVector(1, 1, h, h), SVI(h, h), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
+        set_detector!(detector)
+        new{H}(detector, MVector(1, 1, H, H), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
     end
 end
 
@@ -41,19 +39,19 @@ function Beetle(tag, r1, c1)
     Beetle(c, atan(dy, dx))
 end
 
-function (d::DetectoRect)(buff)
+function (d::DetectoRect{H})(buff) where H
     r1, c1, r2, c2 = d.rect
     cropped = buff[r1:r2, c1:c2]
     # detect
     tags = d.detector(cropped)
     if length(tags) ≠ 1 # not found
         d.rect[1:2] .= max.(1, d.rect[1:2] .- d.widen_radius::Int)
-        d.rect[3:4] .= min.(d.sz::SVI, d.rect[3:4] .+ d.widen_radius::Int)
+        d.rect[3:4] .= min.(H, d.rect[3:4] .+ d.widen_radius::Int)
         return nothing
     else
         b = Beetle(only(tags), r1, c1)
         d.rect[1:2] .= max.(1, round.(Int, b.c .- d.min_radius::Float64))
-        d.rect[3:4] .= min.(d.sz::SVI, round.(Int, b.c .+ d.min_radius::Float64))
+        d.rect[3:4] .= min.(H, round.(Int, b.c .+ d.min_radius::Float64))
         return b
     end
 end

@@ -12,8 +12,8 @@ end
 function Sun(d::AbstractDict)
     link_factor = d["link_factor"]
     width = get(d, "width", 1)
+    @assert isodd(width) && width < nleds "width was not odd and/or smaller than $nleds"
     color = tocolor(d)
     theta = deg2rad(get(d, "azimuth", 0))
     Sun(link_factor, width, color, theta)
 end
-
