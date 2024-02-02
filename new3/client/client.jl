@@ -6,7 +6,8 @@ using JSON3
 using Observables
 
 const fps = 25
-const ip = "http://192.168.50.187:8000"
+# const ip = "http://192.168.50.187:8000" # through ethernet
+const ip = "http://192.168.16.169:8000" # through hotspot
 const nleds = 198
 
 function bytes2img(b::Vector{UInt8}) 

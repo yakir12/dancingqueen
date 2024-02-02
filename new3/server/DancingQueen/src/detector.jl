@@ -23,7 +23,7 @@ struct DetectoRect{H}
     function DetectoRect(::Camera{H}, camera_distance, tag_width, widen_radius) where H
         detector = AprilTagDetector()
         set_detector!(detector)
-        new{H}(detector, MVector(1, 1, H, H), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
+        new{H}(detector, MVector(1, 1, H, H), get_min_radius(H, camera_distance, tag_width, get_camera_fov(H)), widen_radius)
     end
 end
 

@@ -58,7 +58,7 @@ h == 1080 ? 1080/2464*48.8 :
 h == 2464 ? 48.8 :
 nothing
 
-function update(cam::Camera{H}, cm::CamMode) 
+function update(cam::Camera{H}, cm::CamMode) where H
     if H ≠ Int(cm)
         close(cam)
         Camera(cm)
@@ -67,4 +67,4 @@ function update(cam::Camera{H}, cm::CamMode)
     end
 end
 
-update(cam::Camera{H}, d::Dict) = update(cam, CamMode(d))
+update(cam::Camera, d::Dict) = update(cam, CamMode(d))

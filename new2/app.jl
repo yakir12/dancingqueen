@@ -11,7 +11,7 @@ using StippleDownloads
 import Stipple.opts
 @genietools
 
-Genie.config.log_requests = false
+# Genie.config.log_requests = false
 
 const schema = Schema(read("schema.json", String))
 
@@ -25,7 +25,7 @@ route("/frame") do
     respond(String(jpeg_encode(img[]; transpose = false)), :jpg)
 end
 
-@app Dance begin
+@app begin
     @private imageurl = "/frame"
     @private setups = [DancingQueen.off_sun]
     @onchange fileuploads begin
@@ -116,13 +116,15 @@ ui() = Html.div(
                  row([row(@recur("(label, index) in setups_labels"), [radio("tmp", :chosen, val = :index, label=:label)])])
                 ])
 
-@methods Dance """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
-@created Dance "setInterval(this.updateimage, 100)"
+@methods """updateimage: async function () { this.imageurl = "frame#" + new Date().getTime() }"""
+@created "setInterval(this.updateimage, 100)"
 
-route("/") do
-  model = init(Dance, transport = Genie.WebThreads)
-  page(model, ui()) |> html
-end
+@page("/", ui)
+
+# route("/") do
+#   model = init(Dance, transport = Genie.WebThreads)
+#   page(model, ui()) |> html
+# end
 
 
 # up(8000, "0.0.0.0")

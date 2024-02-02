@@ -60,7 +60,7 @@ struct Instance{N, H}
     end
 end
 # Instance(cam::Camera{H}, suns::NTuple{N, Sun}) where {N, H} = Instance{N, H}(cam, suns)
-Instance(cam, suns::Vector{Dict}) = Instance(cam, Tuple(Sun.(suns)))
+Instance(cam, suns) = Instance(cam, Tuple(Sun.(suns)))
 
 function one_iter(cam, detector, beetle, tracker, leds)
     beetle[] = detector(snap(cam))
@@ -70,7 +70,7 @@ function one_iter(cam, detector, beetle, tracker, leds)
 end
 
 function stop(i::Instance)
-    if instance[].running[]
+    if i.running[]
         i.running[] = false
         wait(i.task)
         close(i.detector)
@@ -80,8 +80,8 @@ end
 
 function main()
     setup = Observable(off_sun; ignore_equal_values = true)
-    cam = Ref(Camera(setup[]))
-    instance = Ref(Instance(cam[], setup[]["suns"]))
+    cam = Ref{Camera}(Camera(setup[]))
+    instance = Ref{Instance}(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
         stop(instance[])
         if haskey(setup, "shutdown")
