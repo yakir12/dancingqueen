@@ -16,6 +16,7 @@ const nleds = prefs["arena"]["nleds"]
 const camera_distance = prefs["detection"]["camera_distance"]
 const tag_width = prefs["detection"]["tag_width"]
 const widen_radius = prefs["detection"]["widen_radius"]
+const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
 
 include("camera.jl")
 include("detector.jl")
@@ -23,7 +24,11 @@ include("suns.jl")
 include("tracker.jl")
 include("leds.jl")
 
-const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
+const camera_process = Ref{Process}()
+
+function __init__()
+    camera_process[] = open(cmd(10, 640, 480))
+end
 
 # const benchmark = Ref(now())
 #
