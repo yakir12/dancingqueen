@@ -26,18 +26,17 @@ include("leds.jl")
 const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 
 
-mutable struct Resume
+mutable struct Controller
     paused::Bool
     condition::Condition
 end
-check(r::Resume) = r.paused && wait(r.condition)
-pause!(r::Resume) = (r.paused = true)
-function play!(r::Resume) 
-    r.paused = false
-    notify(r.condition)
+check(controller::Controller) = controller.paused && wait(controller.condition)
+pause!(controller::Controller) = (controller.paused = true)
+function resume!(controller::Controller) 
+    controller.paused = false
+    notify(controller.condition)
 end
 
-const resume = Resume(true, Condition())
 
 
 
@@ -110,12 +109,11 @@ function main()
     return setup, get_bytes, get_state
 end
 
-end # module DancingQueen
-
-@async while true
-    check(resume)
-    @show rand()
-    sleep(1)
+function main()
+    setup = Observable(off_sun)
+    instance = Instance(setup[])
+    on(setup -> update!(instance, setup), setup)
+    return setup, () -> get_bytes(instance), () -> get_state(instance)
 end
 
-
+end # module DancingQueen
