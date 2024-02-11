@@ -25,6 +25,23 @@ include("leds.jl")
 
 const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 
+
+mutable struct Resume
+    paused::Bool
+    condition::Condition
+end
+check(r::Resume) = r.paused && wait(r.condition)
+pause!(r::Resume) = (r.paused = true)
+function play!(r::Resume) 
+    r.paused = false
+    notify(r.condition)
+end
+
+const resume = Resume(true, Condition())
+
+
+
+
 # const benchmark = Ref(now())
 #
 # function report_bm()
@@ -83,8 +100,10 @@ function main()
     cam = Ref(Camera(setup[]))
     instance = Ref{Instance}(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
+        pause!(resume)
         switch!(cam, setup)
         instance[] = Instance(cam[], setup["suns"])
+        play!(resume)
     end
     get_bytes() = vec(cam[].img)
     get_state() = (datetime = now(), rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
@@ -92,3 +111,11 @@ function main()
 end
 
 end # module DancingQueen
+
+@async while true
+    check(resume)
+    @show rand()
+    sleep(1)
+end
+
+
