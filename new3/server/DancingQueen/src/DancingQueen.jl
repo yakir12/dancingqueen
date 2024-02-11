@@ -23,7 +23,7 @@ include("suns.jl")
 include("tracker.jl")
 include("leds.jl")
 
-const off_sun = Dict("camera" => 2464, "suns" => [Dict("link_factor" => 0)])
+const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 
 # const benchmark = Ref(now())
 #
@@ -80,16 +80,11 @@ end
 
 function main()
     setup = Observable(off_sun; ignore_equal_values = true)
-    cam = Ref{Camera}(Camera(setup[]))
+    cam = Ref(Camera(setup[]))
     instance = Ref{Instance}(Instance(cam[], setup[]["suns"]))
     on(setup) do setup
-        stop(instance[])
-        if haskey(setup, "shutdown")
-            close(cam[])
-        else
-            cam[]= update(cam[], setup)
-            instance[] = Instance(cam[], setup["suns"])
-        end
+        switch!(cam, setup)
+        instance[] = Instance(cam[], setup["suns"])
     end
     get_bytes() = vec(cam[].img)
     get_state() = (datetime = now(), rect = instance[].detector.rect, beetle = instance[].beetle[], leds = instance[].leds.msg)
