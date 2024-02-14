@@ -8,6 +8,8 @@ mutable struct Track{N, M}
 end
 Track(suns::NTuple{N, Sun}) where {N} = Track{N, 5N}(suns)
 
+Base.close(t::Track) = close(t.leds)
+
 function (tracker::Track)(::Nothing)
     tracker.beetle_Δ = 0.0
 end

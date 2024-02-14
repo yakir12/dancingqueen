@@ -35,15 +35,17 @@ struct Camera
     end
 end
 
+function Base.close(cam::Camera) 
+    kill(cam.proc)
+    close(cam.detector)
+end
+
 function detect(cam::Camera) 
     read!(cam.proc, cam.buff)
     cam.detector(cam.img)
 end
 
 CamMode(setup::Dict) = CamMode(get(setup, "camera", 1080))
-
-Camera(setup::Dict) = Camera(CamMode(setup))
-
 
 ##### the only four options:
 # w, h, fps = (3280, 2464, 21) # 

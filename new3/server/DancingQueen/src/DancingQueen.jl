@@ -154,18 +154,17 @@ end
 
 switch(current, ::Nothing) = current
 
-function switch(current::Camera, mode::CamMode)
-    if current.mode ≠ mode
-        kill(current.proc)
-        close(current.detector)
+function switch(camera::Camera, mode::CamMode)
+    if camera.mode ≠ mode
+        close(camera)
         Camera(mode)
     else
-        current
+        camera
     end
 end
 
-function switch(current::Track, suns::NTuple)
-    close(current.leds)
+function switch(tracker::Track, suns::NTuple)
+    close(tracker)
     Track(suns)
 end
 
@@ -177,10 +176,10 @@ end
 function main()
     setup = Observable(off_sun)
     mode = Ref{Union{Nothing, CamMode}}(nothing)
-    suns = Ref{Union{Nothing, Any}}(nothing)
+    suns = Ref{Union{Nothing, NTuple}}(nothing)
     instance = Instance(mode, suns)
     on(setup) do setup
-        mode[] = CamMode(get(setup, "camera", 1080))
+        mode[] = CamMode(setup)
         suns[] = Tuple(Sun.(setup["suns"]))
     end
     return setup, () -> collect(instance.camera[].img), instance
