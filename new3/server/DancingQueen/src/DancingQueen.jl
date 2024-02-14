@@ -17,11 +17,11 @@ const camera_distance = prefs["detection"]["camera_distance"]
 const tag_width = prefs["detection"]["tag_width"]
 const widen_radius = prefs["detection"]["widen_radius"]
 
+include("detector.jl")
 include("camera.jl")
-# include("detector.jl")
-# include("suns.jl")
-# include("tracker.jl")
-# include("leds.jl")
+include("suns.jl")
+include("leds.jl")
+include("tracker.jl")
 
 const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 
@@ -37,7 +37,9 @@ const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 # #     Δ = t - benchmark[]
 # #     fps = 1000 ÷ max(1, Dates.value(Δ))
 # #     benchmark[] = t
-# #     println(fps)
+# #     if fps < 1000
+# #         println(fps)
+# #     end
 # # end
 #
 # # get_image(cam::Ref{Camera}) = collect(reshape(rawview(channelview(cam[].img)), :))
@@ -98,64 +100,88 @@ const off_sun = Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])
 #     return setup, get_bytes, get_state
 # end
 
-mutable struct CheckPoint
-    paused::Bool
-    lock::ReentrantLock
-    condition::Threads.Condition
-    function CheckPoint() 
-        lock = ReentrantLock()
-        new(true, lock, Threads.Condition(lock))
-    end
-end
-function check(cp::CheckPoint) 
-    @lock cp.lock begin
-        cp.paused && wait(cp.condition)
-    end
-end
-
-function pause!(cp::CheckPoint) 
-    @lock cp.lock begin
-        cp.paused = true
-    end
-end
-
-function resume!(cp::CheckPoint) 
-    @lock cp.lock begin
-        cp.paused = false
-        notify(cp.condition)
-    end
-end
+# mutable struct CheckPoint
+#     paused::Bool
+#     lock::ReentrantLock
+#     condition::Threads.Condition
+#     function CheckPoint() 
+#         lock = ReentrantLock()
+#         new(true, lock, Threads.Condition(lock))
+#     end
+# end
+# function check(cp::CheckPoint) 
+#     @lock cp.lock begin
+#         cp.paused && wait(cp.condition)
+#     end
+# end
+#
+# function pause!(cp::CheckPoint) 
+#     @lock cp.lock begin
+#         cp.paused = true
+#     end
+# end
+#
+# function resume!(cp::CheckPoint) 
+#     @lock cp.lock begin
+#         cp.paused = false
+#         notify(cp.condition)
+#     end
+# end
 
 
 struct Instance
-    lock::ReentrantLock
-    checkpoint::CheckPoint
     camera::Ref{Camera}
+    beetle::Ref{Union{Nothing, Beetle}}
     task::Task
-    function Instance()
-        cam = Ref(Camera(cmoff))
-        checkpoint = CheckPoint()
+    function Instance(mode, suns)
+        camera = Ref(Camera(cmoff))
+        beetle = Ref{Union{Nothing, Beetle}}(nothing)
+        tracker = Ref(Track(Tuple(Sun.([Dict("link_factor" => 0)]))))
         task = Threads.@spawn while true
-            check(checkpoint)
-            snap(cam[])
+            switch!(camera, mode)
+            switch!(tracker, suns)
+            if camera[].mode == cmoff
+                sleep(1)
+            else
+                beetle[] = detect(camera[])
+                tracker[](beetle[])
+                update_suns!(tracker[])
+            end
         end
-        new(ReentrantLock(), checkpoint, cam, task)
+        new(camera, beetle, task)
     end
 end
 
-function update!(instance::Instance, setup::Dict)
-    pause!(instance.checkpoint)
-    switch!(instance.camera, setup)
-    if instance.camera[].cm ≠ cmoff
-        resume!(instance.checkpoint)
+switch(current, ::Nothing) = current
+
+function switch(current::Camera, mode::CamMode)
+    if current.mode ≠ mode
+        kill(current.proc)
+        close(current.detector)
+        Camera(mode)
+    else
+        current
     end
+end
+
+function switch(current::Track, suns::NTuple)
+    close(current.leds)
+    Track(suns)
+end
+
+function switch!(current, next)
+    current[] = switch(current[], next[])
+    next[] = nothing
 end
 
 function main()
     setup = Observable(off_sun)
-    instance = Instance()
+    mode = Ref{Union{Nothing, CamMode}}(nothing)
+    suns = Ref{Union{Nothing, Any}}(nothing)
+    instance = Instance(mode, suns)
     on(setup) do setup
-        @lock instance.lock update!(instance, setup)
+        mode[] = CamMode(get(setup, "camera", 1080))
+        suns[] = Tuple(Sun.(setup["suns"]))
     end
     return setup, () -> collect(instance.camera[].img), instance
     # return setup, () -> get_bytes(instance), () -> get_state(instance)
