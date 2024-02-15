@@ -1,9 +1,14 @@
 using DancingQueen
+# using ImageTransformations
 using Oxygen
 
-setup, get_bytes, get_state = main();
+# const buffer = Matrix{UInt8}(undef, 100, 100)
 
-frame() = binary(collect(get_bytes()))
+set_setup, get_bytes, get_state = main();
+
+frame() = binary(vec(get_bytes()))
+# frame() = binary(vec(imresize!(buffer, get_bytes())))
+    
 state() = get_state()
 
 @get "/frame" frame
@@ -11,7 +16,7 @@ state() = get_state()
 @get "/state" state
 
 @post "/setup" function(req)
-    setup[] = json(req, Dict)
+    set_setup(json(req, Dict))
     return nothing
 end
 

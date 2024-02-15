@@ -1,4 +1,0 @@
-- you have to be able to close and reopen things however you like
-- maybe have a layer separating the setup dict and the other components
-- would be nice ot be able to rigorously benchmark things
-- you have to resize the image... it's too big and slow in full size

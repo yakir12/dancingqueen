@@ -6,8 +6,8 @@ using JSON3
 using Observables
 
 const fps = 25
-# const ip = "http://192.168.50.187:8000" # through ethernet
-const ip = "http://192.168.16.169:8000" # through hotspot
+const ip = "http://192.168.50.187:8000" # through ethernet
+# const ip = "http://192.168.16.169:8000" # through hotspot
 const nleds = 198
 
 function bytes2img(b::Vector{UInt8}) 
@@ -46,7 +46,7 @@ function update_leds!(leds_color, msg)
     notify(leds_color)
 end
 
-h = Observable(2464)
+h = Observable(100)
 img = Observable(bytes2img(Vector{UInt8}(undef, h[]^2)))
 beetle_xy = Observable(Point2f(NaN, NaN))
 beetle_dir = Observable(NaN)
