@@ -28,9 +28,14 @@ include("tracker.jl")
 
 switch(current, ::Nothing) = current
 
-function switch(current, x)
-    close(current)
-    typeof(current)(x)
+function switch(camera::Camera, cm::CamMode)
+    close(camera)
+    Camera(cm)
+end
+
+function switch(tracker::Track, suns::NTuple)
+    close(tracker)
+    Track(suns)
 end
 
 function switch!(current, next)
@@ -46,18 +51,15 @@ function update!(setup::Dict, mode, suns, old_mode)
     suns[] = Tuple(Sun.(setup["suns"]))
 end
 
-get_state(::Nothing) = (; datetime = now(), beetle_c = missing, beetle_theta = missing)
-get_state(betle) = (; datetime = now(), beetle_c = beetle.c, beetle_theta = beetle.theta)
-
 function main()
     mode = Ref{Union{Nothing, CamMode}}(nothing)
     suns = Ref{Union{Nothing, NTuple}}(nothing)
 
     camera = Ref(Camera(cmoff))
     beetle = Ref{Union{Nothing, Beetle}}(nothing)
-    tracker = Ref(Track(Tuple(Sun.([Dict("link_factor" => 0)]))))
+    tracker = Ref{Track}(Track(Tuple(Sun.([Dict("link_factor" => 0)]))))
 
-    Threads.@spawn while true
+    task = Threads.@spawn while true
         switch!(camera, mode)
         switch!(tracker, suns)
         if camera[].mode == cmoff
@@ -71,7 +73,8 @@ function main()
     return (
             setup -> update!(setup, mode, suns, camera[].mode), 
             () -> collect(camera[].img), 
-            () -> get_state(beetle[])
+            () -> (; datetime = now(), beetle = beetle[], leds = get_indices(tracker[].leds)),
+            task
            )
 end
 

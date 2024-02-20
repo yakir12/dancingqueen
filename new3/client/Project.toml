@@ -1,7 +1,2 @@
 [deps]
-ColorTypes = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
-GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
-HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-ImageCore = "a09fc81d-aa75-5fe9-8630-4744c3626534"
-JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
-Observables = "510215fc-4207-5dde-b226-833fc4488ee2"
+DancingQueenClient = "6fd50fb7-298b-4796-a3c3-4585f965280c"

@@ -1,24 +1,21 @@
 using DancingQueen
-# using ImageTransformations
+using ImageCore, ImageTransformations
 using Oxygen
 
-# const buffer = Matrix{UInt8}(undef, 100, 100)
+const buffer = Matrix{N0f8}(undef, 400, 400)
 
-set_setup, get_bytes, get_state = main();
+set_setup, get_bytes, get_state, task = main();
 
-frame() = binary(vec(get_bytes()))
-# frame() = binary(vec(imresize!(buffer, get_bytes())))
-    
-state() = get_state()
+frame() = binary(collect(vec(rawview(imresize!(buffer, normedview(get_bytes()))))))
 
 @get "/frame" frame
 
-@get "/state" state
+@get "/state" get_state
 
 @post "/setup" function(req)
     set_setup(json(req, Dict))
-    return nothing
+    return "done"
 end
 
-serve(access_log=nothing, host="0.0.0.0", port=8000)
+serve(access_log=nothing, host="0.0.0.0", port=8000, async=true)
 
