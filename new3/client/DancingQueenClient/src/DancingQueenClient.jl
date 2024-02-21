@@ -95,7 +95,7 @@ function get_kb_dropdown(setups, win)
     return dd, dd.mappedsignal
 end
 
-function main(file)
+function main(file::String = joinpath(homedir(), "settings.toml"))
     setups = file2setups(file)
 
     running = Ref(true)
@@ -125,12 +125,10 @@ function main(file)
 
     dd[] = dd[]
 
-    c = Condition()
-    signal_connect(win, :close_request) do widget
-        notify(c)
-    end
+
+    show(win)
     @async Gtk4.GLib.glib_main()
-    wait(c)
+    Gtk4.GLib.waitforsignal(win, :close_request)
 
     HTTP.post("$ip/setup"; body=JSON3.write(Dict("camera" => 0, "suns" => [Dict("link_factor" => 0)])))
     running[] = false

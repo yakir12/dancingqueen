@@ -17,5 +17,5 @@ frame() = binary(collect(vec(rawview(imresize!(buffer, normedview(get_bytes())))
     return "done"
 end
 
-serve(access_log=nothing, host="0.0.0.0", port=8000, async=true)
+serve(access_log=nothing, host="0.0.0.0", port=8000)
 

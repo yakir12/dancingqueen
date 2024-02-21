@@ -1,5 +1,4 @@
 clean all the files and extra folders...
-write documentation
 check the post processing functions
 saw the pole
 find a good height for the camera
