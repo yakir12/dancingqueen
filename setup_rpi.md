@@ -5,14 +5,15 @@ download the Raspberry Pi OS 64-bit, Lite (not Legacy!) from [the Raspberry Pi s
 wget <link>
 ```
 identify which drive device it is, `/dev/sdc`?
+flash the image on to the SD card
 ```
 sudo rpi-imager --cli 2023-12-11-raspios-bookworm-arm64-lite.img.xz /dev/sdc
 ```
-flash the image on to the SD card
+pull out and put in the SD card to remount it, or (haven't tried it yet):
 ```
-# sudo dd if=2023-12-11-raspios-bookworm-arm64-lite.img.xz of=/dev/sdc status=progress bs=4M
+sudo mkdir /media/yakir/bootfs
+sudo mount /dev/sdc1 /media/yakir/bootfs 
 ```
-pull out and put in the SD card to remount it.
 ## Prepare the pi for wifi headless login on first boot
 ssh
 ```
@@ -28,6 +29,7 @@ update_config=1
 network={
     ssid="Ermahgerds"
     psk="is it though, isn't it just Steven"
+    key_mgmt=WPA-PSK
 }
 EOT
 ```
@@ -38,6 +40,23 @@ echo "pi:$(echo 'raspberry' | openssl passwd -6 -stdin)" > /media/yakir/bootfs/u
 finally, unmount:
 ```
 sudo umount /media/yakir/bootfs /media/yakir/rootfs
+```
+### All in one:
+```
+touch /media/yakir/bootfs/ssh
+cat <<EOT >> /media/yakir/bootfs/wpa_supplicant.conf
+country=SE
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="Ermahgerds"
+    psk="is it though, isn't it just Steven"
+    key_mgmt=WPA-PSK
+}
+EOT
+echo "pi:$(echo 'raspberry' | openssl passwd -6 -stdin)" > /media/yakir/bootfs/userconf
+sudo umount /media/yakir/bootfs
 ```
 # On the PI
 ssh in:
@@ -52,7 +71,6 @@ sudo apt-get update
 sudo apt-get -y upgrade
 sudo reboot -h now
 ```
-
 ensure the CPU clock does not get throttled during the video capture
 ```
 sudo sed -i 's/force_turbo=0/force_turbo=1/g' /boot/firmware/config.txt

@@ -7,6 +7,8 @@ using Base.Threads
 
 export main
 
+const Color = RGB{N0f8}
+
 const path2preferences = ""
 const path2data = joinpath(homedir(), "data")
 const h = 400
@@ -21,12 +23,12 @@ include("logbook.jl")
 
 label_setups(setups) = [string(k, ": ", setup["label"]) => setup for (k, setup) in zip('a':'z', setups)]
 
-bytes2img(b::Vector{UInt8}) = RGB.(colorview(Gray, normedview(reshape(b, h, h))))
+bytes2img(b::Vector{UInt8}) = Color.(colorview(Gray, normedview(reshape(b, h, h))))
 
 topoint(p) = ImageDraw.Point(reverse(Tuple(round.(Int, p))))
 
 draw_beetle!(img, ::Nothing, _) = nothing
-draw_beetle!(img, beetle, ratio) = draw!(img[], CirclePointRadius(topoint(ratio * beetle.c), 9), RGB(1, 0, 1))
+draw_beetle!(img, beetle, ratio) = draw!(img[], CirclePointRadius(topoint(ratio * beetle.c), 9), Color(1, 0, 1))
 
 function set_frame!(img)
     HTTP.open("GET", "$ip/frame") do io
@@ -39,8 +41,7 @@ end
 function set_image!(img, state, camera)
     set_frame!(img)
     draw_beetle!(img, state[].beetle, h/camera)
-    draw!(img[], CirclePointRadius(topoint(ratio * beetle.c), 9), RGB(1, 0, 1))
-    draw!(img[], Cross(ImageDraw.Point(50, 50), 45), RGB(1,1,1))
+    draw!(img[], ImageDraw.Cross(ImageDraw.Point(h ÷ 2, h ÷ 2), h ÷ 2 - 5), Color(1,1,1))
     notify(img)
 end
 
