@@ -15,56 +15,45 @@ sudo mkdir /media/yakir/bootfs
 sudo mount /dev/sdc1 /media/yakir/bootfs 
 ```
 ## Prepare the pi for wifi headless login on first boot
-ssh
+works on bookworm...
 ```
-touch /media/yakir/bootfs/ssh
-```
-wifi
-```
-cat <<EOT >> /media/yakir/bootfs/wpa_supplicant.conf
-country=SE
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
+cat <<EOT >> /media/yakir/bootfs/custom.toml
+# Raspberry Pi First Boot Setup
+[system]
+hostname = "rpihost"
 
-network={
-    ssid="Ermahgerds"
-    psk="is it though, isn't it just Steven"
-    key_mgmt=WPA-PSK
-}
+[user]
+name = "yakir"
+password = "raspberry"
+password_encrypted = false
+
+[ssh]
+enabled = true
+authorized_keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvWDWmVSoNauNSy/H2PWYQ729tfD2o3RL6D/9ZdZ4O0J/UJshx/frseqFwjiVJTEisojMVL+Il+o14Tr1p3fyMJu/3YA/+bxRK4S0sW2OUeDOyn82P+Byg9RtuFuO57HrDUaInCqKmqtzgAAZiiCFYBNcB11yT1qd0p5BWqQpE6uMWPXu6gRYjR94NMNmveOATwdbqQkhd1fpxagCGC6NuMCc6OiJjCtHPmGw4hhlQvBL0bdBewardWtvomuqnH9ZBwnoqVtc4lvfMZIL7BG3h1P+UdD8XhIi4ixf5H8ShHWt2vRTSyxKjjLHC3mkAJPEHEr8HZtfOQGwlgvCKmf5L yakir@qbi-lat" ]
+# this seems to broken in RPi's "init_config" and it sets "-k" instead of "-p"
+# password_authentication = true
+
+[wlan]
+country = "se"
+ssid = "Ermahgerds"
+password = "is it though, isn't it just Steven"
+password_encrypted = false
+hidden = false
+
+[locale]
+keymap = "us"
+timezone = "Europe/Stockholm"
 EOT
-```
-and user
-```
-echo "pi:$(echo 'raspberry' | openssl passwd -6 -stdin)" > /media/yakir/bootfs/userconf
 ```
 finally, unmount:
 ```
 sudo umount /media/yakir/bootfs /media/yakir/rootfs
 ```
-### All in one:
-```
-touch /media/yakir/bootfs/ssh
-cat <<EOT >> /media/yakir/bootfs/wpa_supplicant.conf
-country=SE
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-
-network={
-    ssid="Ermahgerds"
-    psk="is it though, isn't it just Steven"
-    key_mgmt=WPA-PSK
-}
-EOT
-echo "pi:$(echo 'raspberry' | openssl passwd -6 -stdin)" > /media/yakir/bootfs/userconf
-sudo umount /media/yakir/bootfs
-```
 # On the PI
 ssh in:
 ```
-ssh pi@<192...>
+ssh <192...>
 ```
-password: raspberry
-
 update everything
 ```
 sudo apt-get update
@@ -78,7 +67,7 @@ sudo sed -i 's/force_turbo=0/force_turbo=1/g' /boot/firmware/config.txt
 
 close all the lights
 ```
-sudo cat <<EOT >> /boot/config.txt
+sudo bash -c 'cat <<EOT >> /boot/config.txt
 [pi4]
 # Disable the PWR LED
 dtparam=pwr_led_trigger=none
@@ -89,21 +78,25 @@ dtparam=act_led_activelow=off
 # Disable ethernet port LEDs
 dtparam=eth_led0=4
 dtparam=eth_led1=4
-EOT
+EOT'
 ```
 
 install Julia
 ```
 sudo apt-get -y install git
+git clone https://github.com/foundObjects/zram-swap
+cd zram-swap/
+sudo ./install.sh
+cd
 git clone https://github.com/JuliaLang/julia.git
 cd julia
 git checkout v1.10.1
-make -j4
-cd
+make
 ```
 
 add alias to julia
 ```
+cd
 echo "alias julia='$HOME/julia/julia'" >> .bashrc
 . .bashrc
 ```
