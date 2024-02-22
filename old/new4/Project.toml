@@ -1,0 +1,9 @@
+[deps]
+ColorTypes = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
+DancingQueen = "2a4fde1f-2e33-47a3-961e-f5a43f592eaf"
+Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
+GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+ImageCore = "a09fc81d-aa75-5fe9-8630-4744c3626534"
+JSONSchema = "7d188eb4-7ad8-530c-ae41-71a32a6d4692"
+JpegTurbo = "b835a17e-a41a-41e7-81f0-2f016b05efe0"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"

@@ -1,0 +1,40 @@
+┌ Info: 2023-12-06 09:30:44 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-06 09:47:36 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-06 09:59:22 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-06 10:24:10 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/WLxlg/src/Server.jl:166
+┌ Info: 2023-12-06 10:24:12 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-06 10:24:13 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Warning: 2023-12-06 10:25:13 settings file was bad
+└ @ Main /home/yakir/from github/dancingqueen/new/main.jl:43
+┌ Info: 2023-12-06 10:26:35 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:22
+┌ Info: 2023-12-06 10:26:35 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:22
+┌ Warning: 2023-12-06 10:26:35 Genie.WebChannels.ChannelNotFoundException("autoreload")
+└ @ Genie.WebChannels /home/yakir/.julia/packages/Genie/WLxlg/src/WebChannels.jl:251
+┌ Warning: 2023-12-06 10:26:35 Genie.WebChannels.ChannelNotFoundException("autoreload")
+└ @ Genie.WebChannels /home/yakir/.julia/packages/Genie/WLxlg/src/WebChannels.jl:251
+┌ Warning: 2023-12-06 10:26:49 settings file was bad
+└ @ Main /home/yakir/from github/dancingqueen/new/main.jl:43
+┌ Warning: 2023-12-06 10:26:57 settings file was bad
+└ @ Main /home/yakir/from github/dancingqueen/new/main.jl:43
+┌ Info: 2023-12-06 10:34:45 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/WLxlg/src/Server.jl:166
+┌ Info: 2023-12-06 10:34:48 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2023-12-06 10:34:49 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Warning: 2023-12-06 10:35:46 Dict{String, Any}("deps" => Dict{String, Any}("Stipple" => "4acbeb90-81a0-11ea-1966-bdaff8155998", "StippleDownloads" => "291a174b-6542-42e7-9996-fc00d7c03310", "Tar" => "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e", "JpegTurbo" => "b835a17e-a41a-41e7-81f0-2f016b05efe0", "JSONSchema" => "7d188eb4-7ad8-530c-ae41-71a32a6d4692", "GenieFramework" => "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353", "StippleUI" => "a3c5d34a-b254-4859-a8fa-b86abb7e84a3", "DancingQueen" => "94a9f6fe-37a1-4f65-b230-65a521849305")) is wrong
+└ @ Main /home/yakir/from github/dancingqueen/new/main.jl:50
+┌ Warning: 2023-12-06 10:38:05 settings file had bad TOML format
+└ @ Main /home/yakir/from github/dancingqueen/new/main.jl:40
+┌ Info: 2023-12-06 11:02:30 Watching ["/home/yakir/from github/dancingqueen/new"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19

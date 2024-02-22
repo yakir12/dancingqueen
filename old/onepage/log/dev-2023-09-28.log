@@ -1,0 +1,22 @@
+┌ Info: 2023-09-28 15:35:46 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-28 15:36:27 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-28 15:36:46 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-28 15:37:06 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-28 15:37:08 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-28 15:37:09 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-09-28 15:40:22 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-28 15:40:47 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-28 15:40:49 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-28 15:40:50 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367

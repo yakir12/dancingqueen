@@ -1,0 +1,342 @@
+┌ Info: 2023-09-14 13:31:36 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:31:39 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:31:40 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:31:58 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:32:28 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:32:31 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:32:32 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:32:52 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:33:21 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:33:24 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:33:25 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:38:14 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:38:14 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-09-14 13:38:14 [Revise] Ignoring callback errors
+│   err = CompositeException(Any[TaskFailedException(Task (failed) @0x00007f12ba2f4b00)])
+└ @ Revise /home/yakir/.julia/packages/Revise/7HQ7u/src/callbacks.jl:123
+┌ Info: 2023-09-14 13:39:14 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:39:18 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:39:18 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:49:36 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:50:26 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:50:30 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:50:31 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:51:40 (0.0, 0.5992501610647192, 0.5992501610647192, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:40 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:51:41 (0.5992501610647192, 1.4210401666597707, 0.8217900055950516, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:41 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:51:42 (1.4210401666597707, 1.4161320850186019, -0.004908081641168849, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:42 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:51:42 (1.4161320850186019, 1.607767105004026, 0.1916350199854242, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:42 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:51:42 (1.607767105004026, 1.7100299124434797, 0.1022628074394536, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:42 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:51:42 (1.7100299124434797, 1.8304127319286232, 0.12038281948514351, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:51:42 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:54:07 (1.8304127319286232, 1.6323739480516113, -0.1980387838770119, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:17
+┌ Info: 2023-09-14 13:54:07 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:20
+┌ Info: 2023-09-14 13:54:11 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:54:11 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 13:54:42 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:54:46 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:54:46 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 13:55:33 (0.0, 66.66226906014906, 66.66226906014906, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:33 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:35 (66.66226906014906, 55.54755760722753, -11.114711452921519, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:35 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:35 (55.54755760722753, 61.89646339504306, 6.348905787815528, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:35 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:36 (61.89646339504306, 71.41214131538557, 9.515677920342501, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:36 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:36 (71.41214131538557, 71.63898535568775, 0.22684404030219515, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:36 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:36 (71.63898535568775, 74.61872228609171, 2.9797369304039507, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:36 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:37 (74.61872228609171, 74.89875491549408, 0.2800326294023778, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:37 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:37 (74.89875491549408, 74.97449223102555, 0.07573731553146505, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:37 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:37 (74.97449223102555, 75.2707279885445, 0.2962357575189473, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:37 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:38 (75.2707279885445, 76.49913661713487, 1.2284086285903646, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:38 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:38 (76.49913661713487, 76.87060687072396, 0.3714702535890987, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:38 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:38 (76.87060687072396, 77.8765345072767, 1.0059276365527432, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:38 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:38 (77.8765345072767, 78.62166579748035, 0.7451312902036443, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:38 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:39 (78.62166579748035, 79.55852049863772, 0.9368547011573716, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:39 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:39 (79.55852049863772, 80.19418279759712, 0.6356622989594005, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:39 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:39 (80.19418279759712, 80.75872396605969, 0.5645411684625771, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:39 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:39 (80.75872396605969, 81.6060301862389, 0.8473062201791974, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:39 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:39 (81.6060301862389, 82.21132245634, 0.6052922701010977, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:39 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:40 (82.21132245634, 83.38520020593263, 1.173877749592647, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:41 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:55:41 (83.38520020593263, 83.6879792664345, 0.30277906050186265, 0.0)
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:18
+┌ Info: 2023-09-14 13:55:41 0.0
+└ @ Main.LEDs /home/yakir/dancingqueen/app/lib/LEDs.jl:22
+┌ Info: 2023-09-14 13:56:23 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 13:56:27 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 13:56:27 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 14:46:39 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 14:46:43 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 14:46:43 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Info: 2023-09-14 14:59:24 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-09-14 14:59:55 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 14:59:59 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 15:00:00 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366
+┌ Warning: 2023-09-14 15:01:22 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:24 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:27 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:30 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:33 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:36 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:39 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:42 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:45 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Warning: 2023-09-14 15:01:48 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Info: 2023-09-14 15:01:50 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-09-14 15:01:51 the camera died for some reason!
+│   exception = 1-element ExceptionStack:
+UndefVarError: `a` not defined
+Stacktrace:
+ [1] get_led(beetle2::Float64)
+   @ Main.LEDs ~/dancingqueen/app/lib/LEDs.jl:17
+ [2] get_led
+   @ ~/dancingqueen/app/lib/LEDs.jl:12 [inlined]
+ [3] macro expansion
+   @ ~/dancingqueen/app/lib/Monitor.jl:34 [inlined]
+ [4] (::Main.Monitor.var"#1#2")()
+   @ Main.Monitor ./threadingconstructs.jl:410
+└ @ Main.Monitor /home/yakir/dancingqueen/app/lib/Monitor.jl:15
+┌ Info: 2023-09-14 15:02:15 Watching ["/home/yakir/dancingqueen/app"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-09-14 15:02:19 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Es7Db/src/Server.jl:161
+┌ Info: 2023-09-14 15:02:20 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/Y2JKB/src/Servers.jl:366

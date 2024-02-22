@@ -1,0 +1,156 @@
+┌ Info: 2023-11-09 14:02:14 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Ow2eW/src/Server.jl:161
+┌ Info: 2023-11-09 14:02:17 Watching ["/home/yakir/from github/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-11-09 14:02:18 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-11-09 14:11:37 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-11-09 14:11:37 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-11-09 14:11:53 temp cleanup
+│   exception = (ErrorException("schedule: Task not runnable"), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007fa6a157afcb, Ptr{Nothing} @0x00007fa6a1fee5ac, Ptr{Nothing} @0x00007fa6a2012aa4, Ptr{Nothing} @0x00007fa6a1d0e3ba, Ptr{Nothing} @0x00007fa6a1d0e922, Ptr{Nothing} @0x00007fa6a119c6ce, Ptr{Nothing} @0x00007fa6a119c6e8, Ptr{Nothing} @0x00007fa6b6642f4d, Ptr{Nothing} @0x00007fa6a1a0d8d8, Ptr{Nothing} @0x00007fa6a10e5c3e, Ptr{Nothing} @0x00007fa6b6642f4d, Ptr{Nothing} @0x00007fa6b6662c3d, Ptr{Nothing} @0x00007fa6b66a9fd5])
+└ @ Base.Filesystem file.jl:547
+┌ Info: 2023-11-09 14:12:19 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Ow2eW/src/Server.jl:161
+┌ Info: 2023-11-09 14:12:22 Watching ["/home/yakir/from github/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-11-09 14:12:23 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-11-09 14:16:55 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-11-09 14:16:58 temp cleanup
+│   exception = (ErrorException("schedule: Task not runnable"), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f5cd417afcb, Ptr{Nothing} @0x00007f5cd4bee5ac, Ptr{Nothing} @0x00007f5cd4c12aa4, Ptr{Nothing} @0x00007f5cd490e3ba, Ptr{Nothing} @0x00007f5cd490e922, Ptr{Nothing} @0x00007f5cd3d9c6ce, Ptr{Nothing} @0x00007f5cd3d9c6e8, Ptr{Nothing} @0x00007f5ce9242f4d, Ptr{Nothing} @0x00007f5cd460d8d8, Ptr{Nothing} @0x00007f5cd3ce5c3e, Ptr{Nothing} @0x00007f5ce9242f4d, Ptr{Nothing} @0x00007f5ce9262c3d, Ptr{Nothing} @0x00007f5ce92a9fd5])
+└ @ Base.Filesystem file.jl:547
+┌ Info: 2023-11-09 14:18:19 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Ow2eW/src/Server.jl:161
+┌ Info: 2023-11-09 14:18:21 Watching ["/home/yakir/from github/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-11-09 14:18:22 Listening on: 127.0.0.1:8000, thread id: 1
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-11-09 14:20:14 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:14 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:16 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:16 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:16 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:16 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:16 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:16 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:16 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:16 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:17 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:17 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:18 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:18 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:19 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:19 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:19 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:19 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:19 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:19 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:20:19 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:20:19 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Info: 2023-11-09 14:21:34 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Warning: 2023-11-09 14:21:49 temp cleanup
+│   exception = (ErrorException("schedule: Task not runnable"), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007fbd7257afcb, Ptr{Nothing} @0x00007fbd72fee5ac, Ptr{Nothing} @0x00007fbd73012aa4, Ptr{Nothing} @0x00007fbd72d0e3ba, Ptr{Nothing} @0x00007fbd72d0e922, Ptr{Nothing} @0x00007fbd7219c6ce, Ptr{Nothing} @0x00007fbd7219c6e8, Ptr{Nothing} @0x00007fbd87642f4d, Ptr{Nothing} @0x00007fbd72a0d8d8, Ptr{Nothing} @0x00007fbd720e5c3e, Ptr{Nothing} @0x00007fbd87642f4d, Ptr{Nothing} @0x00007fbd87662c3d, Ptr{Nothing} @0x00007fbd876a9fd5])
+└ @ Base.Filesystem file.jl:547
+┌ Info: 2023-11-09 14:22:14 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/Ow2eW/src/Server.jl:161
+┌ Info: 2023-11-09 14:22:17 Watching ["/home/yakir/from github/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-11-09 14:22:18 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-11-09 14:23:15 logging start
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:40
+┌ Info: 2023-11-09 14:23:15 is recording
+└ @ Main.DancingQueen.LogBooks /home/yakir/from github/dancingqueen/onepage/LogBooks.jl:42
+┌ Warning: 2023-11-09 14:23:45 temp cleanup
+│   exception = (ErrorException("schedule: Task not runnable"), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f12e837afcb, Ptr{Nothing} @0x00007f12e8dee5ac, Ptr{Nothing} @0x00007f12e8e12aa4, Ptr{Nothing} @0x00007f12e8b0e3ba, Ptr{Nothing} @0x00007f12e8b0e922, Ptr{Nothing} @0x00007f12e7f9c6ce, Ptr{Nothing} @0x00007f12e7f9c6e8, Ptr{Nothing} @0x00007f12fd442f4d, Ptr{Nothing} @0x00007f12e880d8d8, Ptr{Nothing} @0x00007f12e7ee5c3e, Ptr{Nothing} @0x00007f12fd442f4d, Ptr{Nothing} @0x00007f12fd462c3d, Ptr{Nothing} @0x00007f12fd4a9fd5])
+└ @ Base.Filesystem file.jl:547

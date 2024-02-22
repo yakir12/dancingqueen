@@ -1,5 +1,0 @@
-module MyModuleController
-
-using 
-
-end

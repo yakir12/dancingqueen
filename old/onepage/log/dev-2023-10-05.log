@@ -1,0 +1,392 @@
+┌ Info: 2023-10-05 14:36:35 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 14:36:37 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 14:36:38 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-05 14:45:58 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 14:47:13 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 14:47:15 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 14:47:16 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-05 14:48:28 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 14:49:22 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 14:49:31 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 14:49:54 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 14:49:57 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 14:49:58 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-05 15:47:52 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 15:47:53 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 15:47:54 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-05 15:48:30 MethodError: no method matching Setup(::Tuple{Char, Dict{String, Any}})
+│ 
+│ Closest candidates are:
+│   Setup(::Any, !Matched::AbstractDict)
+│    @ Main ~/dancingqueen/onepage/settings.jl:23
+│   Setup(::Any, !Matched::Any)
+│    @ Main ~/dancingqueen/onepage/settings.jl:17
+│   Setup(!Matched::String, !Matched::Vector{TrackedSun})
+│    @ Main ~/dancingqueen/onepage/settings.jl:17
+│ 
+│ Stacktrace:
+│   [1] _broadcast_getindex_evalf
+│     @ ./broadcast.jl:683 [inlined]
+│   [2] _broadcast_getindex
+│     @ ./broadcast.jl:656 [inlined]
+│   [3] getindex
+│     @ ./broadcast.jl:610 [inlined]
+│   [4] copy
+│     @ ./broadcast.jl:912 [inlined]
+│   [5] materialize(bc::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{1}, Nothing, Type{Setup}, Tuple{Vector{Tuple{Char, Any}}}})
+│     @ Base.Broadcast ./broadcast.jl:873
+│   [6] try2settings(settings::String)
+│     @ Main ~/dancingqueen/onepage/settings.jl:35
+│   [7] (::var"#7#8")()
+│     @ Main ~/dancingqueen/onepage/app.jl:31
+│   [8] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:535
+│   [9] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:171
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│  [11] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│  [12] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [13] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [14] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [15] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [16] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [17] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [18] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [19] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [21] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [22] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [23] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [24] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [28] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [29] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Error: 2023-10-05 15:48:51 EOFError: read end of file
+│ Stacktrace:
+│   [1] wait
+│     @ ./asyncevent.jl:155 [inlined]
+│   [2] sleep
+│     @ ./asyncevent.jl:240 [inlined]
+│   [3] revise(; throw::Bool)
+│     @ Revise ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:750
+│   [4] revise
+│     @ ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:749 [inlined]
+│   [5] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:164
+│   [6] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│   [7] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [16] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [17] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [18] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [19] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [20] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [21] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [22] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [23] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [24] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [25] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Error: 2023-10-05 15:48:51 EOFError: read end of file
+│ Stacktrace:
+│   [1] wait
+│     @ ./asyncevent.jl:155 [inlined]
+│   [2] sleep
+│     @ ./asyncevent.jl:240 [inlined]
+│   [3] revise(; throw::Bool)
+│     @ Revise ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:750
+│   [4] revise
+│     @ ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:749 [inlined]
+│   [5] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:164
+│   [6] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│   [7] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [16] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [17] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [18] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [19] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [20] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [21] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [22] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [23] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [24] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [25] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Error: 2023-10-05 15:48:51 EOFError: read end of file
+│ Stacktrace:
+│   [1] wait
+│     @ ./asyncevent.jl:155 [inlined]
+│   [2] sleep
+│     @ ./asyncevent.jl:240 [inlined]
+│   [3] revise(; throw::Bool)
+│     @ Revise ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:750
+│   [4] revise
+│     @ ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:749 [inlined]
+│   [5] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:164
+│   [6] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│   [7] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [16] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [17] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [18] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [19] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [20] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [21] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [22] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [23] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [24] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [25] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-05 15:50:35 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 15:50:37 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 15:50:38 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-05 15:51:38 UndefVarError: `Sun` not defined
+│ Stacktrace:
+│   [1] TrackedSun(d::Dict{String, Any})
+│     @ Main ~/dancingqueen/onepage/settings.jl:13
+│   [2] _broadcast_getindex_evalf
+│     @ ./broadcast.jl:683 [inlined]
+│   [3] _broadcast_getindex
+│     @ ./broadcast.jl:656 [inlined]
+│   [4] getindex
+│     @ ./broadcast.jl:610 [inlined]
+│   [5] macro expansion
+│     @ ./broadcast.jl:974 [inlined]
+│   [6] macro expansion
+│     @ ./simdloop.jl:77 [inlined]
+│   [7] copyto!
+│     @ ./broadcast.jl:973 [inlined]
+│   [8] copyto!
+│     @ ./broadcast.jl:926 [inlined]
+│   [9] copy
+│     @ ./broadcast.jl:898 [inlined]
+│  [10] materialize(bc::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{1}, Nothing, Type{TrackedSun}, Tuple{Vector{Any}}})
+│     @ Base.Broadcast ./broadcast.jl:873
+│  [11] Setup(key::Char, d::Dict{String, Any})
+│     @ Main ~/dancingqueen/onepage/settings.jl:25
+│  [12] (::Base.Splat{Type{Setup}})(args::Tuple{Char, Dict{String, Any}})
+│     @ Base ./operators.jl:1261
+│  [13] _broadcast_getindex_evalf
+│     @ ./broadcast.jl:683 [inlined]
+│  [14] _broadcast_getindex
+│     @ ./broadcast.jl:656 [inlined]
+│  [15] getindex
+│     @ ./broadcast.jl:610 [inlined]
+│  [16] macro expansion
+│     @ ./broadcast.jl:974 [inlined]
+│  [17] macro expansion
+│     @ ./simdloop.jl:77 [inlined]
+│  [18] copyto!
+│     @ ./broadcast.jl:973 [inlined]
+│  [19] copyto!
+│     @ ./broadcast.jl:926 [inlined]
+│  [20] copy
+│     @ ./broadcast.jl:898 [inlined]
+│  [21] materialize(bc::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{1}, Nothing, Base.Splat{Type{Setup}}, Tuple{Vector{Tuple{Char, Any}}}})
+│     @ Base.Broadcast ./broadcast.jl:873
+│  [22] try2settings(settings::String)
+│     @ Main ~/dancingqueen/onepage/settings.jl:35
+│  [23] (::var"#7#8")()
+│     @ Main ~/dancingqueen/onepage/app.jl:31
+│  [24] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:535
+│  [25] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:171
+│  [26] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│  [27] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│  [28] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [29] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [30] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [31] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [32] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [33] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [34] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [35] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [36] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [37] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [38] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [39] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [40] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [41] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [42] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [43] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [44] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [45] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-05 15:52:29 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 15:52:43 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 15:53:05 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 15:53:07 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 15:53:08 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-05 16:00:27 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-05 16:00:55 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-05 16:00:58 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-05 16:00:59 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-05 16:05:40 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22

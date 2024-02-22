@@ -1,0 +1,7 @@
+┌ Info: 2023-10-10 13:42:07 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-10 13:42:09 Watching ["/home/yakir/dancingqueen"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-10 13:42:09 Listening on: 127.0.0.1:8000, thread id: 5
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367

@@ -1,0 +1,1160 @@
+┌ Info: 2023-10-03 10:26:24 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 10:26:27 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 10:26:28 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 10:28:25 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 10:30:28 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 10:30:30 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 10:30:31 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 10:32:15 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#15":
+│  [1] (::var"#15#18")(chosen)
+│      @ ~/.julia/packages/Stipple/ixOiA/src/ReactiveTools.jl:905
+│   Core.CodeInfo[CodeInfo(
+│ 1 ── %1  = (==)(chosen)
+│ │    %2  = %1 ∘ Main.string
+│ │    %3  = 'a':'z'
+│ │          i = Main.findfirst(%2, %3)
+│ │    %5  = i
+│ │    %6  = Base.getindex(Main.setups)
+│ │    %7  = Main.length(%6)
+│ │    %8  = %5 > %7
+│ └───       goto #13 if not %8
+│ 2 ──       Core.NewvarNode(:(msg))
+│ │          Core.NewvarNode(:(kwargs))
+│ │          Core.NewvarNode(:(line))
+│ │          Core.NewvarNode(:(file))
+│ │          Core.NewvarNode(:(id))
+│ │          Core.NewvarNode(:(logger))
+│ │          Core.NewvarNode(:(_module))
+│ │          Core.NewvarNode(:(group))
+│ │          level = Base.CoreLogging.Info
+│ │          std_level = Base.CoreLogging.convert(Base.CoreLogging.LogLevel, level)
+│ │    %20 = std_level
+│ │    %21 = Base.getindex(Base.CoreLogging._min_enabled_level)
+│ │    %22 = %20 >= %21
+│ └───       goto #12 if not %22
+│ 3 ──       group = :app
+│ │          _module = Main
+│ │          logger = Base.CoreLogging.current_logger_for_env(std_level, group, _module)
+│ │    %27 = logger === Base.CoreLogging.nothing
+│ │    %28 = !%27
+│ └───       goto #12 if not %28
+│ 4 ──       id = :Main_8eb0acfc
+│ │    %31 = Base.CoreLogging.invokelatest(Base.CoreLogging.shouldlog, logger, level, _module, group, id)
+│ └───       goto #12 if not %31
+│ 5 ──       file = "/home/yakir/dancingqueen/onepage/app.jl"
+│ │    %34 = file isa Base.CoreLogging.String
+│ └───       goto #7 if not %34
+│ 6 ── %36 = Base.fixup_stdlib_path
+│ └───       file = (%36)(file)
+│ 7 ┄─       line = 62
+│ │          msg = "user pressed a keyboard key that doesn't have an assigned setup"
+│ │          kwargs = Core.NamedTuple()
+│ └───       goto #12 if not true
+│ 8 ── %42 = Base.NamedTuple()
+│ │    %43 = Base.merge(%42, kwargs)
+│ │    %44 = Base.isempty(%43)
+│ └───       goto #10 if not %44
+│ 9 ──       Base.CoreLogging.invokelatest(Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ └───       goto #11
+│ 10 ─       Core.kwcall(%43, Base.CoreLogging.invokelatest, Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ 11 ┄       goto #12
+│ 12 ┄       Base.CoreLogging.nothing
+│ └───       return Main.nothing
+│ 13 ─ %52 = Base.getindex(Main.setups)
+│ │    %53 = Main.values(%52)
+│ │    %54 = Base.getindex(%53, i)
+│ │    %55 = Main.set_suns(%54)
+│ └───       return %55
+│ )]
+│ 
+│   Type of argument:
+│   String
+│ 
+│   Value:
+│   One stationary green sun
+│ 
+│   Exception:
+│   MethodError(isless, (3, nothing), 0x00000000000083b3)
+│ 
+│   exception = (MethodError(isless, (3, nothing), 0x00000000000083b3), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007f5b9503b6f6, Ptr{Nothing} @0x00007f5b950419a5, Ptr{Nothing} @0x00007f5b95043597, Ptr{Nothing} @0x00007f5b1e01e150, Ptr{Nothing} @0x00007f5b1e01e178, Ptr{Nothing} @0x00007f5b2afa3ce5, Ptr{Nothing} @0x00007f5b2afa3dd2, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b95051f48, Ptr{Nothing} @0x00007f5b2afa2a54, Ptr{Nothing} @0x00007f5b2afa33a3, Ptr{Nothing} @0x00007f5b2afa33e8, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b2afa2832, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b2af8f595, Ptr{Nothing} @0x00007f5b2af8f6ff, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b2af85238, Ptr{Nothing} @0x00007f5b2af85739, Ptr{Nothing} @0x00007f5b2af8579f, Ptr{Nothing} @0x00007f5b2af857d6, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b2af6f243, Ptr{Nothing} @0x00007f5b2af6f27f, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b95051f48, Ptr{Nothing} @0x00007f5b7c2508a6, Ptr{Nothing} @0x00007f5b7c255180, Ptr{Nothing} @0x00007f5b7c25640d, Ptr{Nothing} @0x00007f5b7c25d192, Ptr{Nothing} @0x00007f5b7c25d232, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b95051f48, Ptr{Nothing} @0x00007f5b7c24a6f2, Ptr{Nothing} @0x00007f5b7c24c601, Ptr{Nothing} @0x00007f5b7c24c6af, Ptr{Nothing} @0x00007f5b95042f4d, Ptr{Nothing} @0x00007f5b950645bf])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/ixOiA/src/stipple/mutators.jl:54
+┌ Info: 2023-10-03 10:32:52 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 10:32:52 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 10:33:20 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 10:33:23 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 10:33:24 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 10:34:21 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#15":
+│  [1] (::var"#15#18")(chosen)
+│      @ ~/.julia/packages/Stipple/ixOiA/src/ReactiveTools.jl:905
+│   Core.CodeInfo[CodeInfo(
+│ 1 ── %1  = (==)(chosen)
+│ │    %2  = %1 ∘ Main.string
+│ │    %3  = 'a':'z'
+│ │          i = Main.findfirst(%2, %3)
+│ │    %5  = i
+│ │    %6  = Base.getindex(Main.setups)
+│ │    %7  = Main.length(%6)
+│ │    %8  = %5 > %7
+│ └───       goto #13 if not %8
+│ 2 ──       Core.NewvarNode(:(msg))
+│ │          Core.NewvarNode(:(kwargs))
+│ │          Core.NewvarNode(:(line))
+│ │          Core.NewvarNode(:(file))
+│ │          Core.NewvarNode(:(id))
+│ │          Core.NewvarNode(:(logger))
+│ │          Core.NewvarNode(:(_module))
+│ │          Core.NewvarNode(:(group))
+│ │          level = Base.CoreLogging.Info
+│ │          std_level = Base.CoreLogging.convert(Base.CoreLogging.LogLevel, level)
+│ │    %20 = std_level
+│ │    %21 = Base.getindex(Base.CoreLogging._min_enabled_level)
+│ │    %22 = %20 >= %21
+│ └───       goto #12 if not %22
+│ 3 ──       group = :app
+│ │          _module = Main
+│ │          logger = Base.CoreLogging.current_logger_for_env(std_level, group, _module)
+│ │    %27 = logger === Base.CoreLogging.nothing
+│ │    %28 = !%27
+│ └───       goto #12 if not %28
+│ 4 ──       id = :Main_8eb0acfc
+│ │    %31 = Base.CoreLogging.invokelatest(Base.CoreLogging.shouldlog, logger, level, _module, group, id)
+│ └───       goto #12 if not %31
+│ 5 ──       file = "/home/yakir/dancingqueen/onepage/app.jl"
+│ │    %34 = file isa Base.CoreLogging.String
+│ └───       goto #7 if not %34
+│ 6 ── %36 = Base.fixup_stdlib_path
+│ └───       file = (%36)(file)
+│ 7 ┄─       line = 62
+│ │          msg = "user pressed a keyboard key that doesn't have an assigned setup"
+│ │          kwargs = Core.NamedTuple()
+│ └───       goto #12 if not true
+│ 8 ── %42 = Base.NamedTuple()
+│ │    %43 = Base.merge(%42, kwargs)
+│ │    %44 = Base.isempty(%43)
+│ └───       goto #10 if not %44
+│ 9 ──       Base.CoreLogging.invokelatest(Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ └───       goto #11
+│ 10 ─       Core.kwcall(%43, Base.CoreLogging.invokelatest, Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ 11 ┄       goto #12
+│ 12 ┄       Base.CoreLogging.nothing
+│ └───       return Main.nothing
+│ 13 ─ %52 = Base.getindex(Main.setups)
+│ │    %53 = Main.values(%52)
+│ │    %54 = Base.getindex(%53, i)
+│ │    %55 = Main.set_suns(%54)
+│ └───       return %55
+│ )]
+│ 
+│   Type of argument:
+│   String
+│ 
+│   Value:
+│   a
+│ 
+│   Exception:
+│   MethodError(getindex, (Vector{Sun}[[Sun(0.0, 1, RGB{N0f8}(0.0,0.0,0.0), 0.0)], [Sun(0.0, 1, RGB{N0f8}(0.0,1.0,0.0), 0.0)], [Sun(1.5, 11, RGB{N0f8}(0.392,1.0,0.0), 0.3141592653589793), Sun(-0.8, 3, RGB{N0f8}(0.161,0.502,1.0), 0.06283185307179587)]], 1), 0x00000000000083b3)
+│ 
+│   exception = (MethodError(getindex, (Vector{Sun}[[Sun(0.0, 1, RGB{N0f8}(0.0,0.0,0.0), 0.0)], [Sun(0.0, 1, RGB{N0f8}(0.0,1.0,0.0), 0.0)], [Sun(1.5, 11, RGB{N0f8}(0.392,1.0,0.0), 0.3141592653589793), Sun(-0.8, 3, RGB{N0f8}(0.161,0.502,1.0), 0.06283185307179587)]], 1), 0x00000000000083b3), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007ffba083b6f6, Ptr{Nothing} @0x00007ffba08419a5, Ptr{Nothing} @0x00007ffba0843597, Ptr{Nothing} @0x00007ffb35fa204b, Ptr{Nothing} @0x00007ffb35fa20a2, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffba0851f48, Ptr{Nothing} @0x00007ffb35f9a9f4, Ptr{Nothing} @0x00007ffb35f9b343, Ptr{Nothing} @0x00007ffb35f9b388, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffb35f9a7d2, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffb35f8248a, Ptr{Nothing} @0x00007ffb35f825ef, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffb35f6c8a8, Ptr{Nothing} @0x00007ffb35f6cda9, Ptr{Nothing} @0x00007ffb35f6ce0f, Ptr{Nothing} @0x00007ffb35f6ce46, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffb88189033, Ptr{Nothing} @0x00007ffb8818906f, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffba0851f48, Ptr{Nothing} @0x00007ffb88144e39, Ptr{Nothing} @0x00007ffb88145470, Ptr{Nothing} @0x00007ffb881466fd, Ptr{Nothing} @0x00007ffb8814dab2, Ptr{Nothing} @0x00007ffb8814db52, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffba0851f48, Ptr{Nothing} @0x00007ffb8813af92, Ptr{Nothing} @0x00007ffb8813ccd1, Ptr{Nothing} @0x00007ffb8813cd7f, Ptr{Nothing} @0x00007ffba0842f4d, Ptr{Nothing} @0x00007ffba08645bf])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/ixOiA/src/stipple/mutators.jl:54
+┌ Info: 2023-10-03 10:55:51 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 10:55:54 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 10:55:55 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 10:56:43 
+│ Error attempting to invoke handler.
+│ 
+│   Handler:
+│   # 1 method for anonymous function "#15":
+│  [1] (::var"#15#18")(chosen)
+│      @ ~/.julia/packages/Stipple/ixOiA/src/ReactiveTools.jl:905
+│   Core.CodeInfo[CodeInfo(
+│ 1 ── %1  = (==)(chosen)
+│ │    %2  = %1 ∘ Main.string
+│ │    %3  = 'a':'z'
+│ │          i = Main.findfirst(%2, %3)
+│ │    %5  = i
+│ │    %6  = Base.getindex(Main.setups)
+│ │    %7  = Main.length(%6)
+│ │    %8  = %5 > %7
+│ └───       goto #13 if not %8
+│ 2 ──       Core.NewvarNode(:(msg))
+│ │          Core.NewvarNode(:(kwargs))
+│ │          Core.NewvarNode(:(line))
+│ │          Core.NewvarNode(:(file))
+│ │          Core.NewvarNode(:(id))
+│ │          Core.NewvarNode(:(logger))
+│ │          Core.NewvarNode(:(_module))
+│ │          Core.NewvarNode(:(group))
+│ │          level = Base.CoreLogging.Info
+│ │          std_level = Base.CoreLogging.convert(Base.CoreLogging.LogLevel, level)
+│ │    %20 = std_level
+│ │    %21 = Base.getindex(Base.CoreLogging._min_enabled_level)
+│ │    %22 = %20 >= %21
+│ └───       goto #12 if not %22
+│ 3 ──       group = :app
+│ │          _module = Main
+│ │          logger = Base.CoreLogging.current_logger_for_env(std_level, group, _module)
+│ │    %27 = logger === Base.CoreLogging.nothing
+│ │    %28 = !%27
+│ └───       goto #12 if not %28
+│ 4 ──       id = :Main_8eb0acfc
+│ │    %31 = Base.CoreLogging.invokelatest(Base.CoreLogging.shouldlog, logger, level, _module, group, id)
+│ └───       goto #12 if not %31
+│ 5 ──       file = "/home/yakir/dancingqueen/onepage/app.jl"
+│ │    %34 = file isa Base.CoreLogging.String
+│ └───       goto #7 if not %34
+│ 6 ── %36 = Base.fixup_stdlib_path
+│ └───       file = (%36)(file)
+│ 7 ┄─       line = 62
+│ │          msg = "user pressed a keyboard key that doesn't have an assigned setup"
+│ │          kwargs = Core.NamedTuple()
+│ └───       goto #12 if not true
+│ 8 ── %42 = Base.NamedTuple()
+│ │    %43 = Base.merge(%42, kwargs)
+│ │    %44 = Base.isempty(%43)
+│ └───       goto #10 if not %44
+│ 9 ──       Base.CoreLogging.invokelatest(Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ └───       goto #11
+│ 10 ─       Core.kwcall(%43, Base.CoreLogging.invokelatest, Base.CoreLogging.handle_message, logger, level, msg, _module, group, id, file, line)
+│ 11 ┄       goto #12
+│ 12 ┄       Base.CoreLogging.nothing
+│ └───       return Main.nothing
+│ 13 ─ %52 = Base.getindex(Main.setups)
+│ │    %53 = Main.values(%52)
+│ │    %54 = Base.getindex(%53, i)
+│ │    %55 = Main.set_suns(%54)
+│ └───       return %55
+│ )]
+│ 
+│   Type of argument:
+│   String
+│ 
+│   Value:
+│   a
+│ 
+│   Exception:
+│   MethodError(getindex, (Vector{Sun}[[Sun(0.0, 1, RGB{N0f8}(0.0,0.0,0.0), 0.0)], [Sun(0.0, 1, RGB{N0f8}(0.0,1.0,0.0), 0.0)], [Sun(1.5, 11, RGB{N0f8}(0.392,1.0,0.0), 0.3141592653589793), Sun(-0.8, 3, RGB{N0f8}(0.161,0.502,1.0), 0.06283185307179587)]], 1), 0x00000000000083b3)
+│ 
+│   exception = (MethodError(getindex, (Vector{Sun}[[Sun(0.0, 1, RGB{N0f8}(0.0,0.0,0.0), 0.0)], [Sun(0.0, 1, RGB{N0f8}(0.0,1.0,0.0), 0.0)], [Sun(1.5, 11, RGB{N0f8}(0.392,1.0,0.0), 0.3141592653589793), Sun(-0.8, 3, RGB{N0f8}(0.161,0.502,1.0), 0.06283185307179587)]], 1), 0x00000000000083b3), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007fd40da3b6f6, Ptr{Nothing} @0x00007fd40da419a5, Ptr{Nothing} @0x00007fd40da43597, Ptr{Nothing} @0x00007fd3a33a12db, Ptr{Nothing} @0x00007fd3a33a1332, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd40da51f48, Ptr{Nothing} @0x00007fd3a339fc84, Ptr{Nothing} @0x00007fd3a33a05d3, Ptr{Nothing} @0x00007fd3a33a0618, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd3a339fa62, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd3a33880fa, Ptr{Nothing} @0x00007fd3a338825f, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd3a330e368, Ptr{Nothing} @0x00007fd3a330e869, Ptr{Nothing} @0x00007fd3a330e8cf, Ptr{Nothing} @0x00007fd3a330e906, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd3edaf4083, Ptr{Nothing} @0x00007fd3edaf40bf, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd40da51f48, Ptr{Nothing} @0x00007fd3edaac176, Ptr{Nothing} @0x00007fd3edab05a0, Ptr{Nothing} @0x00007fd3edab182d, Ptr{Nothing} @0x00007fd3edab8bd2, Ptr{Nothing} @0x00007fd3edab8c72, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd40da51f48, Ptr{Nothing} @0x00007fd3edaa5ee2, Ptr{Nothing} @0x00007fd3edaa7df1, Ptr{Nothing} @0x00007fd3edaa7e9f, Ptr{Nothing} @0x00007fd40da42f4d, Ptr{Nothing} @0x00007fd40da645bf])
+└ @ Stipple /home/yakir/.julia/packages/Stipple/ixOiA/src/stipple/mutators.jl:54
+┌ Info: 2023-10-03 10:57:13 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 10:57:15 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 10:57:16 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 10:59:54 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 10:59:54 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 11:01:03 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 11:01:05 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 11:01:06 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 15:15:21 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:15:23 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:15:24 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 15:16:47 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:17:24 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:17:27 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:17:27 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 15:25:24 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:25:24 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:26:00 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:26:02 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:26:03 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 15:45:16 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:45:16 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:52:07 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:52:10 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:52:11 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 15:52:58 MethodError: no method matching set_suns(::Setup)
+│ 
+│ Closest candidates are:
+│   set_suns(!Matched::Vector{Sun})
+│    @ Main.DancingQueen ~/dancingqueen/onepage/DancingQueen.jl:46
+│ 
+│ Stacktrace:
+│   [1] (::var"#7#8")()
+│     @ Main ~/dancingqueen/onepage/app.jl:34
+│   [2] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:535
+│   [3] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:171
+│   [4] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│   [5] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│   [6] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [7] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│   [8] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│   [9] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [10] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [11] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [12] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [13] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [14] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [15] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [16] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [17] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [18] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [19] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [20] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [21] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [22] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [23] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-03 15:55:07 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:55:07 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Error: 2023-10-03 15:55:09 EOFError: read end of file
+│ Stacktrace:
+│   [1] wait
+│     @ ./asyncevent.jl:155 [inlined]
+│   [2] sleep
+│     @ ./asyncevent.jl:240 [inlined]
+│   [3] revise(; throw::Bool)
+│     @ Revise ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:750
+│   [4] revise
+│     @ ~/.julia/packages/Revise/t6Vjc/src/packagedef.jl:749 [inlined]
+│   [5] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:164
+│   [6] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│   [7] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│   [8] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [9] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [10] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [11] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [12] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [13] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [14] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [15] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [16] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [17] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [18] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [19] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [20] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [21] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [22] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [23] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [24] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [25] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-03 15:55:32 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:55:35 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:55:35 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 15:56:25 UndefVarError: `indices` not defined
+│ Stacktrace:
+│   [1] (::var"#13#17"{var"##FromFile!#292"})(setups::Vector{Setup})
+│     @ Main ~/.julia/packages/Stipple/ixOiA/src/ReactiveTools.jl:905
+│   [2] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [3] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│   [4] notify
+│     @ ~/.julia/packages/Observables/PHGQ8/src/Observables.jl:169 [inlined]
+│   [5] setindex!(observable::Observable, val::Any)
+│     @ Observables ~/.julia/packages/Observables/PHGQ8/src/Observables.jl:86
+│   [6] setindex!(obs::Reactive{Vector{Setup}}, val::Vector{Setup})
+│     @ Observables ~/.julia/packages/Observables/PHGQ8/src/Observables.jl:72
+│   [7] (::var"#7#8")()
+│     @ Main ~/dancingqueen/onepage/app.jl:35
+│   [8] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:535
+│   [9] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:171
+│  [10] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│  [11] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│  [12] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [13] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [14] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [15] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [16] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [17] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [18] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [19] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [20] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [21] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [22] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [23] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [24] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [25] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [26] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [27] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [28] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [29] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-03 15:58:25 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 15:58:50 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 15:58:52 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 15:58:53 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 16:06:08 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 16:34:22 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 16:34:46 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 16:34:48 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 16:34:49 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 16:35:03 MethodError: no method matching getindex(::Symbol, ::Symbol)
+│ Stacktrace:
+│   [1] ui()
+│     @ Main ~/dancingqueen/onepage/app.jl:76
+│   [2] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│   [3] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│   [4] normal_element(f::Function, elem::String, args::Vector{Any}, attrs::Vector{Pair{Symbol, Any}})
+│     @ Genie.Renderer.Html ~/.julia/packages/Genie/dOqOT/src/renderers/Html.jl:137
+│   [5] div(::Function; attrs::Base.Pairs{Symbol, String, Tuple{Symbol, Symbol}, NamedTuple{(:id, :class), Tuple{String, String}}})
+│     @ Genie.Renderer.Html ./none:2
+│   [6] div
+│     @ ./none:1 [inlined]
+│   [7] page(model::var"##FromFile!#292", args::typeof(ui); partial::Bool, title::String, class::String, style::String, channel::String, head_content::String, prepend::String, append::Vector{Any}, core_theme::Bool, kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}})
+│     @ Stipple.Layout ~/.julia/packages/Stipple/ixOiA/src/Layout.jl:90
+│   [8] page(model::var"##FromFile!#292", args::Function)
+│     @ Stipple.Layout ~/.julia/packages/Stipple/ixOiA/src/Layout.jl:84
+│   [9] (::var"#24#25")()
+│     @ Main ~/dancingqueen/onepage/app.jl:153
+│  [10] run_route(r::Genie.Router.Route)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:535
+│  [11] route_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Router ~/.julia/packages/Genie/dOqOT/src/Router.jl:171
+│  [12] handle_request(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:278
+│  [13] (::Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response})()
+│     @ Genie.Server ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/macros.jl:123
+│  [14] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [15] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [16] #153
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:425 [inlined]
+│  [17] run_work_thunk(thunk::Distributed.var"#153#154"{Genie.Server.var"#29#30"{HTTP.Messages.Request, HTTP.Messages.Response}, Tuple{}, Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}}, print_error::Bool)
+│     @ Distributed ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/process_messages.jl:70
+│  [18] #remotecall_fetch#158
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:450 [inlined]
+│  [19] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:449 [inlined]
+│  [20] #remotecall_fetch#162
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [21] remotecall_fetch
+│     @ ~/.julia/juliaup/julia-1.9.3+0.x64.linux.gnu/share/julia/stdlib/v1.9/Distributed/src/remotecall.jl:492 [inlined]
+│  [22] setup_http_listener(req::HTTP.Messages.Request, res::HTTP.Messages.Response)
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:305
+│  [23] setup_http_listener
+│     @ ~/.julia/packages/Genie/dOqOT/src/Server.jl:304 [inlined]
+│  [24] (::HTTP.Handlers.var"#1#2"{typeof(Genie.Server.setup_http_listener)})(stream::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ HTTP.Handlers ~/.julia/packages/HTTP/SN7VW/src/Handlers.jl:58
+│  [25] setup_http_streamer(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:294
+│  [26] (::Genie.Server.var"#7#14")(http::HTTP.Streams.Stream{HTTP.Messages.Request, HTTP.Connections.Connection{Sockets.TCPSocket}})
+│     @ Genie.Server ~/.julia/packages/Genie/dOqOT/src/Server.jl:121
+│  [27] #invokelatest#2
+│     @ ./essentials.jl:819 [inlined]
+│  [28] invokelatest
+│     @ ./essentials.jl:816 [inlined]
+│  [29] handle_connection(f::Function, c::HTTP.Connections.Connection{Sockets.TCPSocket}, listener::HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, readtimeout::Int64, access_log::Nothing)
+│     @ HTTP.Servers ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:450
+│  [30] macro expansion
+│     @ ~/.julia/packages/HTTP/SN7VW/src/Servers.jl:386 [inlined]
+│  [31] (::HTTP.Servers.var"#16#17"{Genie.Server.var"#7#14", HTTP.Servers.Listener{Nothing, Sockets.TCPServer}, Set{HTTP.Connections.Connection}, Int64, Nothing, Base.Semaphore, HTTP.Connections.Connection{Sockets.TCPSocket}})()
+│     @ HTTP.Servers ./task.jl:514
+│ 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:317
+┌ Info: 2023-10-03 16:40:35 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 16:40:37 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 16:40:38 Listening on: 127.0.0.1:8000, thread id: 7
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Info: 2023-10-03 16:42:03 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 16:42:03 Autoreloading
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:22
+┌ Info: 2023-10-03 16:42:36 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 16:42:38 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 16:42:39 Listening on: 127.0.0.1:8000, thread id: 3
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:48 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Error: 2023-10-03 16:42:49 Failed to store session data
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:41
+┌ Error: 2023-10-03 16:42:50 ArgumentError("embedded NULs are not allowed in C strings: \"/tmp/jl_yNHQ7B/\\x0fJ\\x8a\\xa3\\x04\\xac\\xac\\xc0Pס\\xa8'\\x02\\x86\\xa5@\\xa0\\x1f\\xbdj\\\$\\x81HD5\\uda87\\x0eZ=y\\xf7%l\\xa76\\xf2?R\\x9d\\xc0\\x04\\xa4\\xf0\\xe4\\xbb\\x06\\x8f\\xd7\\xcd.\\b\\xafܦ\\xbc\\xed\\n\\x9dwV[\\x99\\x96W\\x15ɍ\\rO\\x87\\x98\\xe1\\xf6{\\xe97\\0\"")
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:42
+┌ Error: 2023-10-03 16:42:52 Resetting session
+└ @ GenieSessionFileSession /home/yakir/.julia/packages/GenieSessionFileSession/otnJC/src/GenieSessionFileSession.jl:46
+┌ Info: 2023-10-03 16:46:24 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/dOqOT/src/Server.jl:161
+┌ Info: 2023-10-03 16:46:26 Watching ["/home/yakir/dancingqueen/onepage"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/IuBCb/src/GenieAutoReload.jl:19
+┌ Info: 2023-10-03 16:46:27 Listening on: 127.0.0.1:8000, thread id: 6
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/SN7VW/src/Servers.jl:367

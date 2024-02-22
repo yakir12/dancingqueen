@@ -1,0 +1,28 @@
+┌ Info: 2024-01-17 14:25:52 Watching ["/home/yakir/from github/dancingqueen/new2"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2024-01-17 14:25:55 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/wkkDc/src/Server.jl:166
+┌ Info: 2024-01-17 14:25:55 Listening on: 127.0.0.1:8000, thread id: 8
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2024-01-17 14:26:33 Watching ["/home/yakir/from github/dancingqueen/new2"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2024-01-17 14:26:34 Watching ["/home/yakir/from github/dancingqueen/new2"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2024-01-17 14:26:35 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/wkkDc/src/Server.jl:166
+┌ Info: 2024-01-17 14:26:36 Listening on: 127.0.0.1:8000, thread id: 2
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Info: 2024-01-17 14:29:15 Watching ["/home/yakir/from github/dancingqueen/new2"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2024-01-17 14:29:16 Watching ["/home/yakir/from github/dancingqueen/new2"]
+└ @ GenieAutoReload /home/yakir/.julia/packages/GenieAutoReload/gUou8/src/GenieAutoReload.jl:19
+┌ Info: 2024-01-17 14:29:17 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server /home/yakir/.julia/packages/Genie/wkkDc/src/Server.jl:166
+┌ Info: 2024-01-17 14:29:18 Listening on: 127.0.0.1:8000, thread id: 4
+└ @ HTTP.Servers /home/yakir/.julia/packages/HTTP/bDoga/src/Servers.jl:367
+┌ Error: 2024-01-17 14:49:03 Error watching manifest
+│   exception = (SystemError("opening file \"/home/yakir/.julia/packages/FileIO/BE7iZ/src/FileIO.jl__@require__\"", 2, nothing), Union{Ptr{Nothing}, Base.InterpreterIP}[Ptr{Nothing} @0x00007fd17d73f1d6, Ptr{Nothing} @0x00007fd17c212ff3, Ptr{Nothing} @0x00007fd17c5878b9, Ptr{Nothing} @0x00007fd17bd33884, Ptr{Nothing} @0x00007fd125e2f858, Ptr{Nothing} @0x00007fd125e77159])
+└ @ Revise /home/yakir/.julia/packages/Revise/sCmwS/src/pkgs.jl:489
