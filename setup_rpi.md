@@ -17,37 +17,12 @@ sudo mount /dev/sdc1 /media/yakir/bootfs
 ## Prepare the pi for wifi headless login on first boot
 works on bookworm...
 ```
-cat <<EOT >> /media/yakir/bootfs/custom.toml
-# Raspberry Pi First Boot Setup
-[system]
-hostname = "rpihost"
-
-[user]
-name = "yakir"
-password = "raspberry"
-password_encrypted = false
-
-[ssh]
-enabled = true
-authorized_keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvWDWmVSoNauNSy/H2PWYQ729tfD2o3RL6D/9ZdZ4O0J/UJshx/frseqFwjiVJTEisojMVL+Il+o14Tr1p3fyMJu/3YA/+bxRK4S0sW2OUeDOyn82P+Byg9RtuFuO57HrDUaInCqKmqtzgAAZiiCFYBNcB11yT1qd0p5BWqQpE6uMWPXu6gRYjR94NMNmveOATwdbqQkhd1fpxagCGC6NuMCc6OiJjCtHPmGw4hhlQvBL0bdBewardWtvomuqnH9ZBwnoqVtc4lvfMZIL7BG3h1P+UdD8XhIi4ixf5H8ShHWt2vRTSyxKjjLHC3mkAJPEHEr8HZtfOQGwlgvCKmf5L yakir@qbi-lat" ]
-# this seems to broken in RPi's "init_config" and it sets "-k" instead of "-p"
-# password_authentication = true
-
-[wlan]
-country = "se"
-ssid = "Ermahgerds"
-password = "is it though, isn't it just Steven"
-password_encrypted = false
-hidden = false
-
-[locale]
-keymap = "us"
-timezone = "Europe/Stockholm"
-EOT
+sudo cp custom.toml /media/yakir/bootfs/custom.toml
 ```
 finally, unmount:
 ```
-sudo umount /media/yakir/bootfs /media/yakir/rootfs
+sudo umount /media/yakir/bootfs
+sudo rm -rf /media/yakir/bootfs
 ```
 # On the PI
 ssh in:
@@ -60,11 +35,44 @@ sudo apt-get update
 sudo apt-get -y upgrade
 sudo reboot -h now
 ```
+Julia needs 4 GB, if this RPI only has 2GB RAM (and not 8 GB) then I increase SWAP to 1 GB, and with zram it increases to 12 BG...
+```
+sudo dphys-swapfile swapoff
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=1024/g' /etc/dphys-swapfile
+sudo dphys-swapfile setup
+sudo dphys-swapfile swapon
+sudo apt-get -y install git
+git clone https://github.com/foundObjects/zram-swap
+cd zram-swap/
+sudo ./install.sh
+sudo sed -i 's/#_zram_fixedsize="2G"/_zram_fixedsize="12G"/g' /etc/default/zram-swap
+sudo systemctl restart zram-swap.service
+```
+build Julia
+```
+cd
+git clone https://github.com/JuliaLang/julia.git
+cd julia
+git checkout v1.10.1
+make -j4
+```
+add alias to julia
+```
+cd
+echo "alias julia='$HOME/julia/julia'" >> .bashrc
+. .bashrc
+```
+setup julia environment for the server
+```
+git clone https://github.com/yakir12/dancingqueen.git
+cd dancingqueen/server
+julia --project=. -e "import Pkg; Pkg.instantiate()"
+```
+
 ensure the CPU clock does not get throttled during the video capture
 ```
 sudo sed -i 's/force_turbo=0/force_turbo=1/g' /boot/firmware/config.txt
 ```
-
 close all the lights
 ```
 sudo bash -c 'cat <<EOT >> /boot/config.txt
@@ -80,31 +88,3 @@ dtparam=eth_led0=4
 dtparam=eth_led1=4
 EOT'
 ```
-
-install Julia
-```
-sudo apt-get -y install git
-git clone https://github.com/foundObjects/zram-swap
-cd zram-swap/
-sudo ./install.sh
-cd
-git clone https://github.com/JuliaLang/julia.git
-cd julia
-git checkout v1.10.1
-make
-```
-
-add alias to julia
-```
-cd
-echo "alias julia='$HOME/julia/julia'" >> .bashrc
-. .bashrc
-```
-
-setup julia environment for the server
-```
-git clone https://github.com/yakir12/dancingqueen.git
-cd dancingqueen/server
-julia --project=. -e "import Pkg; Pkg.instantiate()"
-```
-
