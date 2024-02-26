@@ -24,6 +24,18 @@ finally, unmount:
 sudo umount /media/yakir/bootfs
 sudo rm -rf /media/yakir/bootfs
 ```
+## All in one
+Just make sure its sdc first, and that it's unmouted
+```
+sudo rpi-imager --cli 2023-12-11-raspios-bookworm-arm64-lite.img.xz /dev/sdc
+sudo mkdir /media/yakir/bootfs
+sudo mount /dev/sdc1 /media/yakir/bootfs 
+sudo cp '/home/yakir/from github/dancingqueen/custom.toml' /media/yakir/bootfs/custom.toml
+sudo umount /media/yakir/bootfs
+sudo rm -rf /media/yakir/bootfs
+```
+
+
 # On the PI
 ssh in:
 ```
@@ -35,7 +47,47 @@ sudo apt-get update
 sudo apt-get -y upgrade
 sudo reboot -h now
 ```
-Julia needs 4 GB, if this RPI only has 2GB RAM (and not 8 GB) then I increase SWAP to 1 GB, and with zram it increases to 12 BG...
+
+install Julia
+```
+curl -fsSL https://install.julialang.org | sh -s -- --yes --default-channel release
+. .bashrc
+. .profile
+```
+ensure the CPU clock does not get throttled during the video capture
+```
+sudo sed -i 's/force_turbo=0/force_turbo=1/g' /boot/firmware/config.txt
+```
+close all the lights
+```
+sudo bash -c 'cat <<EOT >> /boot/config.txt
+[pi4]
+# Disable the PWR LED
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
+# Disable the Activity LED
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=off
+# Disable ethernet port LEDs
+dtparam=eth_led0=4
+dtparam=eth_led1=4
+EOT'
+```
+
+setup julia environment for the server
+```
+sudo apt-get -y install git
+git clone https://github.com/yakir12/dancingqueen.git
+cd dancingqueen/server
+julia --project=. -e 'import Pkg; Pkg.develop(path="DancingQueen"); Pkg.instantiate()'
+```
+
+
+
+
+
+# This does not work:
+Julia needs 4 GB, if this RPI only has 2GB RAM (and not 8 GB) then I increase SWAP to 1 GB, and with zram it increases to 12 BG, together 13 GB. Maybe it'll be enough....
 ```
 sudo dphys-swapfile swapoff
 sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=1024/g' /etc/dphys-swapfile
@@ -62,29 +114,5 @@ cd
 echo "alias julia='$HOME/julia/julia'" >> .bashrc
 . .bashrc
 ```
-setup julia environment for the server
-```
-git clone https://github.com/yakir12/dancingqueen.git
-cd dancingqueen/server
-julia --project=. -e "import Pkg; Pkg.instantiate()"
-```
 
-ensure the CPU clock does not get throttled during the video capture
-```
-sudo sed -i 's/force_turbo=0/force_turbo=1/g' /boot/firmware/config.txt
-```
-close all the lights
-```
-sudo bash -c 'cat <<EOT >> /boot/config.txt
-[pi4]
-# Disable the PWR LED
-dtparam=pwr_led_trigger=none
-dtparam=pwr_led_activelow=off
-# Disable the Activity LED
-dtparam=act_led_trigger=none
-dtparam=act_led_activelow=off
-# Disable ethernet port LEDs
-dtparam=eth_led0=4
-dtparam=eth_led1=4
-EOT'
-```
+
