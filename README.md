@@ -40,7 +40,7 @@ The camera controls which mode you want to use in that specific setup. There are
 
 Each setup can have a camera mode. The camera can only be one of these values: 480, 1080, 1232, or 2464. If left unspecefied, the default value is 1080.
 
-The following table shows how each camera mode compares to the other:
+The following table shows how each camera mode compares to the other (see the [overview](./field_of_views.jpg) for an illustration of the different camera modes):
 
 Mode|Resolution|FPS|Brightness|FOV|Max height|Arena width
 ---|---|---|---|---|---|---
