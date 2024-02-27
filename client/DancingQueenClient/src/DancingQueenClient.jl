@@ -98,7 +98,8 @@ function get_kb_dropdown(setups, win)
     return dd, dd.mappedsignal
 end
 
-function main(file::String = joinpath(homedir(), "settings.toml"))
+function main()
+    file = joinpath(homedir(), "settings.toml")
     setups = file2setups(file)
 
     running = Ref(true)

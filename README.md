@@ -1,6 +1,6 @@
 # DancingQueen
 
-For the simplest mode of operation, edit the existing `settings.toml` file on the Desktop and run the program.
+For the simplest mode of operation, edit the content in the pre-existing `settings.toml` file on the Desktop and run the program. Each time you switch to a diffrent setup, a new log file will be saved in the `data` folder (on the Desktop). 
 
 ## Setup
 In the settings file you descrive which setups you want to have available during your experiments. The settings file must have at least one setup. 
@@ -48,3 +48,11 @@ Mode|Resolution|FPS|Brightness|FOV|Max height|Arena width
 1232|1232×1232|83|high|48.8°|70 cm|64 cm
 1080|1080×1080|47|high|21.4°|120 cm|45 cm
 2464|2464×2464|21|high|48.8°|120 cm|109 cm
+
+## The log file
+The log file contains a header with information about the current setup used and then columns about 
+1. `ms`, the number of milliseconds that passed since the currnt setup was set
+2. the `x` coordinate of the beetle
+3. the `y` coordinate of the beetle
+4. `theta`, the orientation of the beetle in radians
+5. the `start<i>` and `stop<i>` LED positions for each sun `ì`
