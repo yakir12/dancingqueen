@@ -35,7 +35,6 @@ sudo umount /media/yakir/bootfs
 sudo rm -rf /media/yakir/bootfs
 ```
 
-
 # On the PI
 ssh in:
 ```
@@ -81,6 +80,26 @@ git clone https://github.com/yakir12/dancingqueen.git
 cd dancingqueen/server
 julia --project=. -e 'import Pkg; Pkg.develop(path="DancingQueen"); Pkg.instantiate()'
 ```
+
+make sure it restarts every time you reboot the pi
+```
+mkdir $HOME/logs
+(crontab -l -u yakir 2>/dev/null; echo "@reboot sh $HOME/dancingqueen/server/launcher.sh >$HOME/logs/cronlog 2>&1") | crontab -u yakir -
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
