@@ -1,5 +1,7 @@
 # DancingQueen
 
+Make sure that you are connected to the `dancingqueen` router (e.g. via wifi).
+
 For the simplest mode of operation, edit the content in the pre-existing `settings.toml` file on the Desktop and run the program. Each time you switch to a diffrent setup, a new log file will be saved in the `data` folder (on the Desktop). 
 
 ## Setup
