@@ -8,7 +8,10 @@ using Missings
 const SV = SVector{2, Float64}
 const Color = RGB{N0f8}
 
-const nleds = 100
+const path2preferences = joinpath(@__DIR__, "..", "..", "setup.toml")
+const prefs = TOML.parsefile(path2preferences)
+const nleds = prefs["arena"]["nleds"]
+const camera_distance = prefs["detection"]["camera_distance"]
 
 struct LEDSun
     i1::Int
@@ -100,8 +103,10 @@ function get_df(file)
     prefs, df = load_data(file)
     transform!(df, :ms => ByRow(Millisecond), renamecols=false)
     @assert df.ms[end] - df.ms[1] < Hour(24) "Experiment lasted longer than 24 hours"
-    _nleds, ring_r, origo_offset, cm_per_pixel = prefs["arena"]["nleds"], prefs["arena"]["ring_r"], SV(prefs["arena"]["origo_offset"]...), prefs["arena"]["cm_per_pixel"]
+    _nleds = prefs["arena"]["nleds"]
+    ring_r = prefs["arena"]["ring_r"]
     @assert nleds == _nleds "number of LEDs does not match with records"
+    origo_offset = get(prefs["setup"], "camera", 1080) / 2 * SV(1,1)
     transform!(df, :ms => ByRow(ms -> Time(0) + ms) => :time, [:x, :y] => ByRow(passmissing((x, y) -> image2realworld(x, y, origo_offset, cm_per_pixel))) => :position) 
     select!(df, Not(Cols(:x, :y)))
     nsuns = length(names(df, r"start"))
@@ -116,8 +121,9 @@ end
 
 format_time(t::Time) = Dates.format(t, "HH:MM:SS.sss")
 
-file = "/home/yakir/1232.log"
-file = last(readdir("../data", join=true))
+file = "/home/yakir/data/2024-03-05T11:45:24.411 Camera width 1080.log"
+# file = last(readdir("../data", join=true))
+:w
 df, nleds, ring_r, nsuns  = get_df(file)
 
 

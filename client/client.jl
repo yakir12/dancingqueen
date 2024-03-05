@@ -2,6 +2,5 @@
 
 using DancingQueenClient
 
-file = "settings.toml"
-main(file)
+main()
 
