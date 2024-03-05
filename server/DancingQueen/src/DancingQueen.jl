@@ -1,6 +1,6 @@
 module DancingQueen
 
-using Dates
+using Dates, TOML
 using StaticArrays, AprilTags, LibSerialPort, COBSReduced
 
 export main
@@ -8,6 +8,15 @@ export main
 const SV = SVector{2, Float64}
 const Color = SVector{3, UInt8}
 
+const path2preferences = joinpath(@__DIR__, "..", "..", "..", "setup.toml")
+const prefs = TOML.parsefile(path2preferences)
+const baudrate = prefs["arena"]["baudrate"]
+const nleds = prefs["arena"]["nleds"]
+const camera_distance = prefs["detection"]["camera_distance"]
+const tag_width = prefs["detection"]["tag_width"]
+const widen_radius = prefs["detection"]["widen_radius"]
+
+include("helpers.jl")
 include("detector.jl")
 include("camera.jl")
 include("suns.jl")

@@ -1,0 +1,11 @@
+[detection]
+widen_radius = 15 # a value I think works....
+tag_width = 2 # cm
+camera_distance = 62 # cm, YOU HAVE TO CHANGE THIS TO REALITY!!!
+
+[arena]
+ring_r = 105 # in cm
+cm_per_pixel = 0.1
+nleds = 198
+baudrate = 115200 # set by what the arduino expects
+

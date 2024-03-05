@@ -1,6 +1,0 @@
-[detection]
-
-
-[arena]
-ring_r = 105 # in cm
-cm_per_pixel = 0.1

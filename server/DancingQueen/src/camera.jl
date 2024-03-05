@@ -1,11 +1,3 @@
-@enum CamMode cmoff=0 cm2464=2464 cm1080=1080 cm1232=1232 cm480=480
-
-camera_settings(cm::CamMode) = cm == cm480 ? (w = 640, h = 480, fps = 206) :
-                               cm == cm1232 ? (w = 1640, h = 1232, fps = 83) :
-                               cm == cm1080 ? (w = 1920, h = 1080, fps = 47) :
-                               cm == cm2464 ? (w = 3280, h = 2464, fps = 21) :
-                               (w = 640, h = 480, fps = 0)
-
 function get_buffer_img(w, h)
     w2 = 64ceil(Int, w/64) # dimension adjustments to hardware restrictions
     nb = Int(w2*h*3/2) # total number of bytes per img
@@ -30,7 +22,7 @@ struct Camera
         if cm == cmoff
             kill(proc)
         end
-        detector = DetectoRect(h)
+        detector = DetectoRect(cm)
         new(cm, buff, img, proc, detector)
     end
 end
@@ -44,6 +36,4 @@ function detect(cam::Camera)
     read!(cam.proc, cam.buff)
     cam.detector(cam.img)
 end
-
-CamMode(setup::Dict) = CamMode(get(setup, "camera", 1080))
 

@@ -9,18 +9,20 @@ mutable struct LogBook
             datetime = now()
             file = joinpath(path2data, string(datetime, " ", setup["label"], ".log"))
             open(file, "w") do io
-                # preamble = read(path2preferences, String)
-                # println(io, preamble)
+                preamble = read(path2preferences, String)
+                println(io, preamble)
                 TOML.print(io, Dict("setup" => setup, "experiment" => Dict("datetime" => datetime)))
                 println(io)
                 println(io, "ms,x,y,theta,", join(["start$i,stop$i" for i in 1:length(setup["suns"])], ","))
             end
+            cm = CamMode(setup)
+            transform = get_transform(cm)
         else
             datetime = DateTime(0)
             file = ""
+            transform = 0.0
         end
-        camera_distance = 62 # cm, YOU HAVE TO CHANGE THIS TO REALITY!!!
-        new(file, datetime, save, get_transform(camera_distance, get(setup, "camera", 1080)))
+        new(file, datetime, save, transform)
     end
 end
 
@@ -33,15 +35,8 @@ log_print(logbook::LogBook, state) = logbook.save && open(logbook.file, "a") do 
     println(io, Dates.value(DateTime(state.datetime, Dates.ISODateTimeFormat) - logbook.datetime), ",", log_beetle(state.beetle, logbook.transform), ",", log_leds(state.leds))
 end
 
-
-get_camera_fov(h::Int) = 
-    h == 480 ? 480/1232*48.8 :
-    h == 1232 ? 48.8 :
-    h == 1080 ? 1080/2464*48.8 :
-    h == 2464 ? 48.8 :
-    throw(ArgumentError("Wrong `h = $h`. Should be one of $(Int.(instances(DancingQueen.CamMode)))"))
-
-function get_transform(camera_distance, h)
-    fov = get_camera_fov(h)
+function get_transform(cm)
+    fov = get_camera_fov(cm)
+    h = Int(cm)
     2camera_distance*tand(fov/2)/h
 end

@@ -3,14 +3,7 @@ struct Beetle
     theta::Float64
 end
 
-get_camera_fov(h::Int) = 
-    h == 480 ? 480/1232*48.8 :
-    h == 1232 ? 48.8 :
-    h == 1080 ? 1080/2464*48.8 :
-    h == 2464 ? 48.8 :
-    throw(ArgumentError("Wrong `h = $h`. Should be one of $(Int.(instances(DancingQueen.CamMode)))"))
-
-get_min_radius(h, camera_distance, tag_width, camera_fov) = h*2atand(tag_width/2camera_distance)/camera_fov/sqrt(2)
+get_min_radius(h, camera_fov) = h*2atand(tag_width/2camera_distance)/camera_fov/sqrt(2)
 
 function set_detector!(detector, n=2)
     @assert Threads.nthreads() ≥ n
@@ -27,14 +20,11 @@ struct DetectoRect
     detector::AprilTagDetector
     rect::MVector{4, Int}
     min_radius::Float64
-    widen_radius::Int
-    function DetectoRect(h)
-        widen_radius = 15 # a value I think works....
-        tag_width = 2 # cm
-        camera_distance = 62 # cm, YOU HAVE TO CHANGE THIS TO REALITY!!!
+    function DetectoRect(cm::CamMode)
         detector = AprilTagDetector()
         set_detector!(detector)
-        new(h, detector, MVector(1, 1, h, h), get_min_radius(h, camera_distance, tag_width, get_camera_fov(h)), widen_radius)
+        h = Int(cm)
+        new(h, detector, MVector(1, 1, h, h), get_min_radius(h, get_camera_fov(cm)))
     end
 end
 
@@ -56,8 +46,8 @@ function (d::DetectoRect)(buff)
     # detect
     tags = d.detector(cropped)
     if length(tags) ≠ 1 # not found
-        d.rect[1:2] .= max.(1, d.rect[1:2] .- d.widen_radius::Int)
-        d.rect[3:4] .= min.(d.h, d.rect[3:4] .+ d.widen_radius::Int)
+        d.rect[1:2] .= max.(1, d.rect[1:2] .- widen_radius)
+        d.rect[3:4] .= min.(d.h, d.rect[3:4] .+ widen_radius)
         return nothing
     else
         b = Beetle(only(tags), r1, c1)

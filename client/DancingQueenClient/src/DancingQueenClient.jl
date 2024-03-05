@@ -9,7 +9,10 @@ export main
 
 const Color = RGB{N0f8}
 
-const path2preferences = ""
+const path2preferences = joinpath(@__DIR__, "..", "..", "..", "setup.toml")
+const prefs = TOML.parsefile(path2preferences)
+const nleds = prefs["arena"]["nleds"]
+const camera_distance = prefs["detection"]["camera_distance"]
 const path2data = joinpath(homedir(), "data")
 const h = 400
 const fps = 20
@@ -20,6 +23,7 @@ const schema = Schema(read(joinpath(@__DIR__(), "schema.json"), String))
 mkpath(path2data)
 
 include("logbook.jl")
+include(joinpath(@__DIR__, "..", "..", "..", "server/DancingQueen/src/helpers.jl"))
 
 label_setups(setups) = [string(k, ": ", setup["label"]) => setup for (k, setup) in zip('a':'z', setups)]
 
