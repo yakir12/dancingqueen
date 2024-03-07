@@ -116,7 +116,7 @@ function main()
     push!(bx, dd)
 
     state = Ref(get_state())
-    logbook = Ref(LogBook(setup[]))
+    logbook = Ref(LogBook(setup[], state[]))
 
     connect_canvas!(c, state, setup, running)
 
@@ -128,7 +128,7 @@ function main()
 
     h2 = on(setup) do setup
         HTTP.post("$ip/setup"; body=JSON3.write(setup))
-        logbook[] = LogBook(setup)
+        logbook[] = LogBook(setup, state[])
     end
 
     dd[] = dd[]

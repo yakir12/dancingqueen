@@ -1,28 +1,30 @@
+get_servr_datetime(state) = DateTime(state.datetime, Dates.ISODateTimeFormat)
 mutable struct LogBook
     file::String
-    datetime::DateTime
+    local_datetime::DateTime
+    server_datetime::DateTime
     save::Bool
     transform::Float64
-    function LogBook(setup)
+    function LogBook(setup, state)
         save = setup["label"] ≠ "Off"
+        local_datetime = now()
+        server_datetime = get_servr_datetime(state)
         if save
-            datetime = now()
-            file = joinpath(path2data, string(datetime, " ", setup["label"], ".log"))
+            file = joinpath(path2data, string(local_datetime, " ", setup["label"], ".log"))
             open(file, "w") do io
                 preamble = read(path2preferences, String)
                 println(io, preamble)
-                TOML.print(io, Dict("setup" => setup, "experiment" => Dict("datetime" => datetime)))
+                TOML.print(io, Dict("setup" => setup, "experiment" => Dict("datetime" => local_datetime)))
                 println(io)
                 println(io, "ms,x,y,theta,", join(["start$i,stop$i" for i in 1:length(setup["suns"])], ","))
             end
             cm = CamMode(setup)
             transform = get_transform(cm)
         else
-            datetime = DateTime(0)
             file = ""
             transform = 0.0
         end
-        new(file, datetime, save, transform)
+        new(file, local_datetime, server_datetime, save, transform)
     end
 end
 
@@ -32,7 +34,7 @@ log_beetle(b, transform) = string(transform*b.c[1], ",", transform*b.c[2], ",", 
 log_leds(leds) = join((string(i1, ",", i2) for (i1, i2) in leds), ",")
 
 log_print(logbook::LogBook, state) = logbook.save && open(logbook.file, "a") do io
-    println(io, Dates.value(DateTime(state.datetime, Dates.ISODateTimeFormat) - logbook.datetime), ",", log_beetle(state.beetle, logbook.transform), ",", log_leds(state.leds))
+    println(io, Dates.value(get_servr_datetime(state) - logbook.server_datetime), ",", log_beetle(state.beetle, logbook.transform), ",", log_leds(state.leds))
 end
 
 function get_transform(cm)
