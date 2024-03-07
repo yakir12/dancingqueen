@@ -16,7 +16,8 @@ mutable struct LogBook
                 println(io, preamble)
                 TOML.print(io, Dict("setup" => setup, "experiment" => Dict("datetime" => local_datetime)))
                 println(io)
-                println(io, "ms,x,y,theta,", join(["start$i,stop$i" for i in 1:length(setup["suns"])], ","))
+                nsuns = length(setup["suns"])
+                println(io, "ms,x,y,theta,", join(string.("start", 1:nsuns), ","))
             end
             cm = CamMode(setup)
             transform = get_transform(cm)
@@ -31,7 +32,7 @@ end
 log_beetle(::Nothing, _) = ",,"
 log_beetle(b, transform) = string(transform*b.c[1], ",", transform*b.c[2], ",", b.theta)
 
-log_leds(leds) = join((string(i1, ",", i2) for (i1, i2) in leds), ",")
+log_leds(leds) = join(first.(leds), ",")
 
 log_print(logbook::LogBook, state) = logbook.save && open(logbook.file, "a") do io
     println(io, Dates.value(get_servr_datetime(state) - logbook.server_datetime), ",", log_beetle(state.beetle, logbook.transform), ",", log_leds(state.leds))
