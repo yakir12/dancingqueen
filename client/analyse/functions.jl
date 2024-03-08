@@ -18,7 +18,6 @@
 #
 # middle(ls::LEDSun) = mod((ls.i1 + ls.i2) ÷ 2 - 1, nleds) + 1
 #
-# angle(p1, p2) = atan(det(hcat(p1, p2)), p1 ⋅ p2)
 #
 # tocolor(c::Int) = reinterpret(N0f8, UInt8(c))
 # tocolor(r, g, b) = Color(tocolor(r), tocolor(g), tocolor(b))
@@ -42,8 +41,32 @@
 #
 
 
+struct Ring
+    n::Int
+    r::Float64
+end
+Base.length(ring::Ring) = ring.n
+Base.iterate(ring::Ring, i::Int=1) = (ring[i], i + 1)
+Base.eltype(::Type{Ring}) = Int
+Base.getindex(ring::Ring, i::Int) = mod(i - 1, ring.n) + 1
+function Base.getindex(ring::Ring, left::Int, right::Int)
+    if left > right
+        right += ring.n
+    end
+    return (ring[i] for i in left:right)
+end
+function middle(ring::Ring, left::Int, right::Int)
+    if left > right
+        right += ring.n
+    end
+    i = (left + right) ÷ 2
+    return ring[i]
+end
+angle(ring::Ring, i::Int) = 2π/ring.n*ring[i]
+coordinate(ring::Ring, i::Int) = ring.r*SV(reverse(sincos(angle(ring, i))))
 
 
+angle(p1, p2) = atan(det(hcat(p1, p2)), p1 ⋅ p2)
 
 
 
@@ -74,14 +97,10 @@ function load_data(file)
     return (prefs, df)
 end
 
-function get_bearings(sun_center, θ, beetle_xy)
+function get_bearings(ring, start, stop, θ, beetle_xy)
+    sun_center = coordinate(ring, middle(ring, start, stop))
     v = SV(reverse(sincos(θ)))
     return angle(sun_center - beetle_xy, v)
-end
-
-function index2coordinate(index, nleds, ring_r)
-    θ = 2π/nleds*index
-    ring_r*SV(reverse(sincos(θ)))
 end
 
 function get_df(file)
@@ -91,16 +110,14 @@ function get_df(file)
     colors = tocolor.(prefs["setup"]["suns"])
     widths = get.(prefs["setup"]["suns"], "width", 1)
     transform!(df, :ms => ByRow(ms -> Time(dt + Millisecond(ms))) => :time, [:x, :y] => ByRow(passmissing(SV)) => :position, :theta => :θ)
+    ring = Ring(prefs["arena"]["nleds"], prefs["arena"]["ring_r"])
     nsuns = length(names(df, r"start"))
-    ring_r = prefs["arena"]["ring_r"]
-    nleds = prefs["arena"]["nleds"]
     for i in 1:nsuns
-        transform!(df, "start$i" => ByRow(start -> start : start + widths[i] - 1) => "sun$i")
-        transform!(df, "sun$i" => ByRow(xs -> index2coordinate(middle(xs), nleds, ring_r)) => "sun_c$i")
-        transform!(df, Cols("sun_c$i", :θ, :position) => ByRow(passmissing(get_bearings)) => "bearing$i")
+        transform!(df, "start$i" => ByRow(start -> start + widths[i] - 1) => "stop$i")
+        transform!(df, ["start$i", "stop$i", "θ", "position"] => ByRow((start, stop, θ, position) -> get_bearings(ring, start, stop, θ, position)) => "bearing$i")
     end
-    select!(df, Not(Cols(:x, :y, r"start", "theta")))
-    return df, nleds, ring_r, nsuns, colors
+    select!(df, Not(Cols(:x, :y, "theta")))
+    return df, ring, nsuns, colors
 end
 
 format_time(t::Time) = Dates.format(t, "HH:MM:SS.sss")
