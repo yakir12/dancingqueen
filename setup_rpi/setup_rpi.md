@@ -87,7 +87,17 @@ mkdir $HOME/logs
 (crontab -l -u yakir 2>/dev/null; echo "@reboot sh $HOME/dancingqueen/server/launcher.sh >$HOME/logs/cronlog 2>&1") | crontab -u yakir -
 ```
 
+Stop the fan on shutdown:
+```
+sudo rpi-eeprom-config --edit
 
+# and change
+WAKE_ON_GPIO=0
+POWER_OFF_ON_HALT=1
+
+# and then reboot
+sudo reboot -h now
+```
 
 
 
