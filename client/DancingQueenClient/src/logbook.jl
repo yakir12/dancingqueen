@@ -4,7 +4,7 @@ mutable struct LogBook
     local_datetime::DateTime
     server_datetime::DateTime
     save::Bool
-    transform::Float64
+    transform::Function
     function LogBook(setup, state)
         save = setup["label"] ≠ "Off"
         local_datetime = now()
@@ -23,14 +23,17 @@ mutable struct LogBook
             transform = get_transform(cm)
         else
             file = ""
-            transform = 0.0
+            transform = xy -> 0 .* xy
         end
         new(file, local_datetime, server_datetime, save, transform)
     end
 end
 
 log_beetle(::Nothing, _) = ",,"
-log_beetle(b, transform) = string(transform*b.c[1], ",", transform*b.c[2], ",", b.theta)
+function log_beetle(b, transform) 
+    x, y = transform(b.c)
+    string(x, ",", y, ",", b.theta)
+end
 
 log_leds(leds) = join(first.(leds), ",")
 
@@ -41,5 +44,5 @@ end
 function get_transform(cm)
     fov = get_camera_fov(cm)
     h = Int(cm)
-    2camera_distance*tand(fov/2)/h
+    xy -> 2camera_distance*tand(fov/2)/h .* (xy .- h/2)
 end

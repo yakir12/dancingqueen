@@ -16,7 +16,7 @@ const camera_distance = prefs["detection"]["camera_distance"]
 tocolor(d::AbstractDict) = Color((reinterpret(N0f8, UInt8(get(d, c, 0))) for c in ("red", "green", "blue"))...)
 
 include("functions.jl")
-file = "/home/yakir/data/2024-03-07T15:39:03.103 Crazy.log"
+file = "/home/yakir/data/2024-03-14T20:23:17.499 Camera width 2464.log"
 # file = last(readdir("../data", join=true))
 df, ring, nsuns, colors = get_df(file)
 
@@ -33,6 +33,8 @@ ax = Axis(fig[1:2,1:2], aspect = AxisAspect(1), alignmode=Inside(), xlabel="X (c
 hidespines!(ax)
 # hidedecorations!(ax)
 lines!(ax, Circle(zero(Point2f), ring.r), color = :gray)
+lines!(ax, Circle(zero(Point2f), 50), color = :gray)
+lines!(ax, Circle(zero(Point2f), 30), color = :gray)
 # poly!(ax, Circle(zero(Point2f), ring.r), color = :gray95)
 scatter!(ax, zero(Point2f); color = :black, markerspace=:data, markersize=ring.r/10, marker = '+')
 lines!(ax, @lift(df.position[$rng]); color = @lift(1:length($rng)), colormap = [(:red, 0.1), (:red, 1.0)])
