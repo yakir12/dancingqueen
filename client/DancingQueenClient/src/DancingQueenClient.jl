@@ -110,8 +110,11 @@ function main()
 
     win = GtkWindow("DancingQueen")
     win[] = bx = GtkBox(:v)
-    c = canvas(UserUnit, h, h)
-    push!(bx, c)
+    c = canvas(h, h)
+    widget(c).hexpand = widget(c).vexpand = true
+    f = GtkAspectFrame(h, h, 1, false)
+    f[] = widget(c)
+    push!(bx, f)
     dd, setup = get_kb_dropdown(setups, win)
     push!(bx, dd)
 
