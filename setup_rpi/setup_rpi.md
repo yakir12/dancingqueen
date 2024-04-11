@@ -17,7 +17,7 @@ sudo mount /dev/sdc1 /media/yakir/bootfs
 ## Prepare the pi for wifi headless login on first boot
 works on bookworm...
 ```
-sudo cp custom.toml /media/yakir/bootfs/custom.toml
+sudo cp /home/yakir/new_projects/dancingqueen/setup_rpi/custom.toml /media/yakir/bootfs/custom.toml
 ```
 finally, unmount:
 ```
